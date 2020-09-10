@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_205153) do
+ActiveRecord::Schema.define(version: 2020_09_10_205330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "logs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "symptom_id"
+    t.string "time"
+    t.string "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["symptom_id"], name: "index_logs_on_symptom_id"
+    t.index ["user_id"], name: "index_logs_on_user_id"
+  end
 
   create_table "symptoms", force: :cascade do |t|
     t.string "description"
@@ -34,4 +45,6 @@ ActiveRecord::Schema.define(version: 2020_09_10_205153) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "logs", "symptoms"
+  add_foreign_key "logs", "users"
 end
