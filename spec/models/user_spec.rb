@@ -11,4 +11,5 @@ RSpec.describe User do
   # do we want age in years or birthdate
 
   it { should have_many :logs }
+  it { should have_many(:symptoms).through(:logs) }
 end
