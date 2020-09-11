@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_205952) do
+ActiveRecord::Schema.define(version: 2020_09_11_175137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2020_09_10_205952) do
   create_table "logs", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "symptom_id"
-    t.string "time"
-    t.string "note"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "when"
     t.index ["symptom_id"], name: "index_logs_on_symptom_id"
     t.index ["user_id"], name: "index_logs_on_user_id"
   end
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_205952) do
   create_table "medications", force: :cascade do |t|
     t.string "brand_name"
     t.string "generic_name"
-    t.string "med_id"
+    t.string "product_ndc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
