@@ -11,7 +11,9 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     # As an authenticated user
     visit '/'
 
-    expect(page).to have_button('Log In')
+    expect(page).to have_link('Log In')
+    click_on('Log In')
+
     expect(current_path).to eq('/dashboard')
   end
   it 'I can add medication' do
