@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   get '/auth/google_oauth2', to: 'sessions#omniauth'
+
+  get '/medications/new', to: 'medications#new'
 end
