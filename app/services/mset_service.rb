@@ -1,14 +1,15 @@
 class MsetService
 
-  def search_meds(uri)
-    response = conn.get(uri)
-    json = JSON.parse(response.body, symbolize_names: true)
+  def test(uri)
+    conn.get(uri)
   end
 
   private
 
   def conn
-    Faraday.new(ENV['MSET_SERVICE'])
+    # run $ rackup from mset_service_app
+    # directory for this connection to work.
+    Faraday.new('http://localhost:9292')
   end
-  
+
 end
