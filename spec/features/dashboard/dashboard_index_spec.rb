@@ -17,7 +17,7 @@ RSpec.describe 'As an authenticated user' do
       - logout button' do
 
     # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-    visit dashboard_path
+    visit "/dashboard"
     expect(page).to have_css('.profile')
     expect(page).to have_css('.med-list')
     expect(page).to have_css('.log-form')
