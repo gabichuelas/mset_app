@@ -25,7 +25,7 @@ RSpec.describe 'As an authenticated user' do
     expect(page).to have_css('.med-list')
     expect(page).to have_css('.log-form')
     expect(page).to have_css('.recent-logs')
-    # expect(page).to have_button("Logout")
+    expect(page).to have_content('Sign Out')
   end
 
   it 'In the profile section, I see my birthdate and my weight' do
