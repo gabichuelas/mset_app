@@ -10,5 +10,6 @@ class MedicationsController < ApplicationController
     json[:results].each do |result|
       @med_hash[result[:brand_name]] = result[:product_ndc]
     end
+    redirect_to '/medications'
   end
 end
