@@ -13,7 +13,6 @@ RSpec.describe 'User can add a medication by name', type: :feature do
   it 'I can add medication' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit '/dashboard'
-    save_and_open_page
 
     # When I click the <add medications "Here"> button
     expect(page).to have_button('Add New Medication')
