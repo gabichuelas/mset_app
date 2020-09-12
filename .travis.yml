@@ -1,0 +1,18 @@
+language: ruby
+rbenv:
+- 2.5.3
+addons:
+  postgresql: 9.6
+script:
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: ULD2jq8gj/QQHY4uNlIORHi5jjR1KlMu5tc8nB7Y7FDQqtTgVH9excgz/qrhmfmrtDc4WRH+fLNk73zjgMv/MXsIpn5Nw4YqRuoIotncCOV130/14z79J6kRiVkbcc+8Z5vuEQdVtS54jQYH/JoX9xYQRhubU4cVQYPuL+DJ/ZzAQhQPIeVI8v+NaLxOoy3MmKB2/qXDHlrpvMj5g4VqX3gDaPMO4hgm9QiOUFoT/omfOK3/A+EkDSX9RhfsWLvXPl7krnROkLT4jOlWibMLy3ofcvQk7ZkjwTxz8epPdFiga1hq1MscLEshZrMJS+fZIORgwWyYiPgrVdS95X8yYvHOzhPndaP0/AjlGUWRM12nDyH5T0KoreVG+pIS+Yipae61gX8HxheUDEiBtSuP06IsvaQuKyjBww++oyZayZszHIHEabR6fY8Gga+o5uQpQ2qHF1W2z3cczSIJubPUaXXCvj8SlTrW4rMNmJopUQavZIfSw2nMCCFiqSHkokE7Wyirhi02BqBx93HHR5tVQo2ZilpPmhyNr+07GpnUqUYhbRW1kKE/BmH1AJ+S+ZvN1kVbZp9FvXWVflPZAm/H7v4VOETpZLecgNf7Er88e8Ust8uG8VGVPIfP/Jb954Wm5WhSm6S6ZAqvp+XegI7hXMVoR6O81x7p73q1hCoYeUc=
+  app: mset-app
+  on:
+    repo: gabichuelas/mset_app
+    branch: master
+  skip_cleanup: 'true'
+  run: rails db:migrate
