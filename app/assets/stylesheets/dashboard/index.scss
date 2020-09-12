@@ -1,0 +1,20 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1.5fr;
+  gap: 15px 0px;
+  grid-template-areas:
+    "nav nav nav nav"
+    "profile log-form log-form log-form"
+    "med-list recent-logs recent-logs recent-logs";
+}
+
+.profile { grid-area: profile; }
+
+.med-list { grid-area: med-list; }
+
+.nav { grid-area: nav; }
+
+.log-form { grid-area: log-form; }
+
+.recent-logs { grid-area: recent-logs; }
