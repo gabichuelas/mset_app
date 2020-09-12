@@ -7,23 +7,18 @@
 # And I can select the specific medication I'd like to add to my medication list by clicking "Save medication."
 
 RSpec.describe 'User can add a medication by name', type: :feature do
-  it 'I can add medication' do
-    visit '/'
-
-
-    # @ Jessye - this previously did not work because it expected Log In
-    expect(page).to have_button('Login')
-    # the current_path won't be dashboard bc logging in hasn't happened yet
-    # expect(current_path).to eq('/dashboard')
+  before :each do
+    @user = create(:user)
   end
   it 'I can add medication' do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
     # When I click the <add medications "Here"> button
-    expect(page).to have_link('Add Medication')
+    expect(page).to have_button('Add New Medication')
     click_on('Add Medication')
 
     expect(current_path).to eq('/medications/new')
     # When I search for "adderall"
-    save_and_open_page
     expect(page).to have_content("Enter brand medication name")
 
     fill_in :medication_name, with: 'Adderall'
