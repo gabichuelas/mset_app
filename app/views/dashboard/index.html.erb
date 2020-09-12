@@ -7,7 +7,7 @@
   <div class="sidebar">
     <div class="profile">
       <h5>Profile</h5>
-      <% if current_user.birthdate.empty? || current_user.birthdate.nil? %>
+      <% if current_user.birthdate.nil? || current_user.birthdate.empty? %>
         <p><strong>Date of birth:</strong> not saved</p>
       <% else %>
         <p><strong>Date of birth:</strong> <%= current_user.birthdate %></p>
