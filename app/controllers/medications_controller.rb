@@ -12,7 +12,9 @@ class MedicationsController < ApplicationController
     end
   end
 
-  # def index
-  #   require "pry"; binding.pry
-  # end
+  def create
+    medication = Medication.create(brand_name: params[:name], product_ndc: params[:product_ndc])
+    UserMedication.create(user_id: current_user.id, medication_id: medication.id)
+    redirect_to '/dashboard'
+  end
 end
