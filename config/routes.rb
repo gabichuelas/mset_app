@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get '/medications/new', to: 'medications#new'
   get '/medications/search', to: 'medications#search'
   get '/medications', to: 'medications#index'
+  post '/medications/create', to: 'medications#create'
 end
