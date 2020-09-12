@@ -30,6 +30,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     expect(page).to have_content('Please select the correct medication brand name')
 
     within('.medications', match: :first) do
+      require "pry"; binding.pry
       expect(page).to have_button('Adderall XR')
       click_on 'Adderall XR'
     end
