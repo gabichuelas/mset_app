@@ -13,12 +13,24 @@
   position: fixed;
 }
 
-.profile { grid-area: profile; }
+.profile {
+  grid-area: profile;
+  padding: 30px;
+}
 
-.med-list { grid-area: med-list; }
+.med-list {
+  grid-area: med-list;
+  padding: 30px;
+}
 
 .nav { grid-area: nav; }
 
-.log-form { grid-area: log-form; }
+.log-form {
+  grid-area: log-form;
+  padding: 30px;
+}
 
-.recent-logs { grid-area: recent-logs; }
+.recent-logs {
+  grid-area: recent-logs;
+  padding: 30px;
+}
