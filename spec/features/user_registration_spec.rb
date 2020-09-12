@@ -2,31 +2,30 @@ RSpec.describe 'As a visitor' do
   describe 'when I visit the root path' do
     scenario 'I can register with my Google credentials' do
       OmniAuth.config.test_mode = true
-
       OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
         :provider    => 'google_oauth2',
-        :uid         => ENV['GOOGLE_UID'},
-        :info        => {:email => 'joe@joe.joe'},
-        :credentials => {:token => ENV['ACCESS_TOKEN'], :refresh_token => ENV['REFRESH_TOKEN']}
-        })
+        :uid         => '20934801984',
+        :info        => { :email => 'joe@joe.joe', :first_name => 'Joe', :last_name => 'Doe' },
+        :credentials => { :token => 'aslkdjflkasjf' }
+      })
 
       visit '/'
 
-      click_button 'Log in with Google'
+      click_button 'Get Started with Google Login'
 
       user = User.last
 
-      expect(user.uid).to eq(ENV['GOOGLE_UID'])
+      expect(user.uid).to eq('20934801984')
       expect(user.email).to eq('joe@joe.joe')
-      expect(user.access_token).to eq(ENV['ACCESS_TOKEN'])
-      expect(user.refresh_token).to eq(ENV['REFRESH_TOKEN'])
+      expect(user.first_name).to eq('Joe')
+      expect(user.last_name).to eq('Doe')
+      expect(user.access_token).to eq('aslkdjflkasjf')
 
       expect(current_path).to eq('/onboarding')
 
       expect(page).to have_content('Please enter some information to get started!')
 
-      fill_in :first_name, with: 'Joe'
-      fill_in :last_name, with: 'Doe'
+      fill_in :first_name, with: 'Joseph'
       fill_in :birthdate, with: '1972-09-05'
       fill_in :weight, with: 185
 
@@ -34,9 +33,14 @@ RSpec.describe 'As a visitor' do
 
       expect(current_path).to eq('/dashboard')
 
-      user.reload!
+      user.reload
 
-      expect(page).to have_content('Welcome, Joe Doe!')
+      expect(user.first_name).to eq('Joseph')
+      expect(user.birthdate).to eq('1972-09-05')
+      expect(user.weight).to eq(185)
+
+      expect(page).to have_content('Welcome, Joseph!')
+      expect(page).to have_content('Account details updated!')
     end
   end
 end
