@@ -11,8 +11,10 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     # As an authenticated user
     visit '/'
 
-    expect(page).to have_button('Log In')
-    expect(current_path).to eq('/dashboard')
+    # @ Jessye - this previously did not work because it expected Log In
+    expect(page).to have_button('Login')
+    # the current_path won't be dashboard bc logging in hasn't happened yet
+    # expect(current_path).to eq('/dashboard')
   end
   it 'I can add medication' do
     # When I click the <add medications "Here"> button
