@@ -37,6 +37,13 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     expect(current_path).to eq('/dashboard')
     expect(page).to have_content('Adderall XR')
   end
+  it "When I add a new medication, that medication's side effects are also saved to the database" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    medication = @user.medications.create(brand_name: 'Zoloft', product_ndc: '55289-409')
+
+    expect(Medication.all.last.id).to eq(medication.id)
+    # expect(MedicationSymptom.where(medication_id: medication.id).class).to eq([])
+  end
   it 'If I enter an invalid medication, I see a flash message and am redirected to the search page' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit '/dashboard'
