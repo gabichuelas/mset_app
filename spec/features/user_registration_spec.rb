@@ -26,6 +26,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content('Please enter some information to get started!')
 
       fill_in :first_name, with: 'Joseph'
+      fill_in :last_name, with: 'Dough'
       fill_in :birthdate, with: '1972-09-05'
       fill_in :weight, with: 185
 
@@ -36,6 +37,7 @@ RSpec.describe 'As a visitor' do
       user.reload
 
       expect(user.first_name).to eq('Joseph')
+      expect(user.last_name).to eq('Dough')
       expect(user.birthdate).to eq('1972-09-05')
       expect(user.weight).to eq(185)
 
