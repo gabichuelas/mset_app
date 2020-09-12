@@ -5,8 +5,11 @@ RSpec.describe 'As an authenticated user' do
     @user = create(:user)
   end
 
-  it 'I am redirected to the dashboard page after logging in.' do
-    # test being redirected to dashboard after login - might be covered by Michael's specs already
+  it 'I cannot access the dashboard without logging in' do
+    error_404 = "The page you were looking for doesn't exist."
+
+    visit dashboard_path
+    expect(page).to have_content(error_404)
   end
 
   it 'On my dashboard, I see:
