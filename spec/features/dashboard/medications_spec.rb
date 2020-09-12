@@ -10,6 +10,13 @@ RSpec.describe 'User can add a medication by name', type: :feature do
   it 'I can add medication' do
     visit '/'
 
+
+    # @ Jessye - this previously did not work because it expected Log In
+    expect(page).to have_button('Login')
+    # the current_path won't be dashboard bc logging in hasn't happened yet
+    # expect(current_path).to eq('/dashboard')
+  end
+  it 'I can add medication' do
     # When I click the <add medications "Here"> button
     expect(page).to have_link('Add Medication')
     click_on('Add Medication')
