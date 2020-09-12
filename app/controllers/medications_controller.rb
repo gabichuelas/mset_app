@@ -17,13 +17,11 @@ class MedicationsController < ApplicationController
     end
   end
 
-
   def create
     medication = current_user.medications.create(brand_name: med_params[:name], generic_name: 'unknown', product_ndc: med_params[:product_ndc])
     user_med = UserMedication.create(user_id: current_user.id, medication_id: medication.id)
     medication.save
     user_med.save
-    require "pry"; binding.pry
     redirect_to '/dashboard'
   end
 
