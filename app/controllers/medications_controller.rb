@@ -1,3 +1,6 @@
+require 'nokogiri'
+require 'open-uri'
+
 class MedicationsController < ApplicationController
   def new
   end
@@ -15,6 +18,8 @@ class MedicationsController < ApplicationController
         @med_hash[result[:brand_name]] = result[:product_ndc]
       end
     end
+
+
   end
 
   def create
@@ -22,6 +27,33 @@ class MedicationsController < ApplicationController
     user_med = UserMedication.create(user_id: current_user.id, medication_id: medication.id)
     medication.save
     user_med.save
+
+    conn = Faraday.new('https://api.fda.gov')
+    response = conn.get("https://api.fda.gov/drug/label.json?search=openfda.product_ndc.exact:#{medication.product_ndc}")
+    json = JSON.parse(response.body, symbolize_names: true)
+    tables = json[:results].map do |result|
+      require "pry"; binding.pry
+      result[:adverse_reactions_table]
+    end
+
+    symptoms = []
+    tables.each do |table|
+      table.each do |t|
+        page = Nokogiri::HTML(t)
+        rows = page.css('tr')
+        rows.each do |row|
+          if row.css('td:nth-child(2)').children.length > 0
+            str = row.css('td:nth-child(2)').children[0].text.to_s.strip
+            symptoms << str if str
+          end
+        end
+      end
+    end
+    symptoms.uniq!
+    symptoms.delete("") if symptoms.include?("")
+    p symptoms
+    require "pry"; binding.pry
+
     redirect_to '/dashboard'
   end
 
