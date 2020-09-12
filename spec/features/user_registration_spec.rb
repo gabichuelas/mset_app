@@ -35,7 +35,6 @@ RSpec.describe 'As a visitor' do
       expect(current_path).to eq('/dashboard')
 
       user.reload
-      save_and_open_page
 
       expect(user.first_name).to eq('Joseph')
       expect(user.last_name).to eq('Dough')
