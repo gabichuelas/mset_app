@@ -35,14 +35,16 @@ RSpec.describe 'As a visitor' do
       expect(current_path).to eq('/dashboard')
 
       user.reload
+      save_and_open_page
 
       expect(user.first_name).to eq('Joseph')
       expect(user.last_name).to eq('Dough')
       expect(user.birthdate).to eq('1972-09-05')
       expect(user.weight).to eq(185)
 
-      expect(page).to have_content('Welcome, Joseph Doe!')
+      expect(page).to have_content('Welcome, Joseph Dough!')
       expect(page).to have_content('Account details updated!')
+      expect(page).to have_content('Sign Out')
     end
   end
 end

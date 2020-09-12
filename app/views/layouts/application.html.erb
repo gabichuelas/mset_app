@@ -33,17 +33,11 @@
             </div>
           </li>
         </ul>
-        <!-- <span class="navbar-text">
-          <a class="nav-link" href="#">Login</a>
-        </span>
-
-        <span>
-          <a class="nav-link" href="#">Signup</a>
-        </span> -->
-<!-- implement conditional logic for logout button to appear when current_user exists -->
-        <!-- <span>
-          <a class="nav-link" href="#">Signup</a>
-        </span> -->
+        <% if current_user %>
+          <span class="navbar-text">
+            <a class="nav-link" href="#">Sign Out</a>
+          </span>
+        <% end %>
       </div>
     </nav>
     <div class="container">
