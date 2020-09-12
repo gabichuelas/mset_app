@@ -2,11 +2,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 0.5fr 1fr 1.5fr;
-  gap: 15px 0px;
+  gap: 10px 0px;
   grid-template-areas:
-    "nav nav nav nav"
     "profile log-form log-form log-form"
     "med-list recent-logs recent-logs recent-logs";
+}
+
+.sidebar {
+  height: 100%;
+  position: fixed;
 }
 
 .profile { grid-area: profile; }
