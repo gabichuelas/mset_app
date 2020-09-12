@@ -19,7 +19,7 @@ RSpec.describe 'As an authenticated user' do
       - recent logs section
       - logout button' do
 
-    # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit "/dashboard"
     expect(page).to have_css('.profile')
     expect(page).to have_css('.med-list')
