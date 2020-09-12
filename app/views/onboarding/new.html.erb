@@ -1,0 +1,14 @@
+<center>
+  <h1>Please enter some information to get started!</h1>
+  <%= form_tag "/users/#{current_user.id}", method: :patch do %>
+    <%= label_tag :first_name %><br>
+    <%= text_field_tag :first_name, "#{current_user.first_name}" %><br><br>
+    <%= label_tag :last_name %><br>
+    <%= text_field_tag :last_name, "#{current_user.last_name}" %><br><br>
+    <%= label_tag :birthdate, 'Birthdate (Optional)' %><br>
+    <%= text_field_tag :birthdate, nil, placeholder: 'YYYY-MM-DD' %><br><br>
+    <%= label_tag :weight, 'Weight (Optional)' %><br>
+    <%= number_field_tag :weight, nil, placeholder: '150' %><br><br>
+    <%= submit_tag 'Add Account Info' %>
+  <% end %>
+</center>

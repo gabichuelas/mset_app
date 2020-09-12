@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  def index
+  before_action :require_user
 
-  end
+  def index; end
 end

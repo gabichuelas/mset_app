@@ -36,6 +36,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
