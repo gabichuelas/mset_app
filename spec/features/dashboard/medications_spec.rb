@@ -16,6 +16,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
     expect(current_path).to eq('/medications/new')
     # When I search for "adderall"
+    save_and_open_page
     expect(page).to have_content("Enter brand medication name")
 
     fill_in :medication_name, with: 'Adderall'
