@@ -41,7 +41,7 @@ RSpec.describe 'As a visitor' do
       expect(user.birthdate).to eq('1972-09-05')
       expect(user.weight).to eq(185)
 
-      expect(page).to have_content('Welcome, Joseph!')
+      expect(page).to have_content('Welcome, Joseph Doe!')
       expect(page).to have_content('Account details updated!')
     end
   end
