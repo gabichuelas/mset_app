@@ -1,0 +1,36 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1.5fr;
+  gap: 10px 0px;
+  grid-template-areas:
+    "profile log-form log-form log-form"
+    "med-list recent-logs recent-logs recent-logs";
+}
+
+.sidebar {
+  height: 100%;
+  position: fixed;
+}
+
+.profile {
+  grid-area: profile;
+  padding: 30px;
+}
+
+.med-list {
+  grid-area: med-list;
+  padding: 30px;
+}
+
+.nav { grid-area: nav; }
+
+.log-form {
+  grid-area: log-form;
+  padding: 30px;
+}
+
+.recent-logs {
+  grid-area: recent-logs;
+  padding: 30px;
+}

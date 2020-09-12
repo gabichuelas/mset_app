@@ -1,5 +1,6 @@
 #### Description
 _what does this PR accomplish and what did you change/update/delete_
+_what sad paths have you covered in your testing_
 _specify any bugs or details to come back to_
 
 #### Closes issue(s)
