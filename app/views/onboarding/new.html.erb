@@ -7,7 +7,7 @@
     <%= text_field_tag :last_name, "#{current_user.last_name}" %><br><br>
     <%= label_tag :birthdate, 'Birthdate (Optional)' %><br>
     <%= text_field_tag :birthdate, nil, placeholder: 'YYYY-MM-DD' %><br><br>
-    <%= label_tag :weight, 'Weight (Optional)' %><br>
+    <%= label_tag :weight, 'Weight in lbs (Optional)' %><br>
     <%= number_field_tag :weight, nil, placeholder: '150' %><br><br>
     <%= submit_tag 'Add Account Info' %>
   <% end %>

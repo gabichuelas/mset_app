@@ -1,0 +1,40 @@
+<center>
+  <h2>Welcome, <%= current_user.full_name %>! </h2>
+  <%= render partial: '/partials/flash' %>
+</center>
+
+<div class="grid-container">
+  <div class="sidebar">
+    <div class="profile">
+      <h5>Profile</h5>
+      <% if current_user.birthdate.empty? || current_user.birthdate.nil? %>
+        <p><strong>Date of birth:</strong> not saved</p>
+      <% else %>
+        <p><strong>Date of birth:</strong> <%= current_user.birthdate %></p>
+      <% end %>
+      <% if current_user.weight.nil? %>
+        <p><strong>Weight:</strong> not saved</p>
+      <% else %>
+        <p><strong>Weight:</strong> <%= current_user.weight %> lbs</p>
+      <% end %>
+      <button type="button">Edit Profile</button>
+    </div>
+    <div class="med-list">
+      <h5>Medication List</h5>
+      <ul>
+        <li>adderall</li>
+        <li>adderall</li>
+        <li>adderall</li>
+      </ul>
+      <button type="button">Edit Medication List</button>
+    </div>
+  </div>
+  <div class="log-form">
+    <h3>Log a symptom here</h3>
+    <p>this is where the form will go</p>
+  </div>
+  <div class="recent-logs">
+    <h3>Recent symptom logs</h3>
+    <p>this is where a list of recent logs will go</p>
+  </div>
+</div>

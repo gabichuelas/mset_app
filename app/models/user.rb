@@ -15,4 +15,8 @@ class User < ApplicationRecord
     user = User.create(user_attributes)
     user
   end
+
+  def full_name
+    first_name + " " + last_name
+  end
 end

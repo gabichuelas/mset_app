@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'welcome#index'
+  root 'welcome#index'
 
   get '/auth/google_oauth2/callback', to: 'sessions#create'
 
@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   patch '/users/:id', to: 'users#update'
 
-  get '/dashboard', to: 'dashboard#show'
+  get '/dashboard', to: 'dashboard#index'
 end
