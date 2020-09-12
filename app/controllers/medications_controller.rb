@@ -12,7 +12,7 @@ class MedicationsController < ApplicationController
     end
   end
 
-  def index
-    require "pry"; binding.pry
-  end
+  # def index
+  #   require "pry"; binding.pry
+  # end
 end
