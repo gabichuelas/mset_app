@@ -5,6 +5,9 @@ RSpec.describe User do
 
   it { should have_many :logs }
   it { should have_many(:symptoms).through(:logs) }
+  it { should have_many :user_medications }
+  it { should have_many(:medications).through(:user_medications) }
+
 
   it "user#full_name" do
     user = create(:user, first_name: "Joe", last_name: "Doe")

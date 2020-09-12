@@ -22,9 +22,9 @@
     <div class="med-list">
       <h5>Medication List</h5>
       <ul>
-        <li>adderall</li>
-        <li>adderall</li>
-        <li>adderall</li>
+        <% current_user.medications.each do |medication| %>
+          <li><%= medication.brand_name %></li>
+        <% end %>
       </ul>
       <button type="button">Edit Medication List</button>
       <%= button_to "Add New Medication", "/medications/new", method: :get %>

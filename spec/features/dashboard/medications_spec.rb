@@ -35,7 +35,20 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     end
 
     expect(current_path).to eq('/dashboard')
-
     expect(page).to have_content('Adderall XR')
+  end
+  it 'If I enter an invalid medication, I see a flash message and am redirected to the search page' do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    visit '/dashboard'
+
+    # When I click the <add medications "Here"> button
+    expect(page).to have_button('Add New Medication')
+    click_on('Add New Medication')
+
+    expect(current_path).to eq('/medications/new')
+    # When I search for "adderall"
+    expect(page).to have_content("Enter brand medication name")
+
+    fill_in :medication_name, with: 'Patrick the Starfish'
   end
 end
