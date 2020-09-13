@@ -10,14 +10,6 @@ class SearchResultsFacade
     med_and_ndc_hash(results)
   end
 
-  def adverse_reactions_table(product_ndc)
-    response = @service.sym_search(product_ndc)
-    results = json_parse(response)[:results]
-    results.map do |result|
-      result[:adverse_reactions_table]
-    end
-  end
-
   def extract_symptoms(product_ndc)
     tables = adverse_reactions_table(product_ndc)
     return nil if tables[0].nil?
@@ -33,6 +25,14 @@ class SearchResultsFacade
   end
 
   private
+
+  def adverse_reactions_table(product_ndc)
+    response = @service.sym_search(product_ndc)
+    results = json_parse(response)[:results]
+    results.map do |result|
+      result[:adverse_reactions_table]
+    end
+  end
 
   def nokogiri_parser(table, acc)
     page = Nokogiri::XML(table)
