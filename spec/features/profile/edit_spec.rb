@@ -26,8 +26,8 @@ RSpec.describe 'When I visit the dashboard as an authenticated usr' do
     fill_in :weight, with: 300
     click_button "Save"
     expect(current_path).to eq(dashboard_path)
+    @user.reload
     expect(page).to have_content('Account details updated!')
-    save_and_open_page
     within('.profile') do
       expect(page).to have_content("Weight: 300 lbs")
     end
