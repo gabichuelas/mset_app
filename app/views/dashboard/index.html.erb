@@ -21,12 +21,17 @@
     </div>
     <div class="med-list">
       <h5>Medication List</h5>
-      <ul>
-        <li>adderall</li>
-        <li>adderall</li>
-        <li>adderall</li>
-      </ul>
-      <button type="button">Edit Medication List</button>
+      <% if current_user.medications.empty? %>
+        <p>You don't have any saved medications.</p>
+        <button type="button">Add Medications</button>
+      <% else %>
+        <ul>
+          <li>adderall</li>
+          <li>adderall</li>
+          <li>adderall</li>
+        </ul>
+        <button type="button">Edit Medication List</button>
+      <% end %>
     </div>
   </div>
   <div class="log-form">
