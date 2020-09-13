@@ -34,6 +34,16 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
     expect(current_path).to eq('/medications/edit')
 
-    expect(page).to have_content()
+    expect(page).to have_content('Adderall XR')
+
+    within('.medications', match: :first) do
+      expect(page).to have_button('Delete')
+      click_on 'Delete'
+    end
+
+    expect(page).to have_content('Adderall XR was deleted')
+
+    visit '/dashboard'
+    expect(page).to_not have_content('Adderall XR')
   end
 end
