@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   patch '/users/:id', to: 'users#update'
 
   get '/dashboard', to: 'dashboard#index'
+
+  post '/log', to: 'log#new'
 end
