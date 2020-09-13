@@ -71,11 +71,14 @@ class MedicationsController < ApplicationController
   end
 
   def destroy
+    Medication.delete(med_params[:id])
+    redirect_to '/medications/edit'
+    flash[:warning] = "#{med_params[:name]} was deleted"
   end
 
   private
 
   def med_params
-    params.permit(:name, :product_ndc)
+    params.permit(:id, :name, :product_ndc)
   end
 end
