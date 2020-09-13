@@ -24,8 +24,4 @@ class MedicationsController < ApplicationController
   def med_params
     params.permit(:brand_name, :product_ndc)
   end
-
-  def json_parse(response)
-    JSON.parse(response.body, symbolize_names: true)
-  end
 end

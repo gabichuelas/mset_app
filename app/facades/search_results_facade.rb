@@ -24,12 +24,7 @@ class SearchResultsFacade
     symptoms = []
     tables.each do |table|
       table.each do |t|
-        page = Nokogiri::XML(t)
-        page.css('tbody').select do |node|
-          node.traverse do |el|
-            symptoms << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
-          end
-        end
+        nokogiri_parser(t, symptoms)
       end
     end
     symptoms.uniq!
@@ -38,6 +33,15 @@ class SearchResultsFacade
   end
 
   private
+
+  def nokogiri_parser(table, acc)
+    page = Nokogiri::XML(table)
+    page.css('tbody').select do |node|
+      node.traverse do |el|
+        acc << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
+      end
+    end
+  end
 
   def med_and_ndc_hash(results)
     # should this return a temporary_medication PORO
