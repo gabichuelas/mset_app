@@ -1,6 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
-
 class MedicationsController < ApplicationController
   def new
   end
@@ -14,37 +11,17 @@ class MedicationsController < ApplicationController
 
   def create
     medication = current_user.medications.create(med_params)
-    
-    # GETTING SYMPTOMS
-    response = MSET_SERVICE.sym_search(medication.product_ndc)
-    json = json_parse(response)
-
-    tables = json[:results].map do |result|
-      result[:adverse_reactions_table]
-    end
-
-    unless tables[0].nil?
-      symptoms = []
-      tables.each do |table|
-        table.each do |t|
-          page = Nokogiri::XML(t)
-          page.css('tbody').select do |node|
-            node.traverse do |el|
-              # require "pry"; binding.pry if el.name == 'footnote'
-              symptoms << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
-            end
-          end
-        end
-      end
-      symptoms.uniq!
-      symptoms.delete("") if symptoms.include?("")
-
+    # tables = SEARCH_RESULTS.adverse_reactions_table(medication.product_ndc)
+    # unless tables[0].nil?
+    symptoms = SEARCH_RESULTS.extract_symptoms(medication.product_ndc)
+    unless symptoms.nil?
       symptoms.each do |symptom|
         symptom = Symptom.create(description: symptom)
         MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
       end
+      flash[:success] = "#{medication.brand_name} has been added to your medication list!"
     end
-    flash[:success] = "#{medication.brand_name} has been added to your medication list!"
+
     redirect_to '/dashboard'
   end
 
