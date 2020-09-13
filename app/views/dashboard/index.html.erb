@@ -7,7 +7,7 @@
   <div class="sidebar">
     <div class="profile">
       <h5>Profile</h5>
-      <% if current_user.birthdate.empty? || current_user.birthdate.nil? %>
+      <% if current_user.birthdate.nil? || current_user.birthdate.empty? %>
         <p><strong>Date of birth:</strong> not saved</p>
       <% else %>
         <p><strong>Date of birth:</strong> <%= current_user.birthdate %></p>
@@ -21,17 +21,28 @@
     </div>
     <div class="med-list">
       <h5>Medication List</h5>
-      <ul>
-        <li>adderall</li>
-        <li>adderall</li>
-        <li>adderall</li>
-      </ul>
-      <button type="button">Edit Medication List</button>
+      <% if current_user.medications.empty? %>
+        <p>You don't have any saved medications.</p>
+        <button type="button">Add Medications</button>
+      <% else %>
+        <ul>
+           <% current_user.medications.each do |medication| %>
+             <li><%= medication.brand_name %></li>
+           <% end %>
+         </ul>
+         <button type="button">Edit Medication List</button>
+         <%= button_to "Add New Medication", "/medications/new", method: :get %>
+      <% end %>
     </div>
   </div>
   <div class="log-form">
     <h3>Log a symptom here</h3>
-    <p>this is where the form will go</p>
+    <%= form_tag(log_path, method: "post") do %>
+      <%= text_field_tag(:symptom, nil, placeholder: "Symptom search") %> <br>
+      <%= datetime_field_tag(:when) %> <br>
+      <%= text_area_tag(:note) %> <br>
+      <%= submit_tag('Save', class: "button") %>
+    <% end %>
   </div>
   <div class="recent-logs">
     <h3>Recent symptom logs</h3>
