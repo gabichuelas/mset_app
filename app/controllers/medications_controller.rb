@@ -27,13 +27,15 @@ class MedicationsController < ApplicationController
     json = json_parse(response)
 
     tables = json[:results].map do |result|
-      result[:adverse_reactions_table]
+      if result[:adverse_reactions_table].nil?
+        break
+      else
+        result[:adverse_reactions_table]
+      end
     end
-    # require "pry"; binding.pry
+    
     if !tables.nil?
-      # symptoms = []
       symptoms = tables.reduce([]) do |acc, table|
-        require "pry"; binding.pry
         table.each do |t|
           get_symptom(acc, t)
         end
