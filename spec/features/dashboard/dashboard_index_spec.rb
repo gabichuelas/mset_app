@@ -36,7 +36,8 @@ RSpec.describe 'As an authenticated user' do
 
     it 'In the profile section, I see my birthdate and my weight' do
       within('.profile') do
-        expect(page).to have_content("1985-09-01")
+        expect(page).to have_content(@user.weight)
+        expect(page).to have_content(@user.birthdate)
       end
     end
 
