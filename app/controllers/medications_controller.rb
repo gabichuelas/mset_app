@@ -23,6 +23,8 @@ class MedicationsController < ApplicationController
   def create
     medication = current_user.medications.create(brand_name: med_params[:name], generic_name: 'unknown', product_ndc: med_params[:product_ndc])
 
+    # GETTING SYMPTOMS
+    
     response = MSET_SERVICE.sym_search(medication.product_ndc)
     json = json_parse(response)
 
@@ -33,11 +35,14 @@ class MedicationsController < ApplicationController
         result[:adverse_reactions_table]
       end
     end
-    
+
     if !tables.nil?
       symptoms = tables.reduce([]) do |acc, table|
         table.each do |t|
-          get_symptom(acc, t)
+          # the following code isn't correct yet,
+          # it does not return symptoms.
+
+          # get_symptom(acc, t)
         end
         acc
       end
@@ -45,9 +50,7 @@ class MedicationsController < ApplicationController
 
       symptoms.each do |symptom|
         symptom = Symptom.create(description: symptom)
-        # symptom.save
         MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
-        # med_sym.save
       end
       redirect_to '/dashboard'
     else
@@ -55,17 +58,23 @@ class MedicationsController < ApplicationController
     end
   end
 
-  def get_symptom(acc, table)
-    page = Nokogiri::XML(table)
-    page.css('tbody').select do |node|
-      node.traverse do |el|
-        if el.name == 'footnote'
-          acc << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
-        else
-        end
-      end
-    end
-  end
+  # def get_symptom(acc, table)
+
+    # this code doesn't work as expected.
+    # explore alternate solution with different endpoint.
+    # see #adverse_reactions_table method in SINATRA APP
+    # for possible alternative
+
+  #   page = Nokogiri::XML(table)
+  #   page.css('tbody').select do |node|
+  #     node.traverse do |el|
+  #       if el.name == 'footnote'
+  #         acc << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
+  #       else
+  #       end
+  #     end
+  #   end
+  # end
 
   private
 

@@ -20,7 +20,7 @@ class MsetService
     # FOR TESTING WITH LOCAL SERVER
     Faraday.new('http://localhost:9292')
 
-    # REAL ONE
+    # LIVE SINATRA CONNECTION
     # Faraday.new(ENV['MSET_API_SERVICE_DOMAIN'])
   end
 end
