@@ -6,22 +6,10 @@ class MedicationsController < ApplicationController
   end
 
   def search
-    response = MSET_SERVICE.med_search(params[:medication_name])
-    json = json_parse(response)
-
-    @med_hash = Hash.new(0)
-    if json[:results].nil?
-      redirect_to '/medications/new'
-      flash[:warning] = "Sorry, your search did not return any results. Please try another search."
-    else
-      json[:results].each do |result|
-        if @med_hash.keys.include?(result[:brand_name])
-          next
-        else
-          @med_hash[result[:brand_name]] = result[:product_ndc]
-        end
-      end
-    end
+    results = SEARCH_RESULTS.med_search_results(params[:medication_name])
+    return @med_hash = results unless results.nil?
+    flash[:warning] = "Sorry, your search did not return any results. Please try another search."
+    redirect_to '/medications/new'
   end
 
   def create
@@ -72,4 +60,5 @@ class MedicationsController < ApplicationController
   end
 
   MSET_SERVICE = MsetService.new
+  SEARCH_RESULTS = SearchResultsFacade.new
 end
