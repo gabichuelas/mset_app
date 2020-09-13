@@ -6,8 +6,8 @@ class MedicationsController < ApplicationController
   end
 
   def search
-    conn = Faraday.new('https://api.fda.gov')
-    response = conn.get("/drug/ndc.json?search=brand_name_base:#{params[:medication_name]}&limit=10")
+    conn = Faraday.new('https://api.fda.gov/')
+    response = conn.get("drug/ndc.json?search=brand_name_base:#{params[:medication_name]}&limit=10")
     json = JSON.parse(response.body, symbolize_names: true)
     @med_hash = Hash.new(0)
     if json[:results].nil?

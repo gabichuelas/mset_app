@@ -1,5 +1,11 @@
 class MsetService
-  
+
+  def med_search(params)
+    conn.get('/med_search') do |req|
+      req.params[:medication_name] = params
+    end
+  end
+
   # TEST CALLS
   def test_params(name)
     conn.get('/test2') do |req|
