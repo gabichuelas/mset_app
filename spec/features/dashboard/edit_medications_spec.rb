@@ -40,7 +40,7 @@ RSpec.describe 'User can edit the medication list', type: :feature do
       expect(page).to have_button('Delete')
       click_on 'Delete'
     end
-
+    save_and_open_page
     expect(page).to have_content('Adderall XR was deleted')
 
     visit '/dashboard'

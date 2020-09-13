@@ -79,7 +79,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
     fill_in :medication_name, with: 'spiro'
     click_on 'Find Medication'
-    save_and_open_page
+
     expect(page).to have_content('Sorry, your search did not return any results. Please try another search.')
   end
 end

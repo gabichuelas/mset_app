@@ -71,7 +71,7 @@ class MedicationsController < ApplicationController
   end
 
   def destroy
-    Medication.delete(med_params[:id])
+    Medication.destroy(med_params[:id])
     redirect_to '/medications/edit'
     flash[:warning] = "#{med_params[:name]} was deleted"
   end
