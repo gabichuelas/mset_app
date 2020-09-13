@@ -44,7 +44,7 @@ RSpec.describe 'As an authenticated user' do
     it "If I don\'t have any meds on my list, the medications list section has a note that indicates this and an 'Add Medications' button" do
       within('.med-list') do
         expect(page).to have_content("You don't have any saved medications.")
-        expect(page).to have_button("Add Medications")
+        expect(page).to have_button("Add New Medication")
       end
     end
 

@@ -63,7 +63,6 @@ class MedicationsController < ApplicationController
         # med_sym.save
       end
     end
-    require "pry"; binding.pry
     redirect_to '/dashboard'
   end
 
