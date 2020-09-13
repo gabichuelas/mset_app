@@ -6,9 +6,14 @@ class MedicationsController < ApplicationController
   end
 
   def search
-    conn = Faraday.new('https://api.fda.gov/')
-    response = conn.get("drug/ndc.json?search=brand_name_base:#{params[:medication_name]}&limit=10")
+    # conn = Faraday.new('https://api.fda.gov/')
+    # response = conn.get("drug/ndc.json?search=brand_name_base:#{params[:medication_name]}&limit=10")
+    # json = JSON.parse(response.body, symbolize_names: true)
+    response = MsetService.new.med_search(params[:medication_name])
     json = JSON.parse(response.body, symbolize_names: true)
+
+    # require "pry"; binding.pry
+
     @med_hash = Hash.new(0)
     if json[:results].nil?
       redirect_to '/medications/new'

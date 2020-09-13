@@ -20,6 +20,10 @@ class MsetService
   private
 
   def conn
-    Faraday.new(ENV['MSET_API_SERVICE_DOMAIN'])
+    # FOR TESTING WITH LOCAL SERVER
+    Faraday.new('http://localhost:9292')
+    
+    # REAL ONE
+    # Faraday.new(ENV['MSET_API_SERVICE_DOMAIN'])
   end
 end
