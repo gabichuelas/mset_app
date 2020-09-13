@@ -11,17 +11,16 @@ class MedicationsController < ApplicationController
 
   def create
     medication = current_user.medications.create(med_params)
-    # tables = SEARCH_RESULTS.adverse_reactions_table(medication.product_ndc)
-    # unless tables[0].nil?
     symptoms = SEARCH_RESULTS.extract_symptoms(medication.product_ndc)
     unless symptoms.nil?
-      symptoms.each do |symptom|
-        symptom = Symptom.create(description: symptom)
-        MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
-      end
+      # save symptoms for med.
+      # symptoms.each do |symptom|
+      #   symptom = Symptom.create(description: symptom)
+      #   MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
+      # end
+      medication.save_symptoms(symptoms)
       flash[:success] = "#{medication.brand_name} has been added to your medication list!"
     end
-
     redirect_to '/dashboard'
   end
 
@@ -35,6 +34,6 @@ class MedicationsController < ApplicationController
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  MSET_SERVICE = MsetService.new
-  SEARCH_RESULTS = SearchResultsFacade.new
+  # MSET_SERVICE = MsetService.new
+  SEARCH_RESULTS ||= SearchResultsFacade.new
 end
