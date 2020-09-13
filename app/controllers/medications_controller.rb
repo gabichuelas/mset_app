@@ -24,7 +24,7 @@ class MedicationsController < ApplicationController
     medication = current_user.medications.create(brand_name: med_params[:name], generic_name: 'unknown', product_ndc: med_params[:product_ndc])
 
     # GETTING SYMPTOMS
-    
+
     response = MSET_SERVICE.sym_search(medication.product_ndc)
     json = json_parse(response)
 
@@ -41,8 +41,8 @@ class MedicationsController < ApplicationController
         table.each do |t|
           # the following code isn't correct yet,
           # it does not return symptoms.
-
           # get_symptom(acc, t)
+          # ^ defined in a helper method below
         end
         acc
       end
