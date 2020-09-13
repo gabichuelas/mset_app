@@ -18,42 +18,47 @@ class MedicationsController < ApplicationController
         @med_hash[result[:brand_name]] = result[:product_ndc]
       end
     end
-
-
   end
 
   def create
     medication = current_user.medications.create(brand_name: med_params[:name], generic_name: 'unknown', product_ndc: med_params[:product_ndc])
     user_med = UserMedication.create(user_id: current_user.id, medication_id: medication.id)
-    medication.save
-    user_med.save
+    # medication.save
+    # user_med.save
 
     conn = Faraday.new('https://api.fda.gov')
     response = conn.get("https://api.fda.gov/drug/label.json?search=openfda.product_ndc.exact:#{medication.product_ndc}")
     json = JSON.parse(response.body, symbolize_names: true)
+    # require "pry"; binding.pry
     tables = json[:results].map do |result|
-      require "pry"; binding.pry
       result[:adverse_reactions_table]
     end
-
-    symptoms = []
-    tables.each do |table|
-      table.each do |t|
-        page = Nokogiri::HTML(t)
-        rows = page.css('tr')
-        rows.each do |row|
-          if row.css('td:nth-child(2)').children.length > 0
-            str = row.css('td:nth-child(2)').children[0].text.to_s.strip
-            symptoms << str if str
+    require "pry"; binding.pry
+    unless tables.nil?
+      symptoms = []
+      tables.each do |table|
+        table.each do |t|
+          page = Nokogiri::XML(t)
+          page.css('tbody').select do |node|
+            node.traverse do |el|
+              # require "pry"; binding.pry if el.name == 'footnote'
+              symptoms << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
+            end
           end
         end
       end
-    end
-    symptoms.uniq!
-    symptoms.delete("") if symptoms.include?("")
-    p symptoms
-    require "pry"; binding.pry
+      symptoms.uniq!
+      # symptoms.delete("") if symptoms.include?("")
+      # p symptoms
 
+      symptoms.each do |symptom|
+        symptom = Symptom.create(description: symptom)
+        # symptom.save
+        MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
+        # med_sym.save
+      end
+    end
+    # require "pry"; binding.pry
     redirect_to '/dashboard'
   end
 
