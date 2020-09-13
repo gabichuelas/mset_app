@@ -46,13 +46,14 @@ class MedicationsController < ApplicationController
           page.css('tbody').select do |node|
             node.traverse do |el|
               # require "pry"; binding.pry if el.name == 'footnote'
-              symptoms << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
+              symptoms << el.text.strip unless el.text.include?('%') || el.text.downcase == 'gastrointestinal disorders' || el.text.downcase.include?('system') || el.text.downcase.strip == 'general' || el.text.downcase.strip == 'metabolic/nutritional' || el.text.downcase == 'urogenital' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.downcase.include?('only') || el.text.downcase.include?('adverse') || el.text.downcase.include?('reaction') || el.text.downcase.include?('adverse event') || el.text.downcase.include?('placebo') || el.text=~ /\d/
             end
           end
         end
       end
       symptoms.uniq!
       symptoms.delete("") if symptoms.include?("")
+      symptoms.delete(medication.brand_name) if symptoms.include?(medication.brand_name)
       # p symptoms
 
       symptoms.each do |symptom|
