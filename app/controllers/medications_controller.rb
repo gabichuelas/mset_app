@@ -22,7 +22,7 @@ class MedicationsController < ApplicationController
         end
       end
     end
-    
+
     # @med_hash = Hash.new(0)
     # if json[:results].nil?
     #   redirect_to '/medications/new'
@@ -43,33 +43,56 @@ class MedicationsController < ApplicationController
     json = json_parse(response)
 
     tables = json[:results].map do |result|
-      if result[:adverse_reactions_table].nil?
-        break
-      else
-        result[:adverse_reactions_table]
-      end
+      result[:adverse_reactions_table]
     end
-
-    if !tables.nil?
-      symptoms = tables.reduce([]) do |acc, table|
+    
+    unless tables[0].nil?
+      symptoms = []
+      tables.each do |table|
         table.each do |t|
-          # the following code isn't correct yet,
-          # it does not return symptoms.
-          get_symptom(acc, t)
-          # ^ defined in a helper method below
+          page = Nokogiri::XML(t)
+          page.css('tbody').select do |node|
+            node.traverse do |el|
+              # require "pry"; binding.pry if el.name == 'footnote'
+              symptoms << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
+            end
+          end
         end
-        acc
       end
       symptoms.uniq!
+      symptoms.delete("") if symptoms.include?("")
+      # p symptoms
 
       symptoms.each do |symptom|
+        # require "pry"; binding.pry
         symptom = Symptom.create(description: symptom)
+        # symptom.save
         MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
+        # med_sym.save
       end
-      redirect_to '/dashboard'
-    else
-      redirect_to '/dashboard'
     end
+    redirect_to '/dashboard'
+
+    # if !tables.nil?
+    #   symptoms = tables.reduce([]) do |acc, table|
+    #     table.each do |t|
+    #       # the following code isn't correct yet,
+    #       # it does not return symptoms.
+    #       get_symptom(acc, t)
+    #       # ^ defined in a helper method below
+    #     end
+    #     acc
+    #   end
+    #   symptoms.uniq!
+    #
+    #   symptoms.each do |symptom|
+    #     symptom = Symptom.create(description: symptom)
+    #     MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
+    #   end
+    #   redirect_to '/dashboard'
+    # else
+    #   redirect_to '/dashboard'
+    # end
   end
 
   def get_symptom(acc, table)

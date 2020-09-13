@@ -62,7 +62,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     expect(adderall_xr.brand_name).to eq('Adderall XR')
     adderall_symptoms = MedicationSymptom.where(medication_id: adderall_xr.id)
     # symptoms aren't being saved bc the code doesn't work yet.
-    # expect(adderall_symptoms.empty?).to eq(false)
+    expect(adderall_symptoms.empty?).to eq(false)
   end
 
   it "SAD PATH: When I add a new medication without an adverse_reactions_table, user is redirected to dashboard and no symptoms are added" do
