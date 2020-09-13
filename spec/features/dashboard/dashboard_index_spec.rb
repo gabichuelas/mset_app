@@ -59,6 +59,7 @@ RSpec.describe 'As an authenticated user' do
     it 'There is a form to log a new symptom' do
       within('.log-form') do
         expect(page).to have_css('#symptom')
+        # ^ this will change to be a dropdown menu once a user's medication_symptoms are accessible
         expect(page).to have_css('#when')
         expect(page).to have_css('#note')
         expect(page).to have_button('Save')
