@@ -1,6 +1,5 @@
 class MedicationsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def search
     results = SEARCH_RESULTS.med_search_results(params[:medication_name])
@@ -13,11 +12,6 @@ class MedicationsController < ApplicationController
     medication = current_user.medications.create(med_params)
     symptoms = SEARCH_RESULTS.extract_symptoms(medication.product_ndc)
     unless symptoms.nil?
-      # save symptoms for med.
-      # symptoms.each do |symptom|
-      #   symptom = Symptom.create(description: symptom)
-      #   MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
-      # end
       medication.save_symptoms(symptoms)
       flash[:success] = "#{medication.brand_name} has been added to your medication list!"
     end
@@ -25,6 +19,7 @@ class MedicationsController < ApplicationController
   end
 
   private
+  SEARCH_RESULTS ||= SearchResultsFacade.new
 
   def med_params
     params.permit(:brand_name, :product_ndc)
@@ -33,7 +28,4 @@ class MedicationsController < ApplicationController
   def json_parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end
-
-  # MSET_SERVICE = MsetService.new
-  SEARCH_RESULTS ||= SearchResultsFacade.new
 end
