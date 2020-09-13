@@ -57,6 +57,7 @@ class MedicationsController < ApplicationController
         MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
       end
     end
+    flash[:success] = "#{medication.brand_name} has been added to your medication list!"
     redirect_to '/dashboard'
   end
 

@@ -35,6 +35,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
     expect(current_path).to eq('/dashboard')
     expect(page).to have_content('Adderall XR')
+    expect(page).to have_content("Adderall XR has been added to your medication list!")
   end
 
   it "When I add a new medication, that medication's side effects are also saved to the database" do
@@ -61,7 +62,6 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
     expect(adderall_xr.brand_name).to eq('Adderall XR')
     adderall_symptoms = MedicationSymptom.where(medication_id: adderall_xr.id)
-    # symptoms aren't being saved bc the code doesn't work yet.
     expect(adderall_symptoms.empty?).to eq(false)
   end
 
