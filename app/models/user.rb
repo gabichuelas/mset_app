@@ -5,8 +5,6 @@ class User < ApplicationRecord
   has_many :medications, through: :user_medications
   has_many :logs
   has_many :symptoms, through: :logs
-  has_many :user_medications
-  has_many :medications, through: :user_medications
 
   def self.from_omniauth(user_info)
     user_attributes = {
