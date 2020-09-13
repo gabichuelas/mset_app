@@ -13,10 +13,9 @@ class MedicationsController < ApplicationController
   end
 
   def create
-    medication = current_user.medications.create(brand_name: med_params[:name], generic_name: 'unknown', product_ndc: med_params[:product_ndc])
-
+    medication = current_user.medications.create(med_params)
+    
     # GETTING SYMPTOMS
-
     response = MSET_SERVICE.sym_search(medication.product_ndc)
     json = json_parse(response)
 
@@ -52,7 +51,7 @@ class MedicationsController < ApplicationController
   private
 
   def med_params
-    params.permit(:name, :product_ndc)
+    params.permit(:brand_name, :product_ndc)
   end
 
   def json_parse(response)
