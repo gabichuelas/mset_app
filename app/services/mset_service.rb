@@ -1,6 +1,5 @@
 class MsetService
 
-  # REAL API CALLS
   def sym_search(params)
     get('/sym_search', :product_ndc, params)
   end

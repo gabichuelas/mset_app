@@ -22,9 +22,6 @@ class MedicationsController < ApplicationController
 
   def create
     medication = current_user.medications.create(brand_name: med_params[:name], generic_name: 'unknown', product_ndc: med_params[:product_ndc])
-    user_med = UserMedication.create(user_id: current_user.id, medication_id: medication.id)
-    # need to check whether that last one is creating duplicates
-    # bc of manually creating a medication AND a userMedication
 
     response = MSET_SERVICE.sym_search(medication.product_ndc)
     json = json_parse(response)
@@ -32,7 +29,7 @@ class MedicationsController < ApplicationController
     tables = json[:results].map do |result|
       result[:adverse_reactions_table]
     end
-    
+
     symptoms = []
     tables.each do |table|
       table.each do |t|
