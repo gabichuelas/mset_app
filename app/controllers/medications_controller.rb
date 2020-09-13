@@ -66,7 +66,7 @@ class MedicationsController < ApplicationController
     redirect_to '/dashboard'
   end
 
-  def update
+  def edit
   end
 
   private
