@@ -29,32 +29,40 @@ class MedicationsController < ApplicationController
     tables = json[:results].map do |result|
       result[:adverse_reactions_table]
     end
+    # require "pry"; binding.pry
+    if !tables.nil?
+      # symptoms = []
+      symptoms = tables.reduce([]) do |acc, table|
+        require "pry"; binding.pry
+        table.each do |t|
+          get_symptom(acc, t)
+        end
+        acc
+      end
+      symptoms.uniq!
 
-    symptoms = []
-    tables.each do |table|
-      table.each do |t|
-        page = Nokogiri::XML(t)
-        page.css('tbody').select do |node|
-          node.traverse do |el|
-            if el.name == 'footnote'
-              symptoms << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
-            else
-            end
-          end
+      symptoms.each do |symptom|
+        symptom = Symptom.create(description: symptom)
+        # symptom.save
+        MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
+        # med_sym.save
+      end
+      redirect_to '/dashboard'
+    else
+      redirect_to '/dashboard'
+    end
+  end
+
+  def get_symptom(acc, table)
+    page = Nokogiri::XML(table)
+    page.css('tbody').select do |node|
+      node.traverse do |el|
+        if el.name == 'footnote'
+          acc << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
+        else
         end
       end
     end
-    symptoms.uniq!
-    # symptoms.delete("") if symptoms.include?("")
-    # p symptoms
-
-    symptoms.each do |symptom|
-      symptom = Symptom.create(description: symptom)
-      # symptom.save
-      MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
-      # med_sym.save
-    end
-    redirect_to '/dashboard'
   end
 
   private
