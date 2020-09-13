@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/onboarding', to: 'onboarding#new'
 
   patch '/users/:id', to: 'users#update'
+  get '/profile/edit', to: 'users#edit'
 
   get '/dashboard', to: 'dashboard#index'
 end
