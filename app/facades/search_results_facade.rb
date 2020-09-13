@@ -10,6 +10,33 @@ class SearchResultsFacade
     med_and_ndc_hash(results)
   end
 
+  def adverse_reactions_table(product_ndc)
+    response = @service.sym_search(product_ndc)
+    results = json_parse(response)[:results]
+    results.map do |result|
+      result[:adverse_reactions_table]
+    end
+  end
+
+  def extract_symptoms(product_ndc)
+    tables = adverse_reactions_table(product_ndc)
+    return nil if tables[0].nil?
+    symptoms = []
+    tables.each do |table|
+      table.each do |t|
+        page = Nokogiri::XML(t)
+        page.css('tbody').select do |node|
+          node.traverse do |el|
+            symptoms << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
+          end
+        end
+      end
+    end
+    symptoms.uniq!
+    symptoms.delete("") if symptoms.include?("")
+    symptoms
+  end
+
   private
 
   def med_and_ndc_hash(results)
