@@ -37,7 +37,12 @@
   </div>
   <div class="log-form">
     <h3>Log a symptom here</h3>
-    <p>this is where the form will go</p>
+    <%= form_tag(log_path, method: "post") do %>
+      <%= text_field_tag(:symptom, nil, placeholder: "Symptom search") %> <br>
+      <%= datetime_field_tag(:when) %> <br>
+      <%= text_area_tag(:note) %> <br>
+      <%= submit_tag('Save', class: "button") %>
+    <% end %>
   </div>
   <div class="recent-logs">
     <h3>Recent symptom logs</h3>

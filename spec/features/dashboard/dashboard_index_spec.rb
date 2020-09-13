@@ -47,12 +47,21 @@ RSpec.describe 'As an authenticated user' do
       end
     end
 
-    it 'If I do have meds on my list, the medications list section displays the list and has an edit button' do
+    xit 'If I do have meds on my list, the medications list section displays the list and has an edit button' do
       # create(:user_medication, user: @user)
       @user.medications.create!(brand_name: "Adderall", generic_name: "generic", product_ndc: "123-123")
       within('.med-list') do
         expect(page).to have_content("Adderall")
         expect(page).to have_button("Edit Medication List")
+      end
+    end
+
+    it 'There is a form to log a new symptom' do
+      within('.log-form') do
+        expect(page).to have_css('#symptom')
+        expect(page).to have_css('#when')
+        expect(page).to have_css('#note')
+        expect(page).to have_button('Save')
       end
     end
   end
