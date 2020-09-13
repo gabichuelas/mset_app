@@ -70,6 +70,9 @@ class MedicationsController < ApplicationController
     @medications = current_user.medications.all
   end
 
+  def destroy
+  end
+
   private
 
   def med_params
