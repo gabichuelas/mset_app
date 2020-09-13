@@ -1,0 +1,8 @@
+<h1>All Medications</h1>
+<br>
+<% @medications.each do |medication| %>
+  <section class="medications">
+    <p><%= medication.brand_name %><p>
+    <p><%= button_to 'Delete', method: :delete %>
+  </section>
+<% end %>

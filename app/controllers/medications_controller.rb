@@ -67,6 +67,7 @@ class MedicationsController < ApplicationController
   end
 
   def edit
+    @medications = current_user.medications.all
   end
 
   private
