@@ -40,10 +40,19 @@ RSpec.describe 'As an authenticated user' do
       end
     end
 
-    it 'If I don\'t have any meds on my list, the medications list section has a note that indicates this and instructs me to add to the list' do
+    it "If I don\'t have any meds on my list, the medications list section has a note that indicates this and an 'Add Medications' button" do
       within('.med-list') do
         expect(page).to have_content("You don't have any saved medications.")
         expect(page).to have_button("Add Medications")
+      end
+    end
+
+    it 'If I do have meds on my list, the medications list section displays the list and has an edit button' do
+      # create(:user_medication, user: @user)
+      @user.medications.create!(brand_name: "Adderall", generic_name: "generic", product_ndc: "123-123")
+      within('.med-list') do
+        expect(page).to have_content("Adderall")
+        expect(page).to have_button("Edit Medication List")
       end
     end
   end
