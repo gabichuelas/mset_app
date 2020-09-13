@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   validates :uid, :email, :access_token, presence: true
 
+  has_many :user_medications
+  has_many :medications, through: :user_medications
   has_many :logs
   has_many :symptoms, through: :logs
   has_many :user_medications
