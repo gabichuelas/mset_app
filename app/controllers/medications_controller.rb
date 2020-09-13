@@ -66,6 +66,11 @@ class MedicationsController < ApplicationController
     redirect_to '/dashboard'
   end
 
+  def update
+  end
+
+  private
+
   def med_params
     params.permit(:name, :product_ndc)
   end
