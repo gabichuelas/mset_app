@@ -1,11 +1,3 @@
-#
-# When I click the <add medications "Here"> button,
-# I am redirected to a page with a text field to search medications by name.
-#
-
-# A maximum of 10 search results are displayed,
-# And I can select the specific medication I'd like to add to my medication list by clicking "Save medication."
-
 RSpec.describe 'User can add a medication by name', type: :feature do
   before :each do
     @user = create(:user)
