@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'When I visit the dashboard as an authenticated usr' do
+RSpec.describe 'When I visit the dashboard as an authenticated user' do
   before :each do
     @user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
@@ -26,7 +26,7 @@ RSpec.describe 'When I visit the dashboard as an authenticated usr' do
     expect(current_path).to eq(profile_edit_path)
 
     fill_in :weight, with: 300
-    click_button "Save"
+    click_button 'Save'
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content('Account details updated!')
     expect(@user.weight).to eq(300)
@@ -36,7 +36,15 @@ RSpec.describe 'When I visit the dashboard as an authenticated usr' do
     end
   end
 
-  it 'Unsuccessful profile edit' do
+  it 'If I edit my profile and don\'t save a name, I receive an error message' do
+    within('.profile') do
+      click_button "Edit Profile"
+    end
 
+    expect(current_path).to eq(profile_edit_path)
+    fill_in :first_name, with: ''
+    click_button 'Save'
+    expect(current_path).to eq(profile_edit_path)
+    expect(page).to have_content('You must save a first and last name')
   end
 end
