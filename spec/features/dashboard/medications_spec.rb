@@ -9,17 +9,16 @@
 RSpec.describe 'User can add a medication by name', type: :feature do
   before :each do
     @user = create(:user)
-  end
-  it 'I can add medication' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit '/dashboard'
+  end
 
-    # When I click the <add medications "Here"> button
+  it 'I can add medication' do
+
     expect(page).to have_button('Add New Medication')
     click_on('Add New Medication')
 
     expect(current_path).to eq('/medications/new')
-    # When I search for "adderall"
     expect(page).to have_content("Enter brand medication name")
 
     fill_in :medication_name, with: 'Adderall'
@@ -37,16 +36,13 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     expect(current_path).to eq('/dashboard')
     expect(page).to have_content('Adderall XR')
   end
-  it "When I add a new medication, that medication's side effects are also saved to the database" do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-    visit '/dashboard'
 
-    # When I click the <add medications "Here"> button
+  it "When I add a new medication, that medication's side effects are also saved to the database" do
+
     expect(page).to have_button('Add New Medication')
     click_on('Add New Medication')
 
     expect(current_path).to eq('/medications/new')
-    # When I search for "adderall"
     expect(page).to have_content("Enter brand medication name")
 
     fill_in :medication_name, with: 'Zoloft'
@@ -61,14 +57,31 @@ RSpec.describe 'User can add a medication by name', type: :feature do
       click_on 'Zoloft'
     end
 
-    expect(Medication.all.last.brand_name).to eq('Zoloft')
+    zoloft = Medication.last
 
-    # expect(MedicationSymptom.where(medication_id: medication.id).class).to eq([])
+    expect(zoloft.brand_name).to eq('Zoloft')
+    zoloft_symptoms = MedicationSymptom.where(medication_id: zoloft.id)
+    # symptoms aren't being saved.
+    expect(zoloft_symptoms.empty?).to eq(false)
   end
-  
+
+  it "SAD PATH: When I add a new medication without an adverse_reactions_table, user is redirected to dashboard and no symptoms are added" do
+
+    expect(page).to have_button('Add New Medication')
+    click_on('Add New Medication')
+
+    fill_in :medication_name, with: 'adderall'
+    click_on 'Find Medication'
+
+    within('.medications', match: :first) do
+      click_on 'Adderall'
+    end
+
+    expect(current_path).to eq('/dashboard')
+    expect(page).to have_content('Adderall')
+  end
+
   it 'If I enter an invalid medication, I see a flash message and am redirected to the search page' do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-    visit '/dashboard'
 
     expect(page).to have_button('Add New Medication')
     click_on('Add New Medication')
