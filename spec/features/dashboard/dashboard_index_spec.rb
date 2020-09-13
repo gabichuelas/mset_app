@@ -67,4 +67,14 @@ RSpec.describe 'As an authenticated user' do
       end
     end
   end
+
+  it 'In the profile section, a note about birthdate and weight not being saved appears if I didn\'t include those in my profile' do
+    user = create(:user, birthdate: nil, weight: nil)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit dashboard_path
+    within('.profile') do
+      expect(page).to have_content("Date of birth: not saved")
+      expect(page).to have_content("Weight: not saved")
+    end
+  end
 end
