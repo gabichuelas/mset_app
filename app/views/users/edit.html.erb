@@ -1,5 +1,6 @@
 <center>
   <h1>Edit Profile</h1>
+  <%= render partial: '/partials/flash' %>
   <%= form_tag "/users/#{current_user.id}", method: :patch do %>
     <%= label_tag :first_name %><br>
     <%= text_field_tag :first_name, "#{current_user.first_name}" %><br><br>
