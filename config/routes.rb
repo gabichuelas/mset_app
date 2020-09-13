@@ -11,5 +11,9 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'dashboard#index'
 
+  get '/medications/new', to: 'medications#new'
+  get '/medications/search', to: 'medications#search'
+  get '/medications', to: 'medications#index'
+  post '/medications/create', to: 'medications#create'
   post '/log', to: 'log#new'
 end

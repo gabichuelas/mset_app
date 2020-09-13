@@ -23,7 +23,7 @@
       <h5>Medication List</h5>
       <% if current_user.medications.empty? %>
         <p>You don't have any saved medications.</p>
-        <button type="button">Add Medications</button>
+        <%= button_to "Add New Medication", "/medications/new", method: :get %>
       <% else %>
         <ul>
            <% current_user.medications.each do |medication| %>

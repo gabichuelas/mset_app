@@ -1,0 +1,6 @@
+<h4>Please select the correct medication brand name</h4>
+<section class='medications'>
+  <% @med_hash.each do |medication_name, product_ndc| %>
+    <p><%= button_to "#{medication_name}", '/medications/create', params: {brand_name: medication_name, product_ndc: product_ndc}, method: :post %>
+  <% end %>
+</section>

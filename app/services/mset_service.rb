@@ -1,24 +1,26 @@
 class MsetService
 
-  def test_params(name)
-    conn.get('/test2') do |req|
-      req.params[:med_name] = 'adderall'
-    end
+  def sym_search(params)
+    get('/sym_search', :product_ndc, params)
   end
 
-  def test(uri)
-    conn.get(uri)
+  def med_search(params)
+    get('/med_search', :medication_name, params)
   end
 
   private
 
-  def conn
-    # run $ rackup from mset_service_app
-    # directory for this connection to work.
-    Faraday.new('http://localhost:9292')
-
-    # using mset_service_app on heroku:
-    # will only work once mset_service is updated on heroku with latest PR. Faraday.new(ENV['MSET_API_SERVICE_DOMAIN'])
+  def get(uri, param_key, params)
+    conn.get(uri) do |req|
+      req.params[param_key] = params
+    end
   end
 
+  def conn
+    # FOR TESTING WITH LOCAL SERVER
+    # Faraday.new('http://localhost:9292')
+
+    # LIVE SINATRA CONNECTION
+    Faraday.new(ENV['MSET_API_SERVICE_DOMAIN'])
+  end
 end

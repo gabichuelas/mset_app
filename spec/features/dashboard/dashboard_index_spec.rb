@@ -43,7 +43,7 @@ RSpec.describe 'As an authenticated user' do
       visit dashboard_path
       within('.med-list') do
         expect(page).to have_content("You don't have any saved medications.")
-        expect(page).to have_button("Add Medications")
+        expect(page).to have_button("Add New Medication")
       end
     end
 
