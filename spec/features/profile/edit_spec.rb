@@ -22,14 +22,17 @@ RSpec.describe 'When I visit the dashboard as an authenticated usr' do
     within('.profile') do
       click_button "Edit Profile"
     end
+
     expect(current_path).to eq(profile_edit_path)
+
     fill_in :weight, with: 300
     click_button "Save"
     expect(current_path).to eq(dashboard_path)
-    @user.reload
     expect(page).to have_content('Account details updated!')
+    expect(@user.weight).to eq(300)
     within('.profile') do
       expect(page).to have_content("Weight: 300 lbs")
+      expect(page).to have_content("300")
     end
   end
 

@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   before_action :require_user
 
   def update
-    user = User.find(params[:id])
-    user.update(user_params)
-    if user.save
+    current_user.update(user_params)
+    if current_user.save
       flash[:success] = 'Account details updated!'
       redirect_to '/dashboard'
     end

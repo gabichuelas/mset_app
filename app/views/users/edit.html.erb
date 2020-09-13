@@ -6,7 +6,7 @@
     <%= label_tag :last_name %><br>
     <%= text_field_tag :last_name, "#{current_user.last_name}" %><br><br>
     <%= label_tag :birthdate, 'Birthdate (Optional)' %><br>
-    <%= text_field_tag :birthdate, "#{current_user.birthdate}" %><br><br>
+    <%= text_field_tag :birthdate, "#{current_user.birthdate}", placeholder: 'YYYY-MM-DD' %><br><br>
     <%= label_tag :weight, 'Weight in lbs (Optional)' %><br>
     <%= number_field_tag :weight, "#{current_user.weight}" %><br><br>
     <%= submit_tag 'Save' %>
