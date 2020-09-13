@@ -33,8 +33,8 @@ class MedicationsController < ApplicationController
     tables = json[:results].map do |result|
       result[:adverse_reactions_table]
     end
-    require "pry"; binding.pry
-    unless tables.nil?
+
+    unless tables[0].nil?
       symptoms = []
       tables.each do |table|
         table.each do |t|
@@ -48,7 +48,7 @@ class MedicationsController < ApplicationController
         end
       end
       symptoms.uniq!
-      # symptoms.delete("") if symptoms.include?("")
+      symptoms.delete("") if symptoms.include?("")
       # p symptoms
 
       symptoms.each do |symptom|
@@ -58,7 +58,6 @@ class MedicationsController < ApplicationController
         # med_sym.save
       end
     end
-    # require "pry"; binding.pry
     redirect_to '/dashboard'
   end
 
