@@ -15,7 +15,11 @@ class MedicationsController < ApplicationController
       flash[:warning] = "Sorry, your search did not return any results. Please try another search."
     else
       json[:results].each do |result|
-        @med_hash[result[:brand_name]] = result[:product_ndc]
+        if @med_hash.keys.include?(result[:brand_name])
+          next
+        else
+          @med_hash[result[:brand_name]] = result[:product_ndc]
+        end
       end
     end
   end
@@ -58,6 +62,7 @@ class MedicationsController < ApplicationController
         # med_sym.save
       end
     end
+    require "pry"; binding.pry
     redirect_to '/dashboard'
   end
 
