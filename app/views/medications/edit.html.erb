@@ -3,6 +3,6 @@
 <% @medications.each do |medication| %>
   <section class="medications">
     <p><%= medication.brand_name %><p>
-    <p><%= button_to 'Delete', method: :delete %>
+    <p><%= button_to 'Delete', '/medications/delete', method: :delete %>
   </section>
 <% end %>
