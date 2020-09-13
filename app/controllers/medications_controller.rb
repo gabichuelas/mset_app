@@ -6,13 +6,8 @@ class MedicationsController < ApplicationController
   end
 
   def search
-    # conn = Faraday.new('https://api.fda.gov/')
-    # response = conn.get("drug/ndc.json?search=brand_name_base:#{params[:medication_name]}&limit=10")
-    # json = JSON.parse(response.body, symbolize_names: true)
-    response = MsetService.new.med_search(params[:medication_name])
-    json = JSON.parse(response.body, symbolize_names: true)
-
-    # require "pry"; binding.pry
+    response = MSET_SERVICE.med_search(params[:medication_name])
+    json = json_parse(response)
 
     @med_hash = Hash.new(0)
     if json[:results].nil?
@@ -28,16 +23,16 @@ class MedicationsController < ApplicationController
   def create
     medication = current_user.medications.create(brand_name: med_params[:name], generic_name: 'unknown', product_ndc: med_params[:product_ndc])
     user_med = UserMedication.create(user_id: current_user.id, medication_id: medication.id)
-    # medication.save
-    # user_med.save
+    # need to check whether that last one is creating duplicates
+    # bc of manually creating a medication AND a userMedication
 
-    conn = Faraday.new('https://api.fda.gov')
-    response = conn.get("https://api.fda.gov/drug/label.json?search=openfda.product_ndc.exact:#{medication.product_ndc}")
-    json = JSON.parse(response.body, symbolize_names: true)
-    # require "pry"; binding.pry
+    response = MSET_SERVICE.sym_search(medication.product_ndc)
+    json = json_parse(response)
+
     tables = json[:results].map do |result|
       result[:adverse_reactions_table]
     end
+    
     symptoms = []
     tables.each do |table|
       table.each do |t|
@@ -65,7 +60,15 @@ class MedicationsController < ApplicationController
     redirect_to '/dashboard'
   end
 
+  private
+
   def med_params
     params.permit(:name, :product_ndc)
   end
+
+  def json_parse(response)
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  MSET_SERVICE = MsetService.new
 end

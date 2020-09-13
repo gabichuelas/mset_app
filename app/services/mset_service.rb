@@ -1,28 +1,26 @@
 class MsetService
 
+  # REAL API CALLS
+  def sym_search(params)
+    get('/sym_search', :product_ndc, params)
+  end
+
   def med_search(params)
-    conn.get('/med_search') do |req|
-      req.params[:medication_name] = params
-    end
-  end
-
-  # TEST CALLS
-  def test_params(name)
-    conn.get('/test2') do |req|
-      req.params[:med_name] = 'adderall'
-    end
-  end
-
-  def test(uri)
-    conn.get(uri)
+    get('/med_search', :medication_name, params)
   end
 
   private
 
+  def get(uri, param_key, params)
+    conn.get(uri) do |req|
+      req.params[param_key] = params
+    end
+  end
+
   def conn
     # FOR TESTING WITH LOCAL SERVER
     Faraday.new('http://localhost:9292')
-    
+
     # REAL ONE
     # Faraday.new(ENV['MSET_API_SERVICE_DOMAIN'])
   end
