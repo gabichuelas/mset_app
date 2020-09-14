@@ -78,7 +78,6 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
   end
 
   it 'If I try to log a new symptom without selecting a symptom and date/time, I receive an error' do
-    # this test isn't hitting the right conditional in the LogsController#create action
     within('.log-form') do
       fill_in :note, with: "7/10 pain scale"
       click_button "Save"
