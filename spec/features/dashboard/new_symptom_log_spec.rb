@@ -3,12 +3,14 @@ require 'rails_helper'
 RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
   before :each do
     user = create(:user)
-    medication = create(:medication)
+    # PROBS NOT NECESSARY GIVEN NEW SCHEMA: medication = create(:medication)
     symptom_1 = Symptom.create!(description: "Headache")
     symptom_2 = Symptom.create!(description: "Insomnia")
-    MedicationSymptom.create!(medication: medication, symptom: symptom_1)
-    MedicationSymptom.create!(medication: medication, symptom: symptom_2)
-    UserMedication.create!(user: user, medication: medication)
+    # OLD: MedicationSymptom.create!(medication: medication, symptom: symptom_1)
+    # OLD: MedicationSymptom.create!(medication: medication, symptom: symptom_2)
+    PotentialSymptom.create!(user: user, symptom: symptom_1)
+    PotentialSymptom.create!(user: user, symptom: symptom_2)
+    # PROBS NOT NECESSARY GIVEN NEW SCHEMA: UserMedication.create!(user: user, medication: medication)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
