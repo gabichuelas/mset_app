@@ -42,7 +42,7 @@ RSpec.describe 'User can edit the medication list', type: :feature do
     expect(page).to have_content('Lexapro was deleted')
 
     visit '/dashboard'
-    expect(page).to_not have_content('Lexapro')
+    expect(page).to have_content("You don't have any saved medications.")
   end
   it 'I can add be directed to the add a new medication page from the edit page' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
@@ -68,7 +68,7 @@ RSpec.describe 'User can edit the medication list', type: :feature do
     end
 
     expect(current_path).to eq('/dashboard')
-    expect(page).to have_content('Lexapro')
+
     expect(page).to have_button('Edit Medication List')
     click_on 'Edit Medication List'
 
