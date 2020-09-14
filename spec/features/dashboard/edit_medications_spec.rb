@@ -2,7 +2,7 @@ RSpec.describe 'User can edit the medication list', type: :feature do
   before :each do
     @user = create(:user)
   end
-  it 'I can add medication' do
+  it 'I can visit the edit medication page and delete a medication' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit '/dashboard'
 
@@ -43,5 +43,40 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
     visit '/dashboard'
     expect(page).to_not have_content('Lexapro')
+  end
+  it 'I can add be directed to the add a new medication page from the edit page' do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    visit '/dashboard'
+
+    expect(page).to have_button('Add New Medication')
+    click_on('Add New Medication')
+
+    expect(current_path).to eq('/medications/new')
+
+    expect(page).to have_content("Enter brand medication name")
+
+    fill_in :brand_name, with: 'Lexapro'
+    click_on 'Find Medication'
+
+    expect(current_path).to eq('/medications/search')
+
+    expect(page).to have_content('Please select the correct medication brand name')
+
+    within('.medications', match: :first) do
+      expect(page).to have_button('Lexapro')
+      click_on 'Lexapro'
+    end
+
+    expect(current_path).to eq('/dashboard')
+    expect(page).to have_content('Lexapro')
+    expect(page).to have_button('Edit Medication List')
+    click_on 'Edit Medication List'
+
+    expect(current_path).to eq('/medications/edit')
+
+    expect(page).to have_button('Add New Medication')
+    click_on 'Add New Medication'
+
+    expect(current_path).to eq('/medications/new')
   end
 end
