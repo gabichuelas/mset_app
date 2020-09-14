@@ -22,6 +22,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
     within('.medications', match: :first) do
       expect(page).to have_button('Adderall XR')
+      # expect(page).to have_button('Adderall')
       click_on 'Adderall XR'
     end
 
@@ -53,8 +54,13 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     adderall_xr = Medication.last
 
     expect(adderall_xr.brand_name).to eq('Adderall XR')
-    adderall_symptoms = MedicationSymptom.where(medication_id: adderall_xr.id)
-    expect(adderall_symptoms.empty?).to eq(false)
+    # OLD: adderall_symptoms = MedicationSymptom.where(medication_id: adderall_xr.id)
+    user_symptoms = PotentialSymptom.where(user: @user)
+    all_symptoms = Symptom.all
+    # OLD: expect(adderall_symptoms.empty?).to eq(false)
+    expect(user_symptoms.empty?).to eq(false)
+    # to add: expect(all_symptoms.size).to eq(?) and expect(user_symptoms.size).to eq(?) OR expect(all_symptoms.size).to eq(user_symptoms.size)
+
   end
 
   it "SAD PATH: When I add a new medication without an adverse_reactions_table, user is redirected to dashboard and no symptoms are added" do
