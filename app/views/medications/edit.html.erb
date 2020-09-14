@@ -4,6 +4,6 @@
 <% @medications.each do |medication| %>
   <section class="medications">
     <p><%= medication.brand_name %><p>
-    <p><%= button_to 'Delete', '/medications/delete', params: {id: medication.id, name: medication.brand_name, product_ndc: medication.product_ndc}, method: :delete %>
+    <p><%= button_to 'Delete', '/medications/delete', params: {id: medication.id, brand_name: medication.brand_name, product_ndc: medication.product_ndc}, method: :delete %>
   </section>
 <% end %>

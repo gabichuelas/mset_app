@@ -13,7 +13,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     expect(current_path).to eq('/medications/new')
     expect(page).to have_content("Enter brand medication name")
 
-    fill_in :medication_name, with: 'Adderall'
+    fill_in :brand_name, with: 'Adderall'
     click_on 'Find Medication'
 
     expect(current_path).to eq('/medications/search')
@@ -38,7 +38,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     expect(current_path).to eq('/medications/new')
     expect(page).to have_content("Enter brand medication name")
 
-    fill_in :medication_name, with: 'Adderall'
+    fill_in :brand_name, with: 'Adderall'
     click_on 'Find Medication'
 
     expect(current_path).to eq('/medications/search')
@@ -62,7 +62,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     expect(page).to have_button('Add New Medication')
     click_on('Add New Medication')
 
-    fill_in :medication_name, with: 'adderall'
+    fill_in :brand_name, with: 'adderall'
     click_on 'Find Medication'
 
     within('.medications', match: :first) do
@@ -81,7 +81,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     expect(current_path).to eq('/medications/new')
     expect(page).to have_content('Enter brand medication name')
 
-    fill_in :medication_name, with: 'spiro'
+    fill_in :brand_name, with: 'spiro'
     click_on 'Find Medication'
     expect(page).to have_content('Sorry, your search did not return any results. Please try another search.')
   end
