@@ -37,7 +37,7 @@
   </div>
   <div class="log-form">
     <center>
-      <h3>Log a symptom here</h3>
+      <h3>Log a symptom here</h3><br>
         <%= form_tag log_path, method: "post" do %>
           <div class="row">
             <p class="col">
@@ -61,11 +61,17 @@
     <center>
       <h3>Recent symptom logs</h3>
       <div class="row">
-        <p class="col">I'm the first element in the first grid</p>
-        <p class="col">I'm the second element in the first grid</p>
-        <p class="col">I'm the third element in the first grid</p>
+        <p class="col"><strong>Symptom</strong></p>
+        <p class="col"><strong>When</strong></p>
+        <p class="col"><strong>Note</strong></p>
       </div>
-      <p>this is where a list of recent logs will go</p>
+      <div class="row">
+        <% current_user.logs.each do |log| %>
+          <p class="col"><%= log.symptom_description %></p>
+          <p class="col"><%= log.when %></p>
+          <p class="col"><%= log.note %></p>
+        <% end %>
+      </div>
     </center>
   </div>
 </div>
