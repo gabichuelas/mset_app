@@ -18,10 +18,23 @@ class MedicationsController < ApplicationController
     redirect_to '/dashboard'
   end
 
+  def edit
+    @medications = current_user.medications.all
+  end
+
+  def destroy
+    current_user.medications.destroy(med_params[:id])
+    Medication.destroy(med_params[:id])
+    redirect_to '/medications/edit'
+    flash[:notice] = "#{med_params[:name]} was deleted"
+  end
+
   private
   SEARCH_RESULTS ||= SearchResultsFacade.new
 
   def med_params
     params.permit(:brand_name, :product_ndc)
   end
+
+
 end
