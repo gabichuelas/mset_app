@@ -12,7 +12,7 @@ class SearchResultsFacade
 
   def extract_symptoms(product_ndc)
     tables = adverse_reactions_table(product_ndc)
-    return nil if tables[0].nil?
+    return nil if tables.nil? || tables[0].nil?
     symptoms = []
     tables.each do |table|
       table.each do |t|
@@ -29,6 +29,7 @@ class SearchResultsFacade
   def adverse_reactions_table(product_ndc)
     response = @service.sym_search(product_ndc)
     results = json_parse(response)[:results]
+    return nil if results.nil?
     results.map do |result|
       result[:adverse_reactions_table]
     end

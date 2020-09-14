@@ -21,4 +21,8 @@ class User < ApplicationRecord
   def full_name
     first_name + " " + last_name
   end
+
+  def potential_symptoms
+    Symptom.joins(:medications).pluck(:description).uniq
+  end
 end

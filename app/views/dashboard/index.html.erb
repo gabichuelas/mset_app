@@ -36,16 +36,42 @@
     </div>
   </div>
   <div class="log-form">
-    <h3>Log a symptom here</h3>
-    <%= form_tag(log_path, method: "post") do %>
-      <%= text_field_tag(:symptom, nil, placeholder: "Symptom search") %> <br>
-      <%= datetime_field_tag(:when) %> <br>
-      <%= text_area_tag(:note) %> <br>
-      <%= submit_tag('Save', class: "button") %>
-    <% end %>
+    <center>
+      <h3>Log a symptom here</h3><br>
+        <%= form_tag log_path, method: "post" do %>
+          <div class="row">
+            <p class="col">
+              <%= label_tag "What symptom did you experience?"%> <br>
+              <%= select_tag :symptom, options_for_select(@potential_symptoms), :include_blank => true %> <br><br>
+            </p>
+            <p class="col">
+              <%= label_tag "When?"%> <br>
+              <%= datetime_field_tag :when %> <br><br>
+            </p>
+            <p>
+              <%= label_tag "Any additional notes?"%><br>
+              <%= text_area_tag :note %> <br>
+            </p>
+            <p class="col"><%= submit_tag 'Save', class: "button" %></p>
+          </div>
+        <% end %>
+    </center>
   </div>
   <div class="recent-logs">
-    <h3>Recent symptom logs</h3>
-    <p>this is where a list of recent logs will go</p>
+    <center>
+      <h3>Recent symptom logs</h3>
+      <div class="row">
+        <p class="col"><strong>Symptom</strong></p>
+        <p class="col"><strong>When</strong></p>
+        <p class="col"><strong>Note</strong></p>
+      </div>
+      <div class="row">
+        <% current_user.logs.each do |log| %>
+          <p class="col"><%= log.symptom_description %></p>
+          <p class="col"><%= log.when %></p>
+          <p class="col"><%= log.note %></p>
+        <% end %>
+      </div>
+    </center>
   </div>
 </div>
