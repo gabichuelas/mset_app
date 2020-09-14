@@ -63,7 +63,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     end
 
     expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content('Please specify a symptom')
+    expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
   end
 
   it 'If I try to log a new symptom without selecting a date/time, I receive an error' do
@@ -74,10 +74,10 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     end
 
     expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content('Please specify when you experienced this symptom')
+    expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
   end
 
-  xit 'If I try to log a new symptom without selecting a symptom and date/time, I receive an error' do
+  it 'If I try to log a new symptom without selecting a symptom and date/time, I receive an error' do
     # this test isn't hitting the right conditional in the LogsController#create action
     within('.log-form') do
       fill_in :note, with: "7/10 pain scale"
@@ -85,7 +85,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     end
 
     expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content('Please specify a symptom and when you experienced it')
+    expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
   end
 
   xit 'I can submit a log for an unlisted symptom' do

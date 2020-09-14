@@ -5,15 +5,8 @@ class LogsController < ApplicationController
     if log.save
       flash[:success] = 'New symptom logged!'
       redirect_to dashboard_path
-    elsif no_symptom?
-      flash[:error] = 'Please specify a symptom'
-      redirect_to request.referer
-    elsif no_when?
-      flash[:error] = 'Please specify when you experienced this symptom'
-      redirect_to request.referer
-    elsif no_symptom? && no_when?
-      # binding.pry
-      flash[:error] = 'Please specify a symptom and when you experienced it'
+    elsif no_symptom? || no_when?
+      flash[:error] = 'Please be sure to specify a symptom and when you experienced it'
       redirect_to request.referer
     end
   end
