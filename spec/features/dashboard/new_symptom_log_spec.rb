@@ -77,7 +77,19 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     expect(page).to have_content('Please specify when you experienced this symptom')
   end
 
+  xit 'If I try to log a new symptom without selecting a symptom and date/time, I receive an error' do
+    # this test isn't hitting the right conditional in the LogsController#create action
+    within('.log-form') do
+      fill_in :note, with: "7/10 pain scale"
+      click_button "Save"
+    end
+
+    expect(current_path).to eq(dashboard_path)
+    expect(page).to have_content('Please specify a symptom and when you experienced it')
+  end
+
   xit 'I can submit a log for an unlisted symptom' do
+    # this functionality has not yet been implemented - this test is just an outline
     within('.log-form') do
       select "Other", from: :symptom
       # mvp UX: if user selects "other" they are required to include a note

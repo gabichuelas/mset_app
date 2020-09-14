@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
   def create
-    symptom = Symptom.find_by(description: params[:symptom])
-    log = Log.create(user: current_user, symptom: symptom, note: params[:note], when: params[:when])
+    symptom = Symptom.find_by(description: log_params[:symptom])
+    log = Log.create(user: current_user, symptom: symptom, note: log_params[:note], when: log_params[:when])
     if log.save
       flash[:success] = 'New symptom logged!'
       redirect_to dashboard_path
@@ -12,6 +12,7 @@ class LogsController < ApplicationController
       flash[:error] = 'Please specify when you experienced this symptom'
       redirect_to request.referer
     elsif no_symptom? && no_when?
+      # binding.pry
       flash[:error] = 'Please specify a symptom and when you experienced it'
       redirect_to request.referer
     end
@@ -19,7 +20,7 @@ class LogsController < ApplicationController
 
   private
 
-  def user_params
+  def log_params
     params.permit(:symptom, :when, :note)
   end
 
