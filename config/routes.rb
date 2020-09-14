@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/medications/search', to: 'medications#search'
   get '/medications', to: 'medications#index'
   post '/medications/create', to: 'medications#create'
+  get '/medications/edit', to: 'medications#edit'
+  delete '/medications/delete', to: 'medications#destroy'
 
   post '/log', to: 'logs#create'
 end

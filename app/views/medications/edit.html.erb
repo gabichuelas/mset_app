@@ -1,0 +1,10 @@
+<h1>All Medications</h1>
+<%= render partial: '/partials/flash' %>
+<p><%= button_to 'Add New Medication', '/medications/new', method: :get %>
+<br>
+<% @medications.each do |medication| %>
+  <section class="medications">
+    <p><%= medication.brand_name %><p>
+    <p><%= button_to 'Delete', '/medications/delete', params: {id: medication.id, brand_name: medication.brand_name, product_ndc: medication.product_ndc}, method: :delete %>
+  </section>
+<% end %>
