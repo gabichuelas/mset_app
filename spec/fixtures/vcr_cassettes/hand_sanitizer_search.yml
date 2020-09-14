@@ -1,0 +1,1020 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:9292/med_search?medication_name=hand%20sanitizer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Content-Type:
+      - text/html;charset=utf-8
+      Content-Length:
+      - '28721'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.3/2018-10-18)
+      Date:
+      - Mon, 14 Sep 2020 22:31:27 GMT
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "meta": {
+            "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+            "terms": "https://open.fda.gov/terms/",
+            "license": "https://open.fda.gov/license/",
+            "last_updated": "2020-09-14",
+            "results": {
+              "skip": 0,
+              "limit": 10,
+              "total": 14584
+            }
+          },
+          "results": [
+            {
+              "product_ndc": "0065-9800",
+              "generic_name": "Isopropyl Alcohol",
+              "labeler_name": "Alcon Laboratories, Inc.",
+              "packaging": [
+                {
+                  "marketing_start_date": "20200331",
+                  "package_ndc": "0065-9800-07",
+                  "description": "100 mL in 1 BOTTLE (0065-9800-07)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200331",
+                  "package_ndc": "0065-9800-01",
+                  "description": "10000 mL in 1 BOTTLE (0065-9800-01)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200331",
+                  "package_ndc": "0065-9800-02",
+                  "description": "10000 mL in 1 BOTTLE (0065-9800-02)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200331",
+                  "package_ndc": "0065-9800-05",
+                  "description": "19000 mL in 1 BOTTLE (0065-9800-05)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200331",
+                  "package_ndc": "0065-9800-06",
+                  "description": "19000 mL in 1 BOTTLE (0065-9800-06)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "HAND SANITIZER",
+              "active_ingredients": [
+                {
+                  "strength": "75 mL/100mL",
+                  "name": "ISOPROPYL ALCOHOL"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "50561838-0811-4776-a36c-efda1729ec87"
+                ],
+                "manufacturer_name": [
+                  "Alcon Laboratories, Inc."
+                ],
+                "unii": [
+                  "ND2M416302"
+                ],
+                "rxcui": [
+                  "1039900"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "SOLUTION",
+              "spl_id": "ea4e35bf-c142-4b25-ab01-6a8bad7bf037",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20200331",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "0065-9800_ea4e35bf-c142-4b25-ab01-6a8bad7bf037",
+              "application_number": "part333A",
+              "brand_name_base": "HAND SANITIZER"
+            },
+            {
+              "product_ndc": "73125-000",
+              "generic_name": "ALCOHOL",
+              "labeler_name": "Hangzhou Hygen Health Bio-technology Co. Ltd.",
+              "packaging": [
+                {
+                  "marketing_start_date": "20190716",
+                  "package_ndc": "73125-000-00",
+                  "description": "300 mL in 1 BOTTLE (73125-000-00)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Antiseptic Hand Berry Muguet Ethyl Alcohol",
+              "active_ingredients": [
+                {
+                  "strength": "650 mg/mL",
+                  "name": "ALCOHOL"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "50ae4982-aeab-494b-bd27-4bac254694b5"
+                ],
+                "manufacturer_name": [
+                  "Hangzhou Hygen Health Bio-technology Co. Ltd."
+                ],
+                "unii": [
+                  "3K9958V90M"
+                ],
+                "rxcui": [
+                  "902574"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "GEL",
+              "spl_id": "a1c44ac9-93c8-f881-e053-2995a90a3a4a",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20190716",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "73125-000_a1c44ac9-93c8-f881-e053-2995a90a3a4a",
+              "application_number": "part333E",
+              "brand_name_base": "Antiseptic Hand Berry Muguet Ethyl Alcohol"
+            },
+            {
+              "product_ndc": "73125-001",
+              "generic_name": "ALCOHOL",
+              "labeler_name": "Hangzhou Hygen Health Bio-technology Co. Ltd.",
+              "packaging": [
+                {
+                  "marketing_start_date": "20190716",
+                  "package_ndc": "73125-001-00",
+                  "description": "300 mL in 1 BOTTLE (73125-001-00)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Antiseptic Hand Foam Berry Muguet Ethyl Alcohol",
+              "active_ingredients": [
+                {
+                  "strength": "750 mg/mL",
+                  "name": "ALCOHOL"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "c7d19c5d-7a8c-457e-abf8-8329b50395a4"
+                ],
+                "manufacturer_name": [
+                  "Hangzhou Hygen Health Bio-technology Co. Ltd."
+                ],
+                "unii": [
+                  "3K9958V90M"
+                ],
+                "rxcui": [
+                  "1047755"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "LIQUID",
+              "spl_id": "a110d07e-0686-4dd0-e053-2a95a90a4675",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20190716",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "73125-001_a110d07e-0686-4dd0-e053-2a95a90a4675",
+              "application_number": "part333E",
+              "brand_name_base": "Antiseptic Hand Foam Berry Muguet Ethyl Alcohol"
+            },
+            {
+              "product_ndc": "73125-002",
+              "generic_name": "BENZALKONIUM CHLORIDE",
+              "labeler_name": "Hangzhou Hygen Health Bio-technology Co. Ltd.",
+              "packaging": [
+                {
+                  "marketing_start_date": "20191220",
+                  "package_ndc": "73125-002-00",
+                  "description": "14 mL in 1 POUCH (73125-002-00)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Single Use Surgical Hand Scrub Brush",
+              "active_ingredients": [
+                {
+                  "strength": "1.3 mg/mL",
+                  "name": "BENZALKONIUM CHLORIDE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "faf0992a-af4f-4152-b4ca-811eff9acb48"
+                ],
+                "manufacturer_name": [
+                  "Hangzhou Hygen Health Bio-technology Co. Ltd."
+                ],
+                "unii": [
+                  "F5UM2KM3W7"
+                ],
+                "rxcui": [
+                  "1038558"
+                ]
+              },
+              "listing_expiration_date": "20201231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "SPONGE",
+              "spl_id": "96c70a1a-c413-8a52-e053-2995a90af19c",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20191220",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "73125-002_96c70a1a-c413-8a52-e053-2995a90af19c",
+              "application_number": "part333E",
+              "brand_name_base": "Single Use Surgical Hand Scrub Brush"
+            },
+            {
+              "product_ndc": "73126-002",
+              "generic_name": "BENZALKONIUM CHLORIDE",
+              "labeler_name": "LAB-CLEAN, INC",
+              "packaging": [
+                {
+                  "marketing_start_date": "20200321",
+                  "package_ndc": "73126-002-01",
+                  "description": "59 mL in 1 BOTTLE, SPRAY (73126-002-01)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200321",
+                  "package_ndc": "73126-002-03",
+                  "description": "236 mL in 1 BOTTLE, SPRAY (73126-002-03)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200321",
+                  "package_ndc": "73126-002-02",
+                  "description": "88 mL in 1 BOTTLE, SPRAY (73126-002-02)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "BAYES Alcohol free Hydrating Hand Sanitizer",
+              "active_ingredients": [
+                {
+                  "strength": "1 mg/mL",
+                  "name": "BENZALKONIUM CHLORIDE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "844059e7-c79d-449d-a93e-f09694189ed5"
+                ],
+                "manufacturer_name": [
+                  "LAB-CLEAN, INC"
+                ],
+                "unii": [
+                  "F5UM2KM3W7"
+                ],
+                "rxcui": [
+                  "1052947"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "SPRAY",
+              "spl_id": "78b3a13c-5de3-41c2-a560-9afffbe1cc2e",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20200321",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "73126-002_78b3a13c-5de3-41c2-a560-9afffbe1cc2e",
+              "application_number": "part333E",
+              "brand_name_base": "BAYES Alcohol free Hydrating Hand Sanitizer"
+            },
+            {
+              "product_ndc": "73107-103",
+              "generic_name": "Konix ALCOHOL ANTISEPTIC HAND SANITIZER",
+              "labeler_name": "Turkuaz Saglik Hizmetleri Medikal Temizlik Kimyasal Urunler",
+              "packaging": [
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-20",
+                  "description": "30 mL in 1 BOTTLE (73107-103-20)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-19",
+                  "description": "5 mL in 1 PACKET (73107-103-19)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-21",
+                  "description": "50 mL in 1 BOTTLE (73107-103-21)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-22",
+                  "description": "85 mL in 1 BOTTLE (73107-103-22)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-23",
+                  "description": "100 mL in 1 BOTTLE (73107-103-23)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-24",
+                  "description": "150 mL in 1 BOTTLE (73107-103-24)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-25",
+                  "description": "200 mL in 1 BOTTLE (73107-103-25)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-26",
+                  "description": "250 mL in 1 BOTTLE (73107-103-26)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-27",
+                  "description": "500 mL in 1 BOTTLE (73107-103-27)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-28",
+                  "description": "1000 mL in 1 BOTTLE (73107-103-28)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200420",
+                  "package_ndc": "73107-103-29",
+                  "description": "5000 mL in 1 BOTTLE (73107-103-29)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Konix ALCOHOL ANTISEPTIC HAND SANITIZER",
+              "active_ingredients": [
+                {
+                  "strength": "80 mL/100mL",
+                  "name": "ALCOHOL"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "2f6e97df-2aa4-4fed-8748-58f0ba21839d"
+                ],
+                "upc": [
+                  "8681715344430",
+                  "8681715344447",
+                  "8681715344485",
+                  "8681715344515",
+                  "8681715344508",
+                  "8681715344614",
+                  "8681715344461",
+                  "8681715344492",
+                  "8681715344416",
+                  "8681715344454",
+                  "8681715344478"
+                ],
+                "manufacturer_name": [
+                  "Turkuaz Saglik Hizmetleri Medikal Temizlik Kimyasal Urunler"
+                ],
+                "rxcui": [
+                  "1041498"
+                ],
+                "unii": [
+                  "3K9958V90M"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "GEL",
+              "spl_id": "8c94f8cd-ac84-4baf-b249-7fcdb27b5f9f",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20200420",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "73107-103_8c94f8cd-ac84-4baf-b249-7fcdb27b5f9f",
+              "application_number": "part333A",
+              "brand_name_base": "Konix ALCOHOL ANTISEPTIC HAND SANITIZER"
+            },
+            {
+              "product_ndc": "73107-104",
+              "generic_name": "Konix Hand Sanitizer Gel",
+              "labeler_name": "Turkuaz Saglik Hizmetleri Medikal Temizlik Kimyasal Urunler Sanayi ve Tic. AS",
+              "packaging": [
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-19",
+                  "description": "5000 mL in 1 BOTTLE (73107-104-19)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-14",
+                  "description": "150 mL in 1 BOTTLE (73107-104-14)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-13",
+                  "description": "100 mL in 1 BOTTLE (73107-104-13)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200519",
+                  "package_ndc": "73107-104-41",
+                  "description": "59 mL in 1 BOTTLE (73107-104-41)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-18",
+                  "description": "1000 mL in 1 BOTTLE (73107-104-18)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-17",
+                  "description": "500 mL in 1 BOTTLE (73107-104-17)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-16",
+                  "description": "250 mL in 1 BOTTLE (73107-104-16)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-15",
+                  "description": "200 mL in 1 BOTTLE (73107-104-15)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-12",
+                  "description": "85 mL in 1 BOTTLE (73107-104-12)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-11",
+                  "description": "50 mL in 1 BOTTLE (73107-104-11)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200407",
+                  "package_ndc": "73107-104-10",
+                  "description": "30 mL in 1 BOTTLE (73107-104-10)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200519",
+                  "package_ndc": "73107-104-45",
+                  "description": "473 mL in 1 BOTTLE (73107-104-45)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200519",
+                  "package_ndc": "73107-104-44",
+                  "description": "354 mL in 1 BOTTLE (73107-104-44)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200519",
+                  "package_ndc": "73107-104-43",
+                  "description": "236 mL in 1 BOTTLE (73107-104-43)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200519",
+                  "package_ndc": "73107-104-42",
+                  "description": "118 mL in 1 BOTTLE (73107-104-42)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200519",
+                  "package_ndc": "73107-104-49",
+                  "description": "3785 mL in 1 BOTTLE (73107-104-49)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200519",
+                  "package_ndc": "73107-104-48",
+                  "description": "946 mL in 1 BOTTLE (73107-104-48)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200519",
+                  "package_ndc": "73107-104-47",
+                  "description": "710 mL in 1 BOTTLE (73107-104-47)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200519",
+                  "package_ndc": "73107-104-46",
+                  "description": "591 mL in 1 BOTTLE (73107-104-46)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Konix Hand Sanitizer Gel",
+              "active_ingredients": [
+                {
+                  "strength": "70 mL/100mL",
+                  "name": "ALCOHOL"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "f7fde9a3-cb0b-4e57-bee8-8d381b730baf"
+                ],
+                "upc": [
+                  "8681715345079",
+                  "8681715345086",
+                  "8681715345123",
+                  "8681715345055",
+                  "8681715345130",
+                  "8681715345062",
+                  "8681715345116",
+                  "8681715345109",
+                  "8681715345093"
+                ],
+                "manufacturer_name": [
+                  "Turkuaz Saglik Hizmetleri Medikal Temizlik Kimyasal Urunler Sanayi ve Tic. AS"
+                ],
+                "rxcui": [
+                  "581662"
+                ],
+                "unii": [
+                  "3K9958V90M"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "GEL",
+              "spl_id": "9ce2f04e-1164-4efe-9ec7-b68c0beecd75",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20200407",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "73107-104_9ce2f04e-1164-4efe-9ec7-b68c0beecd75",
+              "application_number": "part333A",
+              "brand_name_base": "Konix Hand Sanitizer Gel"
+            },
+            {
+              "product_ndc": "73107-105",
+              "generic_name": "KONIX Alcohol Antiseptic Hand Rub",
+              "labeler_name": "Turkuaz Saglik Hizmetleri Medikal Temizlik Kimyasal Urunler",
+              "packaging": [
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-36",
+                  "description": "250 mL in 1 BOTTLE (73107-105-36)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-37",
+                  "description": "500 mL in 1 BOTTLE (73107-105-37)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-38",
+                  "description": "1000 mL in 1 BOTTLE (73107-105-38)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-39",
+                  "description": "5000 mL in 1 BOTTLE (73107-105-39)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-32",
+                  "description": "85 mL in 1 BOTTLE (73107-105-32)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-33",
+                  "description": "100 mL in 1 BOTTLE (73107-105-33)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-34",
+                  "description": "150 mL in 1 BOTTLE (73107-105-34)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-35",
+                  "description": "200 mL in 1 BOTTLE (73107-105-35)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-40",
+                  "description": "5 mL in 1 PACKET (73107-105-40)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-31",
+                  "description": "50 mL in 1 BOTTLE (73107-105-31)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200512",
+                  "package_ndc": "73107-105-30",
+                  "description": "30 mL in 1 BOTTLE (73107-105-30)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "KONIX Alcohol Antiseptic Hand Rub",
+              "active_ingredients": [
+                {
+                  "strength": "70 mL/100mL",
+                  "name": "ALCOHOL"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "17435b35-815b-4292-a809-e533ea137b80"
+                ],
+                "upc": [
+                  "8681715344805",
+                  "8681715344782",
+                  "8681715344775",
+                  "8681715611211",
+                  "8681715344812",
+                  "8681715344843"
+                ],
+                "manufacturer_name": [
+                  "Turkuaz Saglik Hizmetleri Medikal Temizlik Kimyasal Urunler"
+                ],
+                "rxcui": [
+                  "582753"
+                ],
+                "unii": [
+                  "3K9958V90M"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "SOLUTION",
+              "spl_id": "f7b36353-ab6d-44fc-bdd7-351238869adb",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20200512",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "73107-105_f7b36353-ab6d-44fc-bdd7-351238869adb",
+              "application_number": "part333A",
+              "brand_name_base": "KONIX Alcohol Antiseptic Hand Rub"
+            },
+            {
+              "product_ndc": "73107-106",
+              "generic_name": "Konix Hand Sanitizer Gel",
+              "labeler_name": "Turkuaz Saglik Hizmetleri Medikal Temizlik Kimyasal Urunler Sanayi ve Tic. AS",
+              "packaging": [
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-12",
+                  "description": "85 mL in 1 BOTTLE (73107-106-12)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-11",
+                  "description": "50 mL in 1 BOTTLE (73107-106-11)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-14",
+                  "description": "150 mL in 1 BOTTLE (73107-106-14)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-13",
+                  "description": "100 mL in 1 BOTTLE (73107-106-13)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-16",
+                  "description": "250 mL in 1 BOTTLE (73107-106-16)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-15",
+                  "description": "200 mL in 1 BOTTLE (73107-106-15)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-10",
+                  "description": "30 mL in 1 BOTTLE (73107-106-10)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-40",
+                  "description": "5 mL in 1 PACKET (73107-106-40)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-19",
+                  "description": "5000 mL in 1 BOTTLE (73107-106-19)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-18",
+                  "description": "1000 mL in 1 BOTTLE (73107-106-18)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-17",
+                  "description": "500 mL in 1 BOTTLE (73107-106-17)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-49",
+                  "description": "3780 mL in 1 BOTTLE (73107-106-49)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-43",
+                  "description": "236 mL in 1 BOTTLE (73107-106-43)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-44",
+                  "description": "354 mL in 1 BOTTLE (73107-106-44)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-41",
+                  "description": "59 mL in 1 BOTTLE (73107-106-41)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-47",
+                  "description": "710 mL in 1 BOTTLE (73107-106-47)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-48",
+                  "description": "946 mL in 1 BOTTLE (73107-106-48)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-45",
+                  "description": "473 mL in 1 BOTTLE (73107-106-45)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-46",
+                  "description": "591 mL in 1 BOTTLE (73107-106-46)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200703",
+                  "package_ndc": "73107-106-42",
+                  "description": "118 mL in 1 BOTTLE (73107-106-42)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Konix Hand Sanitizer Gel",
+              "active_ingredients": [
+                {
+                  "strength": "70 mL/100mL",
+                  "name": "ALCOHOL"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "c24e3229-4ec3-4912-a2ea-34454eeb2794"
+                ],
+                "upc": [
+                  "8681715345574",
+                  "8681715345598",
+                  "8681715345567",
+                  "8681715345543",
+                  "8681715345611",
+                  "8681715345536",
+                  "8681715345512",
+                  "8681715345581",
+                  "8681715345550",
+                  "8681715345529"
+                ],
+                "manufacturer_name": [
+                  "Turkuaz Saglik Hizmetleri Medikal Temizlik Kimyasal Urunler Sanayi ve Tic. AS"
+                ],
+                "unii": [
+                  "3K9958V90M"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "GEL",
+              "spl_id": "27d43432-38cc-4434-bf34-21cba573becc",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20200703",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "73107-106_27d43432-38cc-4434-bf34-21cba573becc",
+              "application_number": "part333A",
+              "brand_name_base": "Konix Hand Sanitizer Gel"
+            },
+            {
+              "product_ndc": "73126-003",
+              "generic_name": "BENZALKONIUM CHLORIDE",
+              "labeler_name": "LAB-CLEAN, INC",
+              "packaging": [
+                {
+                  "marketing_start_date": "20200401",
+                  "package_ndc": "73126-003-01",
+                  "description": "59 mL in 1 BOTTLE, SPRAY (73126-003-01)",
+                  "sample": false
+                },
+                {
+                  "marketing_start_date": "20200401",
+                  "package_ndc": "73126-003-02",
+                  "description": "236 mL in 1 BOTTLE, SPRAY (73126-003-02)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "BEEKMAN 1802 HAPPY PLACE Hand Sanitizer",
+              "active_ingredients": [
+                {
+                  "strength": "1 mg/mL",
+                  "name": "BENZALKONIUM CHLORIDE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "abd3fb58-4529-4f4c-86f6-980ed3c90ee1"
+                ],
+                "manufacturer_name": [
+                  "LAB-CLEAN, INC"
+                ],
+                "unii": [
+                  "F5UM2KM3W7"
+                ],
+                "rxcui": [
+                  "1052947"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "OTC MONOGRAPH NOT FINAL",
+              "dosage_form": "SPRAY",
+              "spl_id": "01ec8edd-fee3-4c71-a831-7b520bcf9a7e",
+              "route": [
+                "TOPICAL"
+              ],
+              "marketing_start_date": "20200401",
+              "product_type": "HUMAN OTC DRUG",
+              "product_id": "73126-003_01ec8edd-fee3-4c71-a831-7b520bcf9a7e",
+              "application_number": "part333E",
+              "brand_name_base": "BEEKMAN 1802 HAPPY PLACE Hand Sanitizer"
+            }
+          ]
+        }
+  recorded_at: Mon, 14 Sep 2020 22:31:27 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/sym_search?product_ndc=0065-9800
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Content-Type:
+      - text/html;charset=utf-8
+      Content-Length:
+      - '4237'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.3/2018-10-18)
+      Date:
+      - Mon, 14 Sep 2020 22:31:27 GMT
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJtZXRhIjogewogICAgImRpc2NsYWltZXIiOiAiRG8gbm90IHJlbHkgb24gb3BlbkZEQSB0byBtYWtlIGRlY2lzaW9ucyByZWdhcmRpbmcgbWVkaWNhbCBjYXJlLiBXaGlsZSB3ZSBtYWtlIGV2ZXJ5IGVmZm9ydCB0byBlbnN1cmUgdGhhdCBkYXRhIGlzIGFjY3VyYXRlLCB5b3Ugc2hvdWxkIGFzc3VtZSBhbGwgcmVzdWx0cyBhcmUgdW52YWxpZGF0ZWQuIFdlIG1heSBsaW1pdCBvciBvdGhlcndpc2UgcmVzdHJpY3QgeW91ciBhY2Nlc3MgdG8gdGhlIEFQSSBpbiBsaW5lIHdpdGggb3VyIFRlcm1zIG9mIFNlcnZpY2UuIiwKICAgICJ0ZXJtcyI6ICJodHRwczovL29wZW4uZmRhLmdvdi90ZXJtcy8iLAogICAgImxpY2Vuc2UiOiAiaHR0cHM6Ly9vcGVuLmZkYS5nb3YvbGljZW5zZS8iLAogICAgImxhc3RfdXBkYXRlZCI6ICIyMDIwLTA5LTE0IiwKICAgICJyZXN1bHRzIjogewogICAgICAic2tpcCI6IDAsCiAgICAgICJsaW1pdCI6IDEsCiAgICAgICJ0b3RhbCI6IDEKICAgIH0KICB9LAogICJyZXN1bHRzIjogWwogICAgewogICAgICAiZWZmZWN0aXZlX3RpbWUiOiAiMjAyMDA0MjQiLAogICAgICAiaW5hY3RpdmVfaW5ncmVkaWVudCI6IFsKICAgICAgICAiSW5hY3RpdmUgSW5ncmVkaWVudHMgZ2x5Y2VyaW4sIGh5ZHJvZ2VuIHBlcm94aWRlLCBwdXJpZmllZCB3YXRlciBVU1AiCiAgICAgIF0sCiAgICAgICJrZWVwX291dF9vZl9yZWFjaF9vZl9jaGlsZHJlbiI6IFsKICAgICAgICAiS2VlcCBvdXQgb2YgcmVhY2ggb2YgY2hpbGRyZW4gLiBpZiBzd2FsbG93ZWQgZ2V0IG1lZGljYWwgaGVscCBvciBjb250YWN0IGEgUG9pc29uIENvbnRyb2wgQ2VudGVyIHJpZ2h0IGF3YXkuIgogICAgICBdLAogICAgICAicHVycG9zZSI6IFsKICAgICAgICAiUHVycG9zZSBIYW5kIHNhbml0aXplciB0byBoZWxwIGRlY3JlYXNlIGJhY3RlcmlhIHRoYXQgcG90ZW50aWFsbHkgY2FuIGNhdXNlIGRpc2Vhc2UuIEZvciB1c2Ugd2hlbiBzb2FwIGFuZCB3YXRlciBhcmUgbm90IGF2YWlsYWJsZS4iCiAgICAgIF0sCiAgICAgICJ3YXJuaW5ncyI6IFsKICAgICAgICAiV2FybmluZ3MgRm9yIGV4dGVybmFsIHVzZSBvbmx5LiBGbGFtbWFibGUuIEtlZXAgYXdheSBmcm9tIGhlYXQgb3IgZmxhbWUuIgogICAgICBdLAogICAgICAicXVlc3Rpb25zIjogWwogICAgICAgICJRdWVzdGlvbnM/IEluIHRoZSBVLlMuLCBjYWxsIDEtODAwLTc1Ny05MTk1IG9yIGVtYWlsIGFsY29uLm1lZGluZm9AYWxjb24uY29tIgogICAgICBdLAogICAgICAid2hlbl91c2luZyI6IFsKICAgICAgICAiV2hlbiB1c2luZyB0aGlzIHByb2R1Y3Qga2VlcCBvdXQgb2YgZXllcywgZWFycywgYW5kIG1vdXRoLiBJbiBjYXNlIG9mIGNvbnRhY3Qgd2l0aCBleWVzLCByaW5zZSBleWVzIHRob3JvdWdobHkgd2l0aCB3YXRlci4iCiAgICAgIF0sCiAgICAgICJzcGxfcHJvZHVjdF9kYXRhX2VsZW1lbnRzIjogWwogICAgICAgICJIQU5EIFNBTklUSVpFUiBJc29wcm9weWwgQWxjb2hvbCBJc29wcm9weWwgQWxjb2hvbCBJc29wcm9weWwgQWxjb2hvbCBHbHljZXJpbiBIeWRyb2dlbiBQZXJveGlkZSBXYXRlciBDb25zdW1lciBMYWJlbCBIZWFsdGhjYXJlIFByb2Zlc3Npb25hbCBMYWJlbCIKICAgICAgXSwKICAgICAgImFza19kb2N0b3IiOiBbCiAgICAgICAgIlN0b3AgdXNlIGFuZCBhc2sgYSBkb2N0b3IgaWYgaXJyaXRhdGlvbiBvciByYXNoIG9jY3Vycy4gVGhlc2UgbWF5IGJlIHNpZ25zIG9mIGEgc2VyaW91cyBjb25kaXRpb24uIgogICAgICBdLAogICAgICAib3BlbmZkYSI6IHsKICAgICAgICAicHJvZHVjdF9uZGMiOiBbCiAgICAgICAgICAiMDA2NS05ODAwIgogICAgICAgIF0sCiAgICAgICAgImlzX29yaWdpbmFsX3BhY2thZ2VyIjogWwogICAgICAgICAgdHJ1ZQogICAgICAgIF0sCiAgICAgICAgInBhY2thZ2VfbmRjIjogWwogICAgICAgICAgIjAwNjUtOTgwMC0wMSIsCiAgICAgICAgICAiMDA2NS05ODAwLTAyIiwKICAgICAgICAgICIwMDY1LTk4MDAtMDUiLAogICAgICAgICAgIjAwNjUtOTgwMC0wNiIsCiAgICAgICAgICAiMDA2NS05ODAwLTA3IgogICAgICAgIF0sCiAgICAgICAgImdlbmVyaWNfbmFtZSI6IFsKICAgICAgICAgICJJU09QUk9QWUwgQUxDT0hPTCIKICAgICAgICBdLAogICAgICAgICJzcGxfc2V0X2lkIjogWwogICAgICAgICAgIjUwNTYxODM4LTA4MTEtNDc3Ni1hMzZjLWVmZGExNzI5ZWM4NyIKICAgICAgICBdLAogICAgICAgICJicmFuZF9uYW1lIjogWwogICAgICAgICAgIkhBTkQgU0FOSVRJWkVSIgogICAgICAgIF0sCiAgICAgICAgIm1hbnVmYWN0dXJlcl9uYW1lIjogWwogICAgICAgICAgIkFsY29uIExhYm9yYXRvcmllcywgSW5jLiIKICAgICAgICBdLAogICAgICAgICJ1bmlpIjogWwogICAgICAgICAgIk5EMk00MTYzMDIiCiAgICAgICAgXSwKICAgICAgICAicnhjdWkiOiBbCiAgICAgICAgICAiMTAzOTkwMCIKICAgICAgICBdLAogICAgICAgICJzcGxfaWQiOiBbCiAgICAgICAgICAiZWE0ZTM1YmYtYzE0Mi00YjI1LWFiMDEtNmE4YmFkN2JmMDM3IgogICAgICAgIF0sCiAgICAgICAgInN1YnN0YW5jZV9uYW1lIjogWwogICAgICAgICAgIklTT1BST1BZTCBBTENPSE9MIgogICAgICAgIF0sCiAgICAgICAgInByb2R1Y3RfdHlwZSI6IFsKICAgICAgICAgICJIVU1BTiBPVEMgRFJVRyIKICAgICAgICBdLAogICAgICAgICJyb3V0ZSI6IFsKICAgICAgICAgICJUT1BJQ0FMIgogICAgICAgIF0sCiAgICAgICAgImFwcGxpY2F0aW9uX251bWJlciI6IFsKICAgICAgICAgICJwYXJ0MzMzQSIKICAgICAgICBdCiAgICAgIH0sCiAgICAgICJ2ZXJzaW9uIjogIjQiLAogICAgICAiZG9zYWdlX2FuZF9hZG1pbmlzdHJhdGlvbiI6IFsKICAgICAgICAiRGlyZWN0aW9ucyBQbGFjZSBlbm91Z2ggcHJvZHVjdCBvbiBoYW5kcyB0byBjb3ZlciBhbGwgc3VyZmFjZXMuIFJ1YiBoYW5kcyB0b2dldGhlciB1bnRpbCBkcnkuIFN1cGVydmlzZSBjaGlsZHJlbiB1bmRlciA2IHllYXJzIG9mIGFnZSB3aGVuIHVzaW5nIHRoaXMgcHJvZHVjdCB0byBhdm9pZCBzd2FsbG93aW5nLiIKICAgICAgXSwKICAgICAgInN0b3JhZ2VfYW5kX2hhbmRsaW5nIjogWwogICAgICAgICJPdGhlciBpbmZvcm1hdGlvbiBTdG9yZSBiZWxvdyAxNS0zMMKwQyAoNTktODbCsEYpIEF2b2lkIGZyZWV6aW5nIGFuZCBleGNlc3NpdmUgaGVhdCBhYm92ZSA0MMKwQyAoMTA0wrBGKSIKICAgICAgXSwKICAgICAgImRvX25vdF91c2UiOiBbCiAgICAgICAgIkRvIG5vdCB1c2UgaW4gY2hpbGRyZW4gbGVzcyB0aGFuIDIgbW9udGhzIG9mIGFnZSBvbiBvcGVuIHNraW4gd291bmRzIgogICAgICBdLAogICAgICAicGFja2FnZV9sYWJlbF9wcmluY2lwYWxfZGlzcGxheV9wYW5lbCI6IFsKICAgICAgICAiUEFDS0FHRSBMQUJFTCBOT1QgRk9SIFNBTEUgTkRDOiAwMDY1LTk4MDAtMDEgSXNvcHJvcHlsIEFsY29ob2wgQW50aXNlcHRpYyA3NSUgVG9waWNhbCBTb2x1dGlvbiBIYW5kIFNhbml0aXplciBOb24tc3RlcmlsZSBTb2x1dGlvbiAxMCwwMDAgbUwgRmlsbCBWb2x1bWUgQWxjb24gQWxjb24gTGFib3JhdG9yaWVzLCBJbmMuIEZvcnQgV29ydGgsIFRYIDc2MTM0IExPVDogRVhQOiBQTjogMS0yMjIyMjIyMjIyMiBOT1QgRk9SIFNBTEUgTkRDOiAwMDY1LTk4MDAtMDIgSXNvcHJvcHlsIEFsY29ob2wgQW50aXNlcHRpYyA3NSUgVG9waWNhbCBTb2x1dGlvbiBBbnRpc2VwdGljIEhhbmQgUnViIE5vbi1zdGVyaWxlIFNvbHV0aW9uIDEwLDAwMCBtTCBGaWxsIFZvbHVtZSBBbGNvbiBBbGNvbiBMYWJvcmF0b3JpZXMsIEluYy4gRm9ydCBXb3J0aCwgVFggNzYxMzQgTE9UOiBFWFA6IFBOOiAxLTExMTExMTExMTEiCiAgICAgIF0sCiAgICAgICJpbmRpY2F0aW9uc19hbmRfdXNhZ2UiOiBbCiAgICAgICAgIiIKICAgICAgXSwKICAgICAgInNldF9pZCI6ICI1MDU2MTgzOC0wODExLTQ3NzYtYTM2Yy1lZmRhMTcyOWVjODciLAogICAgICAiaWQiOiAiZWE0ZTM1YmYtYzE0Mi00YjI1LWFiMDEtNmE4YmFkN2JmMDM3IiwKICAgICAgImFjdGl2ZV9pbmdyZWRpZW50IjogWwogICAgICAgICJBY3RpdmUgSW5ncmVkaWVudCBJc29wcm9weWwgQWxjb2hvbCBBbnRpc2VwdGljIDc1JSBQdXJwb3NlIEhhbmQgc2FuaXRpemVyIHRvIGhlbHAgZGVjcmVhc2UgYmFjdGVyaWEgdGhhdCBwb3RlbnRpYWxseSBjYW4gY2F1c2UgZGlzZWFzZS4gRm9yIHVzZSB3aGVuIHNvYXAgYW5kIHdhdGVyIGFyZSBub3QgYXZhaWxhYmxlLiIKICAgICAgXQogICAgfQogIF0KfQ==
+  recorded_at: Mon, 14 Sep 2020 22:31:27 GMT
+recorded_with: VCR 6.0.0
