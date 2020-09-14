@@ -1,76 +1,27 @@
-require 'nokogiri'
-require 'open-uri'
-
 class MedicationsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def search
-    conn = Faraday.new('https://api.fda.gov')
-    response = conn.get("https://api.fda.gov/drug/ndc.json?search=brand_name_base:#{params[:medication_name]}&limit=10")
-    json = JSON.parse(response.body, symbolize_names: true)
-    @med_hash = Hash.new(0)
-    if json[:results].nil?
-      redirect_to '/medications/new'
-      flash[:warning] = "Sorry, your search did not return any results. Please try another search."
-    else
-      json[:results].each do |result|
-        if @med_hash.keys.include?(result[:brand_name])
-          next
-        else
-          @med_hash[result[:brand_name]] = result[:product_ndc]
-        end
-      end
-    end
+    results = SEARCH_RESULTS.med_search_results(params[:medication_name])
+    return @med_hash = results unless results.nil?
+    flash[:warning] = "Sorry, your search did not return any results. Please try another search."
+    redirect_to '/medications/new'
   end
 
   def create
-    medication = current_user.medications.create(brand_name: med_params[:name], generic_name: 'unknown', product_ndc: med_params[:product_ndc])
-    conn = Faraday.new('https://api.fda.gov')
-    response = conn.get("https://api.fda.gov/drug/label.json?search=openfda.product_ndc.exact:#{medication.product_ndc}")
-    json = JSON.parse(response.body, symbolize_names: true)
-    tables = json[:results].map do |result|
-      result[:adverse_reactions_table]
-    end
-
-    unless tables[0].nil?
-      symptoms = []
-      tables.each do |table|
-        table.each do |t|
-          page = Nokogiri::XML(t)
-          page.css('tbody').select do |node|
-            node.traverse do |el|
-              symptoms << el.text.strip unless el.text.include?('%') || el.text.downcase == 'gastrointestinal disorders' || el.text.downcase.include?('system') || el.text.downcase.strip == 'general' || el.text.downcase.strip == 'metabolic/nutritional' || el.text.downcase == 'urogenital' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.downcase.include?('only') || el.text.downcase.include?('adverse') || el.text.downcase.include?('reaction') || el.text.downcase.include?('adverse event') || el.text.downcase.include?('placebo') || el.text=~ /\d/
-            end
-          end
-        end
-      end
-      symptoms.uniq!
-      symptoms.delete("") if symptoms.include?("")
-      symptoms.delete(medication.brand_name) if symptoms.include?(medication.brand_name)
-
-      symptoms.each do |symptom|
-        symptom = Symptom.create(description: symptom)
-        MedicationSymptom.create(medication_id: medication.id, symptom_id: symptom.id)
-      end
+    medication = current_user.medications.create(med_params)
+    symptoms = SEARCH_RESULTS.extract_symptoms(medication.product_ndc)
+    unless symptoms.nil?
+      medication.save_symptoms(symptoms)
+      flash[:success] = "#{medication.brand_name} has been added to your medication list!"
     end
     redirect_to '/dashboard'
   end
 
-  def edit
-    @medications = current_user.medications.all
-  end
-
-  def destroy
-    current_user.medications.destroy(med_params[:id])
-    Medication.destroy(med_params[:id])
-    redirect_to '/medications/edit'
-    flash[:notice] = "#{med_params[:name]} was deleted"
-  end
-
   private
+  SEARCH_RESULTS ||= SearchResultsFacade.new
 
   def med_params
-    params.permit(:id, :name, :product_ndc)
+    params.permit(:brand_name, :product_ndc)
   end
 end

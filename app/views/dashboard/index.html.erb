@@ -17,7 +17,7 @@
       <% else %>
         <p><strong>Weight:</strong> <%= current_user.weight %> lbs</p>
       <% end %>
-      <button type="button">Edit Profile</button>
+      <%= button_to 'Edit Profile', '/profile/edit', method: :get %>
     </div>
     <div class="med-list">
       <h5>Medication List</h5>
