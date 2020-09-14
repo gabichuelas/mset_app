@@ -3,4 +3,8 @@ class Log < ApplicationRecord
 
   belongs_to :user
   belongs_to :symptom
+
+  def symptom_description
+    Symptom.find(symptom_id).description
+  end
 end
