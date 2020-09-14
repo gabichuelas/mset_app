@@ -48,7 +48,7 @@ RSpec.describe 'As an authenticated user' do
     end
 
     it 'If I do have meds on my list, the medications list section displays the list and has an edit button' do
-      @user.medications.create!(brand_name: "Adderall", generic_name: "generic", product_ndc: "123-123")
+      @user.medications.create!(brand_name: "Adderall", product_ndc: "123-123")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit dashboard_path
       within('.med-list') do
