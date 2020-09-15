@@ -13,15 +13,7 @@
 //= require jquery3
 //= require jquery_ujs
 //= require_tree .
-//= require rails-ujs
 //= require activestorage
 //= require_tree .
 //= require popper
 //= require bootstrap-sprockets
-
-$(document).ready(function() {
-  $('[data-js-hide-link]').click(function(event){
-    $(this).parents('li').hide();
-    event.preventDefault();
-  });
-}

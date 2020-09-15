@@ -5,6 +5,15 @@
   <%= render partial: '/partials/flash' %>
 </center>
 
+
+<body>
+
+<p>If you click on the "Hide" button, I will disappear.</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+</body>
 <div class="grid-container">
   <div class="sidebar">
     <div class="profile">
@@ -29,7 +38,7 @@
       <% else %>
         <ul>
            <% current_user.medications.each do |medication| %>
-             <li><%= medication.brand_name %> <%= link_to "Hide", "", class: 'hide', data: {'js-hide-link' => true} %>
+             <li><%= medication.brand_name %>
            <% end %>
          </ul>
          <%= button_to "Edit Medication List", "/medications/edit", method: :get %>
