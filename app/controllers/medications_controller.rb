@@ -10,14 +10,10 @@ class MedicationsController < ApplicationController
 
   def create
     medication = Medication.find_or_create_by(med_params)
-    if !current_user.has_medication?(medication.id)
-      current_user.add_medication(medication.id)
-      symptoms = SEARCH_RESULTS.extract_symptoms(medication.product_ndc)
-      medication.save_symptoms(symptoms) unless symptoms.nil?
-      flash[:success] = "#{medication.brand_name} has been added to your medication list!"
-    else
-      flash[:warning] = "#{medication.brand_name} has already been added to your medication list."
-    end
+    current_user.add_medication(medication.id)
+    symptoms = SEARCH_RESULTS.extract_symptoms(medication.product_ndc)
+    medication.save_symptoms(symptoms) unless symptoms.nil?
+    flash[:success] = "#{medication.brand_name} has been added to your medication list!"
     redirect_to '/dashboard'
   end
 
