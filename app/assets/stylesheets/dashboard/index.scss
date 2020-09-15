@@ -1,36 +1,49 @@
+.page-header {
+  margin: 10px 0 40px 0px;
+  // background-color: green;
+}
+
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 1fr 1.5fr;
-  gap: 10px 0px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+
+  grid-column-gap: 10px;
   grid-template-areas:
-    "profile log-form log-form log-form"
-    "med-list recent-logs recent-logs recent-logs";
+    "sidebar main";
+  // background-color: gray;
+  margin-bottom: 20px;
 }
 
 .sidebar {
   height: 100%;
-  position: fixed;
+  grid-area: sidebar;
+  // background-color: red;
 }
 
 .profile {
-  grid-area: profile;
-  padding: 30px;
+  margin-bottom: 50px;
 }
 
 .med-list {
-  grid-area: med-list;
-  padding: 30px;
 }
 
-.nav { grid-area: nav; }
+.main {
+  grid-area: main;
+  margin-bottom: 20px
+}
 
 .log-form {
-  grid-area: log-form;
-  padding: 30px;
+  margin-bottom: 30px;
+  // background-color: blue;
 }
 
+
 .recent-logs {
-  grid-area: recent-logs;
-  padding: 30px;
+  // background-color: blue;
+}
+
+.log-list {
+  margin: 20px 0 20px 0;
+  text-align: left;
 }

@@ -1,4 +1,4 @@
-<center>
+<center class="page-header">
   <h2>Welcome, <%= current_user.full_name %>! </h2>
   <%= render partial: '/partials/flash' %>
 </center>
@@ -31,55 +31,49 @@
            <% end %>
          </ul>
          <%= button_to "Edit Medication List", "/medications/edit", method: :get %>
-         <br>
          <%= button_to "Add New Medication", "/medications/new", method: :get %>
       <% end %>
     </div>
   </div>
-  <div class="log-form">
-    <center>
+  <div class="main">
+
+    <div class="log-form">
       <h3>Log a Symptom:</h3><br>
-        <%= form_tag log_path, method: "post" do %>
-          <div class="row">
-            <p class="col">
-              <%= label_tag "What symptom did you experience?"%> <br>
-              <%= select_tag :symptom, options_for_select(@potential_symptoms), :include_blank => true %> <br><br>
-            </p>
-            <p class="col">
-              <%= label_tag "When?"%> <br>
-              <%= datetime_field_tag :when %> <br><br>
-            </p>
-            <p>
-              <%= label_tag "Any additional notes?"%><br>
-              <%= text_area_tag :note %> <br>
-            </p>
-            <p class="col"><%= submit_tag 'Save', class: "button" %></p>
-          </div>
-        <% end %>
-    </center>
-  </div>
-  <div class="recent-logs">
-    <center>
-      <h3>Recent Symptom Logs</h3>
-      <br>
-      <% if current_user.logs.empty? %>
-        <p>You have not yet recorded any symptoms.</p>
-      <% else %>
-        <div class="row">
-          <p class="col"><strong>Symptom</strong></p>
-          <p class="col"><strong>When</strong></p>
-          <p class="col"><strong>Note</strong></p>
-        </div>
-        <% current_user.most_recent_logs.each do |log| %>
-          <div class="row">
-            <p class="col"><%= log.symptom_description %></p>
-            <p class="col"><%= log.when %></p>
-            <p class="col"><%= log.note %></p><br>
-          </div>
-        <% end %>
-        <br>
-        <%= button_to 'See All Logs', 'insert_path_here' %>
+      <%= form_tag log_path, method: "post" do %>
+        <%= label_tag "What symptom did you experience?"%><br>
+        <%= select_tag :symptom, options_for_select(@potential_symptoms), :include_blank => true %><br>
+
+        <%= label_tag "When?"%><br>
+        <%= datetime_field_tag :when %><br>
+
+        <%= label_tag "Any additional notes?"%><br>
+        <%= text_area_tag :note %><br>
+
+        <%= submit_tag 'Save', class: "button" %>
       <% end %>
-    </center>
+    </div>
+
+    <div class="recent-logs">
+      <h3>Recent Symptom Logs</h3>
+      <div class="log-list">
+        <% if current_user.logs.empty? %>
+          <p>You have not yet recorded any symptoms.</p>
+        <% else %>
+          <div class="row">
+            <p class="col"><strong>Symptom</strong></p>
+            <p class="col"><strong>When</strong></p>
+            <p class="col"><strong>Note</strong></p>
+          </div>
+          <% current_user.most_recent_logs.each do |log| %>
+            <div class="row">
+              <p class="col"><%= log.symptom_description %></p>
+              <p class="col"><%= log.when %></p>
+              <p class="col"><%= log.note %></p><br>
+            </div>
+          <% end %>
+          <%= button_to 'See All Logs', 'insert_path_here' %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
