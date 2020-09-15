@@ -1,11 +1,9 @@
 RSpec.describe MedSearchResult do
   it 'has attributes' do
-    data = {
-      brand_name: "Adderall",
-      product_ndc: "123-1234"
-    }
+    brand_name = "Adderall"
+    product_ndc = "123-1234"
 
-    adderall = MedSearchResult.new(data)
+    adderall = MedSearchResult.new(brand_name, product_ndc)
 
     expect(adderall).to be_an_instance_of(MedSearchResult)
     expect(adderall.brand_name).to eq("Adderall")
