@@ -9,13 +9,16 @@ class MedicationsController < ApplicationController
   end
 
   def create
-    medication = current_user.medications.create(med_params)
-    symptoms = SEARCH_RESULTS.extract_symptoms(medication.product_ndc)
-    unless symptoms.nil?
-      medication.save_symptoms(symptoms)
+    medication = Medication.find_or_create_by(med_params)
+    if current_user.has_medication?(medication.id)
+      flash[:warning] = "Sorry, you've already added #{medication.brand_name} to your list!"
+      redirect_to '/medications/new'
+    else
+      current_user.add_medication(medication.id)
+      SEARCH_RESULTS.save_symptoms(medication.id)
       flash[:success] = "#{medication.brand_name} has been added to your medication list!"
+      redirect_to '/dashboard'
     end
-    redirect_to '/dashboard'
   end
 
   def edit

@@ -5,23 +5,4 @@ RSpec.describe Medication do
 
   it { should have_many :medication_symptoms }
   it { should have_many(:symptoms).through(:medication_symptoms) }
-
-  describe 'instance methods' do
-    before :each do
-      @medication = create(:medication)
-    end
-
-    it '#save_symptoms' do
-      symptoms = [
-        'headache',
-        'nausea',
-        'diarrhea'
-      ]
-      @medication.save_symptoms(symptoms)
-      @medication.symptoms.each do |symptom|
-        expect(symptom.class).to eq(Symptom)
-      end
-      expect(@medication.symptoms.count).to eq(3)
-    end
-  end
 end

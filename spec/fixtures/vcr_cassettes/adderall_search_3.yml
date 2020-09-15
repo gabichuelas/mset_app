@@ -1,0 +1,990 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://mset-api-service.herokuapp.com/med_search?medication_name=Adderall
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/html;charset=utf-8
+      Content-Length:
+      - '27489'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.3/2018-10-18)
+      Date:
+      - Tue, 15 Sep 2020 02:48:50 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "meta": {
+            "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+            "terms": "https://open.fda.gov/terms/",
+            "license": "https://open.fda.gov/license/",
+            "last_updated": "2020-09-14",
+            "results": {
+              "skip": 0,
+              "limit": 10,
+              "total": 13
+            }
+          },
+          "results": [
+            {
+              "product_ndc": "54092-381",
+              "generic_name": "Dextroamphetamine Sulfate, Dextroamphetamine Saccharate, Amphetamine Sulfate and Amphetamine Aspartate",
+              "labeler_name": "Shire US Manufacturing Inc.",
+              "dea_schedule": "CII",
+              "packaging": [
+                {
+                  "marketing_start_date": "20020522",
+                  "package_ndc": "54092-381-01",
+                  "description": "100 CAPSULE, EXTENDED RELEASE in 1 BOTTLE (54092-381-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name_suffix": "XR",
+              "brand_name": "Adderall XR",
+              "active_ingredients": [
+                {
+                  "strength": "1.25 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "1.25 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "1.25 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "1.25 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "aff45863-ffe1-4d4f-8acf-c7081512a6c0"
+                ],
+                "upc": [
+                  "0354092383016",
+                  "0354092385010",
+                  "0354092387014",
+                  "0354092389018",
+                  "0354092381012",
+                  "0354092391011"
+                ],
+                "manufacturer_name": [
+                  "Shire US Manufacturing Inc."
+                ],
+                "rxcui": [
+                  "861238",
+                  "861232",
+                  "861233",
+                  "861237",
+                  "861227",
+                  "861226",
+                  "861225",
+                  "861224",
+                  "861223",
+                  "861222",
+                  "861221",
+                  "861228"
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ]
+              },
+              "listing_expiration_date": "20201231",
+              "marketing_category": "NDA",
+              "dosage_form": "CAPSULE, EXTENDED RELEASE",
+              "spl_id": "b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20020522",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "54092-381_b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "application_number": "NDA021303",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            },
+            {
+              "product_ndc": "54092-383",
+              "generic_name": "Dextroamphetamine Sulfate, Dextroamphetamine Saccharate, Amphetamine Sulfate and Amphetamine Aspartate",
+              "labeler_name": "Shire US Manufacturing Inc.",
+              "dea_schedule": "CII",
+              "packaging": [
+                {
+                  "marketing_start_date": "20020522",
+                  "package_ndc": "54092-383-01",
+                  "description": "100 CAPSULE, EXTENDED RELEASE in 1 BOTTLE (54092-383-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name_suffix": "XR",
+              "brand_name": "Adderall XR",
+              "active_ingredients": [
+                {
+                  "strength": "2.5 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "2.5 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "2.5 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "2.5 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "aff45863-ffe1-4d4f-8acf-c7081512a6c0"
+                ],
+                "upc": [
+                  "0354092383016",
+                  "0354092385010",
+                  "0354092387014",
+                  "0354092389018",
+                  "0354092381012",
+                  "0354092391011"
+                ],
+                "manufacturer_name": [
+                  "Shire US Manufacturing Inc."
+                ],
+                "rxcui": [
+                  "861238",
+                  "861232",
+                  "861233",
+                  "861237",
+                  "861227",
+                  "861226",
+                  "861225",
+                  "861224",
+                  "861223",
+                  "861222",
+                  "861221",
+                  "861228"
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ]
+              },
+              "listing_expiration_date": "20201231",
+              "marketing_category": "NDA",
+              "dosage_form": "CAPSULE, EXTENDED RELEASE",
+              "spl_id": "b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20011011",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "54092-383_b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "application_number": "NDA021303",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            },
+            {
+              "product_ndc": "54092-385",
+              "generic_name": "Dextroamphetamine Sulfate, Dextroamphetamine Saccharate, Amphetamine Sulfate and Amphetamine Aspartate",
+              "labeler_name": "Shire US Manufacturing Inc.",
+              "dea_schedule": "CII",
+              "packaging": [
+                {
+                  "marketing_start_date": "20020522",
+                  "package_ndc": "54092-385-01",
+                  "description": "100 CAPSULE, EXTENDED RELEASE in 1 BOTTLE (54092-385-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name_suffix": "XR",
+              "brand_name": "Adderall XR",
+              "active_ingredients": [
+                {
+                  "strength": "3.75 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "3.75 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "3.75 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "3.75 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "aff45863-ffe1-4d4f-8acf-c7081512a6c0"
+                ],
+                "upc": [
+                  "0354092383016",
+                  "0354092385010",
+                  "0354092387014",
+                  "0354092389018",
+                  "0354092381012",
+                  "0354092391011"
+                ],
+                "manufacturer_name": [
+                  "Shire US Manufacturing Inc."
+                ],
+                "rxcui": [
+                  "861238",
+                  "861232",
+                  "861233",
+                  "861237",
+                  "861227",
+                  "861226",
+                  "861225",
+                  "861224",
+                  "861223",
+                  "861222",
+                  "861221",
+                  "861228"
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ]
+              },
+              "listing_expiration_date": "20201231",
+              "marketing_category": "NDA",
+              "dosage_form": "CAPSULE, EXTENDED RELEASE",
+              "spl_id": "b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20020522",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "54092-385_b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "application_number": "NDA021303",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            },
+            {
+              "product_ndc": "54092-387",
+              "generic_name": "Dextroamphetamine Sulfate, Dextroamphetamine Saccharate, Amphetamine Sulfate and Amphetamine Aspartate",
+              "labeler_name": "Shire US Manufacturing Inc.",
+              "dea_schedule": "CII",
+              "packaging": [
+                {
+                  "marketing_start_date": "20020522",
+                  "package_ndc": "54092-387-01",
+                  "description": "100 CAPSULE, EXTENDED RELEASE in 1 BOTTLE (54092-387-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name_suffix": "XR",
+              "brand_name": "Adderall XR",
+              "active_ingredients": [
+                {
+                  "strength": "5 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "5 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "5 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "5 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "aff45863-ffe1-4d4f-8acf-c7081512a6c0"
+                ],
+                "upc": [
+                  "0354092383016",
+                  "0354092385010",
+                  "0354092387014",
+                  "0354092389018",
+                  "0354092381012",
+                  "0354092391011"
+                ],
+                "manufacturer_name": [
+                  "Shire US Manufacturing Inc."
+                ],
+                "rxcui": [
+                  "861238",
+                  "861232",
+                  "861233",
+                  "861237",
+                  "861227",
+                  "861226",
+                  "861225",
+                  "861224",
+                  "861223",
+                  "861222",
+                  "861221",
+                  "861228"
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ]
+              },
+              "listing_expiration_date": "20201231",
+              "marketing_category": "NDA",
+              "dosage_form": "CAPSULE, EXTENDED RELEASE",
+              "spl_id": "b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20011011",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "54092-387_b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "application_number": "NDA021303",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            },
+            {
+              "product_ndc": "54092-389",
+              "generic_name": "Dextroamphetamine Sulfate, Dextroamphetamine Saccharate, Amphetamine Sulfate and Amphetamine Aspartate",
+              "labeler_name": "Shire US Manufacturing Inc.",
+              "dea_schedule": "CII",
+              "packaging": [
+                {
+                  "marketing_start_date": "20020522",
+                  "package_ndc": "54092-389-01",
+                  "description": "100 CAPSULE, EXTENDED RELEASE in 1 BOTTLE (54092-389-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name_suffix": "XR",
+              "brand_name": "Adderall XR",
+              "active_ingredients": [
+                {
+                  "strength": "6.25 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "6.25 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "6.25 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "6.25 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "aff45863-ffe1-4d4f-8acf-c7081512a6c0"
+                ],
+                "upc": [
+                  "0354092383016",
+                  "0354092385010",
+                  "0354092387014",
+                  "0354092389018",
+                  "0354092381012",
+                  "0354092391011"
+                ],
+                "manufacturer_name": [
+                  "Shire US Manufacturing Inc."
+                ],
+                "rxcui": [
+                  "861238",
+                  "861232",
+                  "861233",
+                  "861237",
+                  "861227",
+                  "861226",
+                  "861225",
+                  "861224",
+                  "861223",
+                  "861222",
+                  "861221",
+                  "861228"
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ]
+              },
+              "listing_expiration_date": "20201231",
+              "marketing_category": "NDA",
+              "dosage_form": "CAPSULE, EXTENDED RELEASE",
+              "spl_id": "b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20020522",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "54092-389_b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "application_number": "NDA021303",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            },
+            {
+              "product_ndc": "54092-391",
+              "generic_name": "Dextroamphetamine Sulfate, Dextroamphetamine Saccharate, Amphetamine Sulfate and Amphetamine Aspartate",
+              "labeler_name": "Shire US Manufacturing Inc.",
+              "dea_schedule": "CII",
+              "packaging": [
+                {
+                  "marketing_start_date": "20020522",
+                  "package_ndc": "54092-391-01",
+                  "description": "100 CAPSULE, EXTENDED RELEASE in 1 BOTTLE (54092-391-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name_suffix": "XR",
+              "brand_name": "Adderall XR",
+              "active_ingredients": [
+                {
+                  "strength": "7.5 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "7.5 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "7.5 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "7.5 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "aff45863-ffe1-4d4f-8acf-c7081512a6c0"
+                ],
+                "upc": [
+                  "0354092383016",
+                  "0354092385010",
+                  "0354092387014",
+                  "0354092389018",
+                  "0354092381012",
+                  "0354092391011"
+                ],
+                "manufacturer_name": [
+                  "Shire US Manufacturing Inc."
+                ],
+                "rxcui": [
+                  "861238",
+                  "861232",
+                  "861233",
+                  "861237",
+                  "861227",
+                  "861226",
+                  "861225",
+                  "861224",
+                  "861223",
+                  "861222",
+                  "861221",
+                  "861228"
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ]
+              },
+              "listing_expiration_date": "20201231",
+              "marketing_category": "NDA",
+              "dosage_form": "CAPSULE, EXTENDED RELEASE",
+              "spl_id": "b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20011011",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "54092-391_b5bcc0c8-1c57-4c95-8e0f-4277802efbff",
+              "application_number": "NDA021303",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            },
+            {
+              "product_ndc": "57844-105",
+              "generic_name": "Dextroamphetamine Saccharate, Amphetamine Aspartate, Dextroamphetamine Sulfate, and Amphetamine Sulfate",
+              "dea_schedule": "CII",
+              "labeler_name": "Teva Pharmaceuticals USA, Inc.",
+              "packaging": [
+                {
+                  "marketing_start_date": "20141113",
+                  "package_ndc": "57844-105-01",
+                  "description": "100 TABLET in 1 BOTTLE (57844-105-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Adderall",
+              "active_ingredients": [
+                {
+                  "strength": "1.25 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "1.25 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "1.25 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "1.25 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "f22635fe-821d-4cde-aa12-419f8b53db81"
+                ],
+                "manufacturer_name": [
+                  "Teva Pharmaceuticals USA, Inc."
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ],
+                "rxcui": [
+                  "1009145",
+                  "541363",
+                  "577961",
+                  "577957",
+                  "1009147",
+                  "541365",
+                  "541894",
+                  "541879",
+                  "541878",
+                  "541892",
+                  "577960",
+                  "687043",
+                  "687045",
+                  "577962"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "ANDA",
+              "dosage_form": "TABLET",
+              "spl_id": "e9cd0754-917c-4545-8963-e0b5b8fe544a",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20141113",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "57844-105_e9cd0754-917c-4545-8963-e0b5b8fe544a",
+              "application_number": "ANDA040422",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            },
+            {
+              "product_ndc": "57844-110",
+              "generic_name": "Dextroamphetamine Saccharate, Amphetamine Aspartate, Dextroamphetamine Sulfate, and Amphetamine Sulfate",
+              "dea_schedule": "CII",
+              "labeler_name": "Teva Pharmaceuticals USA, Inc.",
+              "packaging": [
+                {
+                  "marketing_start_date": "20140203",
+                  "package_ndc": "57844-110-01",
+                  "description": "100 TABLET in 1 BOTTLE (57844-110-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Adderall",
+              "active_ingredients": [
+                {
+                  "strength": "2.5 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "2.5 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "2.5 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "2.5 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "f22635fe-821d-4cde-aa12-419f8b53db81"
+                ],
+                "manufacturer_name": [
+                  "Teva Pharmaceuticals USA, Inc."
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ],
+                "rxcui": [
+                  "1009145",
+                  "541363",
+                  "577961",
+                  "577957",
+                  "1009147",
+                  "541365",
+                  "541894",
+                  "541879",
+                  "541878",
+                  "541892",
+                  "577960",
+                  "687043",
+                  "687045",
+                  "577962"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "ANDA",
+              "dosage_form": "TABLET",
+              "spl_id": "e9cd0754-917c-4545-8963-e0b5b8fe544a",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20140203",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "57844-110_e9cd0754-917c-4545-8963-e0b5b8fe544a",
+              "application_number": "ANDA040422",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            },
+            {
+              "product_ndc": "57844-112",
+              "generic_name": "Dextroamphetamine Saccharate, Amphetamine Aspartate, Dextroamphetamine Sulfate, and Amphetamine Sulfate",
+              "dea_schedule": "CII",
+              "labeler_name": "Teva Pharmaceuticals USA, Inc.",
+              "packaging": [
+                {
+                  "marketing_start_date": "20140618",
+                  "package_ndc": "57844-112-01",
+                  "description": "100 TABLET in 1 BOTTLE (57844-112-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Adderall",
+              "active_ingredients": [
+                {
+                  "strength": "3.125 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "3.125 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "3.125 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "3.125 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "f22635fe-821d-4cde-aa12-419f8b53db81"
+                ],
+                "manufacturer_name": [
+                  "Teva Pharmaceuticals USA, Inc."
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ],
+                "rxcui": [
+                  "1009145",
+                  "541363",
+                  "577961",
+                  "577957",
+                  "1009147",
+                  "541365",
+                  "541894",
+                  "541879",
+                  "541878",
+                  "541892",
+                  "577960",
+                  "687043",
+                  "687045",
+                  "577962"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "ANDA",
+              "dosage_form": "TABLET",
+              "spl_id": "e9cd0754-917c-4545-8963-e0b5b8fe544a",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20140618",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "57844-112_e9cd0754-917c-4545-8963-e0b5b8fe544a",
+              "application_number": "ANDA040422",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            },
+            {
+              "product_ndc": "57844-115",
+              "generic_name": "Dextroamphetamine Saccharate, Amphetamine Aspartate, Dextroamphetamine Sulfate, and Amphetamine Sulfate",
+              "dea_schedule": "CII",
+              "labeler_name": "Teva Pharmaceuticals USA, Inc.",
+              "packaging": [
+                {
+                  "marketing_start_date": "20140630",
+                  "package_ndc": "57844-115-01",
+                  "description": "100 TABLET in 1 BOTTLE (57844-115-01)",
+                  "sample": false
+                }
+              ],
+              "brand_name": "Adderall",
+              "active_ingredients": [
+                {
+                  "strength": "3.75 mg/1",
+                  "name": "DEXTROAMPHETAMINE SACCHARATE"
+                },
+                {
+                  "strength": "3.75 mg/1",
+                  "name": "AMPHETAMINE ASPARTATE MONOHYDRATE"
+                },
+                {
+                  "strength": "3.75 mg/1",
+                  "name": "DEXTROAMPHETAMINE SULFATE"
+                },
+                {
+                  "strength": "3.75 mg/1",
+                  "name": "AMPHETAMINE SULFATE"
+                }
+              ],
+              "finished": true,
+              "openfda": {
+                "is_original_packager": [
+                  true
+                ],
+                "spl_set_id": [
+                  "f22635fe-821d-4cde-aa12-419f8b53db81"
+                ],
+                "manufacturer_name": [
+                  "Teva Pharmaceuticals USA, Inc."
+                ],
+                "unii": [
+                  "6DPV8NK46S",
+                  "G83415V073",
+                  "O1ZPV620O4",
+                  "JJ768O327N"
+                ],
+                "rxcui": [
+                  "1009145",
+                  "541363",
+                  "577961",
+                  "577957",
+                  "1009147",
+                  "541365",
+                  "541894",
+                  "541879",
+                  "541878",
+                  "541892",
+                  "577960",
+                  "687043",
+                  "687045",
+                  "577962"
+                ]
+              },
+              "listing_expiration_date": "20211231",
+              "marketing_category": "ANDA",
+              "dosage_form": "TABLET",
+              "spl_id": "e9cd0754-917c-4545-8963-e0b5b8fe544a",
+              "route": [
+                "ORAL"
+              ],
+              "marketing_start_date": "20140630",
+              "product_type": "HUMAN PRESCRIPTION DRUG",
+              "product_id": "57844-115_e9cd0754-917c-4545-8963-e0b5b8fe544a",
+              "application_number": "ANDA040422",
+              "brand_name_base": "Adderall",
+              "pharm_class": [
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]",
+                "Central Nervous System Stimulant [EPC]",
+                "Central Nervous System Stimulation [PE]"
+              ]
+            }
+          ]
+        }
+  recorded_at: Tue, 15 Sep 2020 02:48:50 GMT
+recorded_with: VCR 6.0.0
