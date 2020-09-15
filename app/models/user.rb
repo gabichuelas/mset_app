@@ -23,6 +23,7 @@ class User < ApplicationRecord
   end
 
   def potential_symptoms
+    # this needs to be for a user specifically
     Symptom.joins(:medications).pluck(:description).uniq
   end
 
