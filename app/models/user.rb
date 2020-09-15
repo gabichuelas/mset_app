@@ -30,4 +30,8 @@ class User < ApplicationRecord
     return true if self.user_medications.find_by(medication_id: med_id)
     false
   end
+
+  def add_medication(med_id)
+    UserMedication.create(user_id: self.id, medication_id: med_id) unless self.has_medication?(med_id)
+  end
 end
