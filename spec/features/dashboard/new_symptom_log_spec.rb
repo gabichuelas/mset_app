@@ -17,7 +17,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
 
   it 'I can log a new symptom, and see a flash message confirming the new log as well as the log displayed in the recent logs section' do
     within('.log-form') do
-      select "Headache", from: :symptom
+      fill_in :symptom, with: "Headache"
       fill_in :when, with: "2020-09-13T23:09"
       fill_in :note, with: "7/10 pain scale"
       click_button "Save"
@@ -37,7 +37,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
 
   it 'I can successfully log a new symptom without including a note' do
     within('.log-form') do
-      select "Headache", from: :symptom
+      fill_in :symptom, with: "Headache"
       fill_in :when, with: "2020-09-13T23:09"
       fill_in :note, with: "7/10 pain scale"
       click_button "Save"
@@ -68,7 +68,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
 
   it 'If I try to log a new symptom without selecting a date/time, I receive an error' do
     within('.log-form') do
-      select "Headache", from: :symptom
+      fill_in :symptom, with: "Headache"
       fill_in :note, with: "7/10 pain scale"
       click_button "Save"
     end
@@ -90,7 +90,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
   xit 'I can submit a log for an unlisted symptom' do
     # this functionality has not yet been implemented - this test is just an outline
     within('.log-form') do
-      select "Other", from: :symptom
+      fill_in :symptom, with: "Other"
       # mvp UX: if user selects "other" they are required to include a note
       # ideal UX: there's a new form field that appears if "other" is selected and then the user is required to specify what the symptom was
       fill_in :when, with: "2020-09-13T23:09"
