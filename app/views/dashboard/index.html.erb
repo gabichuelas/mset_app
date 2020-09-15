@@ -62,17 +62,21 @@
     <center>
       <h3>Recent Symptom Logs</h3>
       <br>
-      <div class="row">
-        <p class="col"><strong>Symptom</strong></p>
-        <p class="col"><strong>When</strong></p>
-        <p class="col"><strong>Note</strong></p>
-      </div>
-      <% current_user.logs.each do |log| %>
+      <% if current_user.logs.empty? %>
+        <p>You have not yet recorded any symptoms.</p>
+      <% else %>
         <div class="row">
-          <p class="col"><%= log.symptom_description %></p>
-          <p class="col"><%= log.when %></p>
-          <p class="col"><%= log.note %></p><br>
+          <p class="col"><strong>Symptom</strong></p>
+          <p class="col"><strong>When</strong></p>
+          <p class="col"><strong>Note</strong></p>
         </div>
+        <% current_user.logs.each do |log| %>
+          <div class="row">
+            <p class="col"><%= log.symptom_description %></p>
+            <p class="col"><%= log.when %></p>
+            <p class="col"><%= log.note %></p><br>
+          </div>
+        <% end %>
       <% end %>
     </center>
   </div>
