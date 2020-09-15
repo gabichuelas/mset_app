@@ -41,7 +41,7 @@
       <h3>Log a Symptom:</h3><br>
       <%= form_tag log_path, method: "post" do %>
         <%= label_tag "What symptom did you experience?"%><br>
-        <%= select_tag :symptom, options_for_select(@potential_symptoms), :include_blank => true %><br>
+        <%= select_tag :symptom, options_for_select(@potential_symptoms.collect{ |symptom| [symptom.description, symptom.id] }), :include_blank => true %><br>
 
         <%= label_tag "When?"%><br>
         <%= datetime_field_tag :when %><br>
