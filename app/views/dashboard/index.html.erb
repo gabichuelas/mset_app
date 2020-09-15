@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <%= javascript_include_tag 'application','jquery', 'data-turbolinks-track' => true  %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
 <center>
   <h2>Welcome, <%= current_user.full_name %>! </h2>
   <%= render partial: '/partials/flash' %>
