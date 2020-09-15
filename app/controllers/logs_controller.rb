@@ -1,5 +1,3 @@
-require 'fuzzystringmatch'
-
 class LogsController < ApplicationController
   def create
     require "pry"; binding.pry
