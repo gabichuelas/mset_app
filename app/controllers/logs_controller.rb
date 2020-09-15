@@ -1,6 +1,5 @@
 class LogsController < ApplicationController
   def create
-    require "pry"; binding.pry
     symptom = Symptom.find_by(description: log_params[:symptom])
     log = Log.create(user: current_user, symptom: symptom, note: log_params[:note], when: log_params[:when])
     if log.save

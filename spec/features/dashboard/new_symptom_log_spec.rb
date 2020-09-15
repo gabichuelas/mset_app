@@ -25,9 +25,9 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
 
     expect(current_path).to eq('/symptoms/search')
     expect(page).to have_content('Select the correct symptom')
-    expect(page).to have_link('Headache')
+    expect(page).to have_button('Headache')
     click_on 'Headache'
- 
+
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("New symptom logged!")
 

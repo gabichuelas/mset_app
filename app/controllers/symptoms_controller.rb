@@ -12,6 +12,8 @@ class SymptomsController < ApplicationController
     @results = symptoms.select do |symptom|
       jarow.getDistance(search_params[:symptom].downcase, symptom.downcase) >= 0.855
     end
+
+    @log_hash = {when: search_params[:when], note: search_params[:note]}
   end
 
   private

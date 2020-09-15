@@ -1,1 +1,4 @@
 <h2>Select the correct symptom</h2>
+<% @results.each do |result| %>
+  <p><%= button_to "#{result}", '/logs', params: {symptom: result, when: @log_hash[:when], note: @log_hash[:note]}, method: :post %></p>
+<% end %>
