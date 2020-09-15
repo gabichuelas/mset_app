@@ -42,7 +42,8 @@
           <div class="row">
             <p class="col">
               <%= label_tag "What symptom did you experience?"%> <br>
-              <%= select_tag :symptom, options_for_select(@potential_symptoms), :include_blank => true %> <br><br>
+              <input id="finder" type="text" placeholder="Search symptoms">
+              <ul id="list"></ul>
             </p>
             <p class="col">
               <%= label_tag "When?"%> <br>
