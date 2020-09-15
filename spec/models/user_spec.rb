@@ -11,6 +11,8 @@ RSpec.describe User do
   describe "instance methods" do
     before :each do
       @user = create(:user, first_name: "Joe", last_name: "Doe")
+      @medication = create(:medication)
+      @medication2 = create(:medication)
     end
 
     it "user#full_name" do
@@ -18,11 +20,15 @@ RSpec.describe User do
     end
 
     it "user#has_medication?" do
-      medication = create(:medication)
-      medication2 = create(:medication)
-      UserMedication.create(user_id: @user.id, medication_id: medication.id)
-      expect(@user.has_medication?(medication.id)).to eq(true)
-      expect(@user.has_medication?(medication2.id)).to eq(false)
+      UserMedication.create(user_id: @user.id, medication_id: @medication.id)
+      expect(@user.has_medication?(@medication.id)).to eq(true)
+      expect(@user.has_medication?(@medication2.id)).to eq(false)
+    end
+
+    it "user#add_medication" do
+      @user.add_medication(@medication.id)
+      expect(@user.has_medication?(@medication.id)).to eq(true)
+      expect(@user.has_medication?(@medication2.id)).to eq(false)
     end
   end
 end
