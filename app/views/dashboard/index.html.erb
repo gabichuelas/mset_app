@@ -31,13 +31,14 @@
            <% end %>
          </ul>
          <%= button_to "Edit Medication List", "/medications/edit", method: :get %>
+         <br>
          <%= button_to "Add New Medication", "/medications/new", method: :get %>
       <% end %>
     </div>
   </div>
   <div class="log-form">
     <center>
-      <h3>Log a symptom here</h3><br>
+      <h3>Log a Symptom:</h3><br>
         <%= form_tag log_path, method: "post" do %>
           <div class="row">
             <p class="col">
@@ -59,19 +60,26 @@
   </div>
   <div class="recent-logs">
     <center>
-      <h3>Recent symptom logs</h3>
-      <div class="row">
-        <p class="col"><strong>Symptom</strong></p>
-        <p class="col"><strong>When</strong></p>
-        <p class="col"><strong>Note</strong></p>
-      </div>
-      <div class="row">
-        <% current_user.logs.each do |log| %>
-          <p class="col"><%= log.symptom_description %></p>
-          <p class="col"><%= log.when %></p>
-          <p class="col"><%= log.note %></p>
+      <h3>Recent Symptom Logs</h3>
+      <br>
+      <% if current_user.logs.empty? %>
+        <p>You have not yet recorded any symptoms.</p>
+      <% else %>
+        <div class="row">
+          <p class="col"><strong>Symptom</strong></p>
+          <p class="col"><strong>When</strong></p>
+          <p class="col"><strong>Note</strong></p>
+        </div>
+        <% current_user.most_recent_logs.each do |log| %>
+          <div class="row">
+            <p class="col"><%= log.symptom_description %></p>
+            <p class="col"><%= log.when %></p>
+            <p class="col"><%= log.note %></p><br>
+          </div>
         <% end %>
-      </div>
+        <br>
+        <%= button_to 'See All Logs', 'insert_path_here' %>
+      <% end %>
     </center>
   </div>
 </div>
