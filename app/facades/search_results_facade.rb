@@ -7,7 +7,7 @@ class SearchResultsFacade
     response = @service.med_search(name)
     results = json_parse(response)[:results]
     return nil if results.nil?
-    med_and_ndc_hash(results)
+    create_medsearchresult_objects(results)
   end
 
   def save_symptoms(med_id)
@@ -73,9 +73,7 @@ class SearchResultsFacade
     end
   end
 
-  def med_and_ndc_hash(results)
-    # should this return a temporary_medication PORO
-    # instead of a hash...?
+  def create_medsearchresult_objects(results)
     med_hash = Hash.new(0)
     results.each do |result|
       if med_hash.keys.include?(result[:brand_name])
@@ -84,7 +82,10 @@ class SearchResultsFacade
         med_hash[result[:brand_name]] = result[:product_ndc]
       end
     end
-    med_hash
+
+    med_hash.map do |brand_name, product_ndc|
+      MedSearchResult.new(brand_name, product_ndc)
+    end
   end
 
   def json_parse(response)

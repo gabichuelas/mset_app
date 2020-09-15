@@ -3,7 +3,7 @@ class MedicationsController < ApplicationController
 
   def search
     results = SEARCH_RESULTS.med_search_results(med_params[:brand_name])
-    return @med_hash = results unless results.nil?
+    return @med_results = results unless results.nil?
     flash[:warning] = "Sorry, your search did not return any results. Please try another search."
     redirect_to '/medications/new'
   end
