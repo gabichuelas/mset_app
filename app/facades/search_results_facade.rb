@@ -56,9 +56,6 @@ class SearchResultsFacade
   end
 
   def med_and_ndc_hash(results)
-    # binding.pry
-    # should this return a temporary_medication PORO
-    # instead of a hash...?
     med_hash = Hash.new(0)
     results.each do |result|
       if med_hash.keys.include?(result[:brand_name])
