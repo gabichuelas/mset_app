@@ -35,12 +35,25 @@ class SearchResultsFacade
     end
   end
 
+  def parsing_conditions(element)
+    element.text.downcase.strip.include?('system' ||
+      'only' ||
+      'disorders' ||
+      '%' ||
+      'adverse event' ||
+      'placebo' ||
+      'general' ||
+      'metabolic/nutritional') ||
+    element.name == 'footnote' ||
+    element.text == ' ' ||
+    element.text.split(' ').size > 3 ||
+    element.text=~ /\d/
+  end
+
   def nokogiri_parser(table, acc)
     page = Nokogiri::XML(table)
     page.css('tbody').select do |node|
-      node.traverse do |el|
-        acc << el.text.strip unless el.text.include?('%') || el.text.include?('System') || el.text.strip == 'General' || el.text.strip == 'Metabolic/Nutritional' || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3 || el.text.include?('only') || el.text=~ /\d/
-      end
+      node.traverse { |element| acc << element unless parsing_conditions(element) }
     end
   end
 
@@ -61,4 +74,3 @@ class SearchResultsFacade
   def json_parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end
-end
