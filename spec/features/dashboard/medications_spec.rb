@@ -3,12 +3,10 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     @user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit '/dashboard'
+    click_on('Add New Medication')
   end
 
   it 'I can add medication' do
-
-    expect(page).to have_button('Add New Medication')
-    click_on('Add New Medication')
 
     expect(current_path).to eq('/medications/new')
     expect(page).to have_content("Enter brand medication name")
@@ -31,9 +29,6 @@ RSpec.describe 'User can add a medication by name', type: :feature do
   end
 
   it "When I add a new medication, that medication's side effects are also saved to the database" do
-
-    expect(page).to have_button('Add New Medication')
-    click_on('Add New Medication')
 
     expect(current_path).to eq('/medications/new')
     expect(page).to have_content("Enter brand medication name")
@@ -59,9 +54,6 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
   it "SAD PATH: When I add a new medication without an adverse_reactions_table, user is redirected to dashboard and no symptoms are added" do
 
-    expect(page).to have_button('Add New Medication')
-    click_on('Add New Medication')
-
     fill_in :brand_name, with: 'adderall'
     click_on 'Find Medication'
 
@@ -73,10 +65,34 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     expect(page).to have_content('Adderall')
   end
 
-  it 'If I enter an invalid medication, I see a flash message and am redirected to the search page' do
+  it "SAD PATH: Medications aren't duplicated in the user_medications table if user tries to add them twice" do
 
-    expect(page).to have_button('Add New Medication')
+    fill_in :brand_name, with: 'adderall'
+    click_on 'Find Medication'
+
+    within('.medications', match: :first) do
+      click_on 'Adderall'
+    end
+
+    expect(current_path).to eq('/dashboard')
+    expect(page).to have_content('Adderall')
+
     click_on('Add New Medication')
+
+    fill_in :brand_name, with: 'adderall'
+    click_on 'Find Medication'
+
+    within('.medications', match: :first) do
+      click_on 'Adderall'
+    end
+
+    expect(current_path).to eq('/dashboard')
+    within('.med-list') do
+      expect(page).to have_content('Adderall').once
+    end
+  end
+
+  it 'If I enter an invalid medication, I see a flash message and am redirected to the search page' do
 
     expect(current_path).to eq('/medications/new')
     expect(page).to have_content('Enter brand medication name')
