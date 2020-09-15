@@ -10,6 +10,12 @@ class SearchResultsFacade
     med_and_ndc_hash(results)
   end
 
+  def get_symptoms(product_ndc)
+    extract_symptoms(product_ndc)
+  end
+
+  private
+
   def extract_symptoms(product_ndc)
     tables = adverse_reactions_table(product_ndc)
     return nil if tables.nil? || tables[0].nil?
@@ -23,8 +29,6 @@ class SearchResultsFacade
     symptoms.delete("") if symptoms.include?("")
     symptoms
   end
-
-  private
 
   def adverse_reactions_table(product_ndc)
     response = @service.sym_search(product_ndc)

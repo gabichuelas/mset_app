@@ -6,7 +6,7 @@ class Medication < ApplicationRecord
   has_many :user_medications, dependent: :destroy
 
   def save_symptoms
-    symptoms = get_symptoms
+    symptoms = SearchResultsFacade.new.get_symptoms(self.product_ndc)
     if !symptoms.nil?
       symptoms.each do |symptom|
         new_sym = Symptom.find_or_create_by(description: symptom)
@@ -15,7 +15,4 @@ class Medication < ApplicationRecord
     end
   end
 
-  def get_symptoms
-    SearchResultsFacade.new.extract_symptoms(self.product_ndc)
-  end
 end
