@@ -10,6 +10,19 @@ class SearchResultsFacade
     med_and_ndc_hash(results)
   end
 
+  def save_symptoms(med_id)
+    medication = Medication.find(med_id)
+    symptoms = extract_symptoms(medication.product_ndc)
+    if !symptoms.nil?
+      symptoms.each do |symptom|
+        new_sym = Symptom.find_or_create_by(description: symptom)
+        MedicationSymptom.create(medication_id: med_id, symptom_id: new_sym.id)
+      end
+    end
+  end
+
+  private
+
   def extract_symptoms(product_ndc)
     tables = adverse_reactions_table(product_ndc)
     return nil if tables.nil? || tables[0].nil?
@@ -23,8 +36,6 @@ class SearchResultsFacade
     symptoms.delete("") if symptoms.include?("")
     symptoms
   end
-
-  private
 
   def adverse_reactions_table(product_ndc)
     response = @service.sym_search(product_ndc)

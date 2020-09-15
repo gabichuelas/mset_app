@@ -20,15 +20,15 @@ RSpec.describe User do
     end
 
     it "user#has_medication?" do
-      UserMedication.create(user_id: @user.id, medication_id: @medication.id)
-      expect(@user.has_medication?(@medication.id)).to eq(true)
-      expect(@user.has_medication?(@medication2.id)).to eq(false)
+     UserMedication.create(user_id: @user.id, medication_id: @medication.id)
+     expect(@user.has_medication?(@medication.id)).to eq(true)
+     expect(@user.has_medication?(@medication2.id)).to eq(false)
     end
 
     it "user#add_medication" do
       @user.add_medication(@medication.id)
       expect(@user.has_medication?(@medication.id)).to eq(true)
       expect(@user.has_medication?(@medication2.id)).to eq(false)
-    end
+   end
   end
 end

@@ -26,6 +26,15 @@ class User < ApplicationRecord
     Symptom.joins(:medications).pluck(:description).uniq
   end
 
+  def has_medication?(med_id)
+    return true if self.user_medications.find_by(medication_id: med_id)
+    false
+  end
+
+  def add_medication(med_id)
+    UserMedication.create(user_id: self.id, medication_id: med_id) unless self.has_medication?(med_id)
+  end
+
   def most_recent_logs
     logs.order(when: :desc).limit(10)
   end
