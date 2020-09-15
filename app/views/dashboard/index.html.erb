@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous">
-</script>
-<script src="fuse.min.js"></script>
-<script src="fuzzycomplete.min.js"></script>
 <center>
   <h2>Welcome, <%= current_user.full_name %>! </h2>
   <%= render partial: '/partials/flash' %>
@@ -49,7 +43,7 @@
           <div class="row">
             <p class="col">
               <%= label_tag "What symptom did you experience?"%> <br>
-              <input type="text" name="search" id="search" value="" data-js-search="true" />
+              <%= text_field_tag :symptom, nil, placeholder: 'Search Symptoms' %>
             </p>
             <p class="col">
               <%= label_tag "When?"%> <br>
