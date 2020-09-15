@@ -33,5 +33,8 @@ class User < ApplicationRecord
 
   def add_medication(med_id)
     UserMedication.create(user_id: self.id, medication_id: med_id) unless self.has_medication?(med_id)
+
+  def most_recent_logs
+    logs.order(when: :desc).limit(10)
   end
 end
