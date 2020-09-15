@@ -35,26 +35,29 @@ class SearchResultsFacade
     end
   end
 
-  def parsing_conditions(element)
-    return true if element.text.downcase.strip.include?('system' ||
-    'only' ||
-    'disorders' ||
-    '%' ||
-    'adverse event' ||
-    'placebo' ||
-    'general' ||
-    'metabolic/nutritional') ||
-    element.name == 'footnote' ||
-    element.text == ' ' ||
-    element.text.split(' ').size > 3 ||
-    element.text=~ /\d/
-  end
+  # def parsing_conditions(element)
+  #   return true if element.text.downcase=~/\d|%|only|hctz|
+  #   road|traffic|system|general|digestive|
+  #   musculo-skeletal|urogenital|gastrointestinal|
+  #   cramps leg|other|fatal|musculoskeletal|cutaneous|
+  #   patients|surgical|none reported|special|
+  #   dermatological|psychiatric|neurologic|major|
+  #   major noncerebral|respiratory|disorders|
+  #   reactions|table|metabolic|nutritional|
+  #   adverse|event|placebo/ ||
+  #   element.name == 'footnote' ||
+  #   element.text == ' ' ||
+  #   element.text.split(' ').size > 3
+  # end
 
   def nokogiri_parser(table, acc)
     page = Nokogiri::XML(table)
     page.css('tbody').select do |node|
       node.traverse do |el|
-        acc << el.text.strip unless el.text.downcase=~/\d|%|only|hctz|system|general|digestive|musculo-skeletal|urogenital|respiratory|disorders|reactions|table|metabolic|nutritional|adverse|event|placebo/ || el.name == 'footnote' || el.text == ' ' || el.text.split(' ').size > 3
+        acc << el.text.strip unless el.text.downcase=~/\d|%|only|hctz|road|traffic|system|general|digestive|musculo-skeletal|urogenital|gastrointestinal|cramps leg|other|fatal|musculoskeletal|cutaneous|patients|surgical|none reported|special|dermatological|psychiatric|neurologic|major|major noncerebral|respiratory|disorders|reactions|table|metabolic|nutritional|adverse|event|placebo/ ||
+        el.name == 'footnote' ||
+        el.text == ' ' ||
+        el.text.split(' ').size > 3
       end
     end
   end
