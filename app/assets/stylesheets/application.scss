@@ -13,23 +13,28 @@
 
  */
 
- html, body {
-   height: 100%;
- }
+html, body {
+ height: 100%;
+}
 
- body {
-   display: flex;
-   flex-direction: column;
- }
+body {
+ display: flex;
+ flex-direction: column;
+}
 
- .content {
-   flex: 1 0 auto;
- }
+.container {
+  flex: 1 0 auto;
+}
 
- footer,  {
-   flex-shrink: 0;
-   text-align: center;
- }
+// .content {
+//   flex: 1 0 auto;
+// }
+
+footer,  {
+ flex-shrink: 0;
+ text-align: center;
+ margin-bottom: 40px;
+}
 
 @import "bootstrap";
 @import "welcome";
