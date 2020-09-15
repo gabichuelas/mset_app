@@ -56,6 +56,7 @@ class SearchResultsFacade
   end
 
   def med_and_ndc_hash(results)
+    # binding.pry
     # should this return a temporary_medication PORO
     # instead of a hash...?
     med_hash = Hash.new(0)
@@ -66,7 +67,10 @@ class SearchResultsFacade
         med_hash[result[:brand_name]] = result[:product_ndc]
       end
     end
-    med_hash
+
+    med_hash.map do |brand_name, product_ndc|
+      MedSearchResult.new(brand_name, product_ndc)
+    end
   end
 
   def json_parse(response)
