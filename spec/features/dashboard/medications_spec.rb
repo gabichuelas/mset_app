@@ -7,62 +7,76 @@ RSpec.describe 'User can add a medication by name', type: :feature do
   end
 
   it 'I can add medication' do
+    VCR.use_cassette('adderall_search') do
+      expect(page).to have_button('Add New Medication')
+      click_on('Add New Medication')
 
-    expect(current_path).to eq('/medications/new')
-    expect(page).to have_content("Enter brand medication name")
+      expect(current_path).to eq('/medications/new')
+      expect(page).to have_content("Enter brand medication name")
 
-    fill_in :brand_name, with: 'Adderall'
-    click_on 'Find Medication'
+      fill_in :brand_name, with: 'Adderall'
+      click_on 'Find Medication'
 
-    expect(current_path).to eq('/medications/search')
+      expect(current_path).to eq('/medications/search')
 
-    expect(page).to have_content('Please select the correct medication brand name')
+      expect(page).to have_content('Please select the correct medication brand name')
 
-    within('.medications', match: :first) do
-      expect(page).to have_button('Adderall XR')
-      click_on 'Adderall XR'
+      within('.medications', match: :first) do
+        expect(page).to have_button('Adderall XR')
+        click_on 'Adderall XR'
+      end
+
+      expect(current_path).to eq('/dashboard')
+      expect(page).to have_content('Adderall XR')
+      expect(page).to have_content("Adderall XR has been added to your medication list!")
     end
-
-    expect(current_path).to eq('/dashboard')
-    expect(page).to have_content('Adderall XR')
-    expect(page).to have_content("Adderall XR has been added to your medication list!")
   end
 
   it "When I add a new medication, that medication's side effects are also saved to the database" do
+    VCR.use_cassette('adderall_search') do
+      expect(page).to have_button('Add New Medication')
+      click_on('Add New Medication')
 
-    expect(current_path).to eq('/medications/new')
-    expect(page).to have_content("Enter brand medication name")
+      expect(current_path).to eq('/medications/new')
+      expect(page).to have_content("Enter brand medication name")
 
-    fill_in :brand_name, with: 'Adderall'
-    click_on 'Find Medication'
+      fill_in :brand_name, with: 'Adderall'
+      click_on 'Find Medication'
 
-    expect(current_path).to eq('/medications/search')
+      expect(current_path).to eq('/medications/search')
 
-    expect(page).to have_content('Please select the correct medication brand name')
+      expect(page).to have_content('Please select the correct medication brand name')
 
-    within('.medications', match: :first) do
-      expect(page).to have_button('Adderall XR')
-      click_on 'Adderall XR'
+      within('.medications', match: :first) do
+        expect(page).to have_button('Adderall XR')
+        click_on 'Adderall XR'
+      end
+
+      adderall_xr = Medication.last
+
+      expect(adderall_xr.brand_name).to eq('Adderall XR')
+      adderall_symptoms = MedicationSymptom.where(medication_id: adderall_xr.id)
+      expect(adderall_symptoms.empty?).to eq(false)
     end
-
-    adderall_xr = Medication.last
-
-    expect(adderall_xr.brand_name).to eq('Adderall XR')
-    adderall_symptoms = MedicationSymptom.where(medication_id: adderall_xr.id)
-    expect(adderall_symptoms.empty?).to eq(false)
   end
 
-  it "SAD PATH: When I add a new medication without an adverse_reactions_table, user is redirected to dashboard and no symptoms are added" do
+  it "Edge case: When I add a new medication without an adverse_reactions_table, user is redirected to dashboard and no symptoms are added" do
+    VCR.use_cassette('hand_sanitizer_search') do
+      expect(page).to have_button('Add New Medication')
+      click_on('Add New Medication')
 
-    fill_in :brand_name, with: 'adderall'
-    click_on 'Find Medication'
+      fill_in :brand_name, with: 'hand sanitizer'
+      click_on 'Find Medication'
 
-    within('.medications', match: :first) do
-      click_on 'Adderall'
+      within('.medications', match: :first) do
+        click_on 'HAND SANITIZER'
+      end
+
+      expect(current_path).to eq('/dashboard')
+      expect(page).to have_content('HAND SANITIZER')
+
+      expect(@user.potential_symptoms).to be_empty
     end
-
-    expect(current_path).to eq('/dashboard')
-    expect(page).to have_content('Adderall')
   end
 
   it "SAD PATH: Medications aren't duplicated in the user_medications table if user tries to add them twice" do
@@ -98,5 +112,19 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     fill_in :brand_name, with: 'spiro'
     click_on 'Find Medication'
     expect(page).to have_content('Sorry, your search did not return any results. Please try another search.')
+  end 
+
+  it 'If I enter an invalid medication, I see a flash message and am redirected to the search page' do
+    VCR.use_cassette('nonexistant_med_search') do
+      expect(page).to have_button('Add New Medication')
+      click_on('Add New Medication')
+
+      expect(current_path).to eq('/medications/new')
+      expect(page).to have_content('Enter brand medication name')
+
+      fill_in :brand_name, with: 'spiro'
+      click_on 'Find Medication'
+      expect(page).to have_content('Sorry, your search did not return any results. Please try another search.')
+    end
   end
 end
