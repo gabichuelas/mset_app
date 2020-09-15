@@ -1,6 +1,6 @@
 <h1>All Medications</h1>
 <%= render partial: '/partials/flash' %>
-<p><%= button_to 'Add New Medication', '/medications/new', method: :get %>
+<p><a href="/medications/new" class="btn btn-primary">Add New Medication</a>
 <br>
 <% @medications.each do |medication| %>
   <section class="medications">

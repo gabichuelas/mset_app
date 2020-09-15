@@ -24,7 +24,7 @@
       <h4>Medication List</h4>
       <% if current_user.medications.empty? %>
         <p>You don't have any saved medications.</p>
-        <a href="/medications/new" class="btn btn-primary" >Add New Medication</a>
+        <a href="/medications/new" class="btn btn-primary">Add New Medication</a>
       <% else %>
         <ul>
            <% current_user.medications.each do |medication| %>
