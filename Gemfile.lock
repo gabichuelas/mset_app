@@ -9,6 +9,9 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    RubyInline (3.12.5)
+      ZenTest (~> 4.3)
+    ZenTest (4.12.0)
     actioncable (5.2.4.4)
       actionpack (= 5.2.4.4)
       nio4r (~> 2.0)
@@ -118,6 +121,8 @@ GEM
     ffi (1.13.1)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
+    fuzzy-string-match (1.0.1)
+      RubyInline (>= 3.8.6)
     g (1.7.2)
     gh (0.18.0)
       activesupport (~> 5.0)
@@ -371,6 +376,7 @@ DEPENDENCIES
   factory_bot_rails
   faker!
   figaro
+  fuzzy-string-match
   irbtools
   jbuilder (~> 2.5)
   jquery-rails
