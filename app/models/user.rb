@@ -25,4 +25,9 @@ class User < ApplicationRecord
   def potential_symptoms
     Symptom.joins(:medications).pluck(:description).uniq
   end
+
+  def has_medication?(med_id)
+    return true if self.user_medications.find_by(medication_id: med_id)
+    false
+  end
 end
