@@ -25,4 +25,8 @@ class User < ApplicationRecord
   def potential_symptoms
     Symptom.joins(:medications).pluck(:description).uniq
   end
+
+  def most_recent_logs
+    logs.order(when: :desc).limit(10)
+  end
 end
