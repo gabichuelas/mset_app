@@ -20,5 +20,5 @@ Rails.application.routes.draw do
 
   post '/log', to: 'logs#create'
 
-  get '/symptoms', to: 'symptoms#search'
+  get '/symptoms/search', to: 'symptoms#search'
 end
