@@ -3,16 +3,9 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
-
-
-$( document ).ready(function() {
-  $("#hide").click(function(){
-    $("p").hide();
-   });
-});
-
-$( document ).ready(function() {
-  $("#show").click(function(){
-    $("p").show();
+$(document).ready(function(){
+  $('[data-js-search]').change(function(event) {
+    search_term = $(this).val();
+    alert('You are searching for ' + search_term);
   });
 });

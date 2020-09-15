@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous">
+</script>
+<script src="fuse.min.js"></script>
+<script src="fuzzycomplete.min.js"></script>
 <center>
   <h2>Welcome, <%= current_user.full_name %>! </h2>
   <%= render partial: '/partials/flash' %>
 </center>
-
-
-<body>
-
-<p>If you click on the "Hide" button, I will disappear.</p>
-
-<button id="hide">Hide</button>
-<button id="show">Show</button>
-
-</body>
 <div class="grid-container">
   <div class="sidebar">
     <div class="profile">
@@ -53,8 +49,7 @@
           <div class="row">
             <p class="col">
               <%= label_tag "What symptom did you experience?"%> <br>
-              <input id="finder" type="text" placeholder="Search symptoms">
-              <ul id="list"></ul>
+              <input type="text" name="search" id="search" value="" data-js-search="true" />
             </p>
             <p class="col">
               <%= label_tag "When?"%> <br>
