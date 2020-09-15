@@ -8,8 +8,6 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
   it 'I can add medication' do
     VCR.use_cassette('adderall_search') do
-      expect(page).to have_button('Add New Medication')
-      click_on('Add New Medication')
 
       expect(current_path).to eq('/medications/new')
       expect(page).to have_content("Enter brand medication name")
@@ -34,11 +32,6 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
   it "When I add a new medication, that medication's side effects are also saved to the database" do
     VCR.use_cassette('adderall_search') do
-      expect(page).to have_button('Add New Medication')
-      click_on('Add New Medication')
-
-    expect(current_path).to eq('/medications/new')
-    expect(page).to have_content("Enter brand medication name")
 
       fill_in :brand_name, with: 'Adderall'
       click_on 'Find Medication'
@@ -62,8 +55,6 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
   it "Edge case: When I add a new medication without an adverse_reactions_table, user is redirected to dashboard and no symptoms are added" do
     VCR.use_cassette('hand_sanitizer_search') do
-      expect(page).to have_button('Add New Medication')
-      click_on('Add New Medication')
 
       fill_in :brand_name, with: 'hand sanitizer'
       click_on 'Find Medication'
@@ -81,33 +72,36 @@ RSpec.describe 'User can add a medication by name', type: :feature do
 
   it "SAD PATH: Medications aren't duplicated in the user_medications table if user tries to add them twice" do
 
-    fill_in :brand_name, with: 'adderall'
-    click_on 'Find Medication'
+    VCR.use_cassette('adderall_search_2') do
 
-    within('.medications', match: :first) do
-      click_on 'Adderall'
+      fill_in :brand_name, with: 'Adderall'
+      click_on 'Find Medication'
+
+      within('.medications', match: :first) do
+        click_on 'Adderall'
+      end
+
+      expect(current_path).to eq('/dashboard')
+      expect(page).to have_content('Adderall')
+
+      VCR.use_cassette('adderall_search_3') do
+        click_on('Add New Medication')
+
+        fill_in :brand_name, with: 'Adderall'
+        click_on 'Find Medication'
+
+        within('.medications', match: :first) do
+          click_on 'Adderall'
+        end
+
+        expect(current_path).to eq('/medications/new')
+        expect(page).to have_content("Sorry, you've already added Adderall to your list!")
+      end
     end
-
-    expect(current_path).to eq('/dashboard')
-    expect(page).to have_content('Adderall')
-
-    click_on('Add New Medication')
-
-    fill_in :brand_name, with: 'adderall'
-    click_on 'Find Medication'
-
-    within('.medications', match: :first) do
-      click_on 'Adderall'
-    end
-
-    expect(current_path).to eq('/medications/new')
-    expect(page).to have_content("Sorry, you've already added Adderall to your list!")
   end
 
   it 'If I enter an invalid medication, I see a flash message and am redirected to the search page' do
     VCR.use_cassette('nonexistant_med_search') do
-      expect(page).to have_button('Add New Medication')
-      click_on('Add New Medication')
 
       expect(current_path).to eq('/medications/new')
       expect(page).to have_content('Enter brand medication name')

@@ -15,7 +15,7 @@ class MedicationsController < ApplicationController
       redirect_to '/medications/new'
     else
       current_user.add_medication(medication.id)
-      medication.save_symptoms
+      SEARCH_RESULTS.save_symptoms(medication.id)
       flash[:success] = "#{medication.brand_name} has been added to your medication list!"
       redirect_to '/dashboard'
     end
