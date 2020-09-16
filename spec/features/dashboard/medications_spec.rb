@@ -66,7 +66,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content('HAND SANITIZER')
 
-      expect(@user.potential_symptoms).to be_empty
+      expect(Symptom.potential_symptoms(@user)).to be_empty
     end
   end
 
