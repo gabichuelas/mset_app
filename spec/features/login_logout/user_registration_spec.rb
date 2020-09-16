@@ -51,7 +51,7 @@ RSpec.describe 'As a visitor' do
     scenario 'I am redirected to the dashboard when I route to the welcome/login page' do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      visit welcome_path
+      visit root_path
       expect(current_path).to eq(dashboard_path)
     end
   end
