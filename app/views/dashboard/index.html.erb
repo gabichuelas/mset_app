@@ -81,21 +81,6 @@
         <% if current_user.logs.empty? %>
           <p>You have not yet recorded any symptoms.</p>
         <% else %>
-          <div class="row">
-            <p class="col">
-              <%= label_tag "What symptom did you experience?"%> <br>
-              <%= text_field_tag :symptom, nil, placeholder: 'Search Symptoms' %>
-            </p>
-            <p class="col">
-              <%= label_tag "When?"%> <br>
-              <%= datetime_field_tag :when %> <br><br>
-            </p>
-            <p>
-              <%= label_tag "Any additional notes?"%><br>
-              <%= text_area_tag :note %> <br>
-            </p>
-            <p class="col"><%= submit_tag 'Save', class: "button" %></p>
-          </div>
           <% current_user.most_recent_logs.each do |log| %>
             <div class="row">
               <p class="col"><%= log.symptom.description %></p>
