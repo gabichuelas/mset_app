@@ -45,6 +45,6 @@ RSpec.describe 'As an authenticated user, I can view all my symptom logs on one 
   end
 
   it 'I can visit the logs index page via a button in the nav bar' do
-
+    # to be filled in when nav bar is finalzed
   end
 end
