@@ -34,10 +34,30 @@
       <% end %>
     </div>
   </div>
-  <div class="log-form">
-    <center>
-      <h3>Log a symptom here</h3><br>
-        <%= form_tag '/symptoms/search', method: "get" do %>
+  <div class="main">
+
+    <div class="log-form">
+      <h3>Log a Symptom:</h3><br>
+      <%= form_tag logs_path, method: "post" do %>
+        <%= label_tag "What symptom did you experience?"%><br>
+        <%= text_field_tag :symptom, nil, placeholder: 'Search Symptoms' %>
+
+        <%= label_tag "When?"%><br>
+        <%= datetime_field_tag :when %><br>
+
+        <%= label_tag "Any additional notes?"%><br>
+        <%= text_area_tag :note %><br>
+
+        <%= submit_tag 'Save', class: "button" %>
+      <% end %>
+    </div>
+
+    <div class="recent-logs">
+      <h3>Recent Symptom Logs</h3>
+      <div class="log-list">
+        <% if current_user.logs.empty? %>
+          <p>You have not yet recorded any symptoms.</p>
+        <% else %>
           <div class="row">
             <p class="col">
               <%= label_tag "What symptom did you experience?"%> <br>
@@ -55,12 +75,12 @@
           </div>
           <% current_user.most_recent_logs.each do |log| %>
             <div class="row">
-              <p class="col"><%= log.symptom_description %></p>
+              <p class="col"><%= log.symptom.description %></p>
               <p class="col"><%= log.when %></p>
               <p class="col"><%= log.note %></p><br>
             </div>
           <% end %>
-          <%= button_to 'See All Logs', 'insert_path_here' %>
+          <%= button_to 'See All Logs', '/logs', method: 'get'%>
         <% end %>
       </div>
     </div>

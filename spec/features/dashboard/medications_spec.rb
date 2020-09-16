@@ -53,7 +53,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     end
   end
 
-  xit "Edge case: When I add a new medication without an adverse_reactions_table, user is redirected to dashboard and no symptoms are added" do
+  it "Edge case: When I add a new medication without an adverse_reactions_table, user is redirected to dashboard and no symptoms are added" do
     VCR.use_cassette('hand_sanitizer_search') do
 
       fill_in :brand_name, with: 'hand sanitizer'
@@ -110,5 +110,13 @@ RSpec.describe 'User can add a medication by name', type: :feature do
       click_on 'Find Medication'
       expect(page).to have_content('Sorry, your search did not return any results. Please try another search.')
     end
+  end
+
+  it 'I can click a button to return to my dashboard' do
+    expect(page).to have_button('Back to Dashboard')
+
+    click_button 'Back to Dashboard'
+
+    expect(current_path).to eq('/dashboard')
   end
 end

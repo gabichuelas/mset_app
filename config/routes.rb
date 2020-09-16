@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   delete '/medications/delete', to: 'medications#destroy'
 
   post '/logs', to: 'logs#create'
+  get '/logs', to: 'logs#index'
 
   get '/symptoms/search', to: 'symptoms#search'
 end
