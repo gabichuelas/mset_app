@@ -7,11 +7,7 @@ class SymptomsController < ApplicationController
       redirect_to request.referer
     else
       jarow = FuzzyStringMatch::JaroWinkler.create(:native)
-      symptoms = current_user.medications.map do |med|
-        med.symptoms.map do |sym|
-          sym.description
-        end
-      end.flatten
+      symptoms = Symptom.potential_symptoms(current_user).map {|symptom| symptom.description }
       @results = symptoms.select do |symptom|
         jarow.getDistance(search_params[:symptom].downcase, symptom.downcase) >= 0.7
       end
