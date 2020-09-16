@@ -11,6 +11,8 @@ class LogsController < ApplicationController
     end
   end
 
+  def index; end
+
   private
 
   def log_params

@@ -29,6 +29,20 @@ RSpec.describe User do
       @user.add_medication(@medication.id)
       expect(@user.has_medication?(@medication.id)).to eq(true)
       expect(@user.has_medication?(@medication2.id)).to eq(false)
-   end
+    end
+
+    it 'user#most_recent_logs' do
+      create_list(:symptom, 10)
+
+      symptoms = Symptom.all
+
+      15.times do
+        Log.create(user: @user, symptom: symptoms.sample, note: Faker::Marketing.buzzwords, when: Faker::Date.in_date_period)
+      end
+
+      expect(@user.most_recent_logs.length).to eq(10)
+      expect(@user.most_recent_logs[0].when > @user.most_recent_logs[1].when).to eq(true)
+      expect(@user.most_recent_logs[1].when > @user.most_recent_logs[2].when).to eq(true)
+    end
   end
 end
