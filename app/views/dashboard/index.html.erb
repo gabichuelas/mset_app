@@ -82,10 +82,10 @@
           <p>You have not yet recorded any symptoms.</p>
         <% else %>
           <% current_user.most_recent_logs.each do |log| %>
-            <div class="row">
-              <p class="col"><%= log.symptom.description %></p>
-              <p class="col"><%= log.when %></p>
-              <p class="col"><%= log.note %></p><br>
+            <div class="row log">
+              <p class="col symptom"><%= log.symptom.description %></p>
+              <p class="col when"><%= log.when %></p>
+              <p class="col note"><%= log.note %></p><br>
             </div>
           <% end %>
           <div class="row">
