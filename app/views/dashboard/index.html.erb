@@ -66,12 +66,12 @@
           </div>
           <% current_user.most_recent_logs.each do |log| %>
             <div class="row">
-              <p class="col"><%= log.symptom_description %></p>
+              <p class="col"><%= log.symptom.description %></p>
               <p class="col"><%= log.when %></p>
               <p class="col"><%= log.note %></p><br>
             </div>
           <% end %>
-          <%= button_to 'See All Logs', '/logs' %>
+          <%= button_to 'See All Logs', '/logs', method: 'get'%>
         <% end %>
       </div>
     </div>
