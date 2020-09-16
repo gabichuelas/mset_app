@@ -10,7 +10,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
       <% if current_user %>
-        <a class="navbar-brand" href="#">Main Menu</a>
+        <a class="navbar-brand" href="#">MSET</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,6 +41,12 @@
     <div class="container">
       <%= yield %>
     </div>
-    <!-- add footer w note acknowledging openFDA API -->
+    <footer class="footer">
+      <%= image_tag '/assets/open_fda_logo.png', alt: 'openFDA Logo', width: '160', height: '40' %>
+      <p>
+        Thanks and credit for the drug information present in this application belong to <a href="https://open.fda.gov/">openFDA</a>.<br>
+        See <a href="https://open.fda.gov/apis/">API documentation</a> for more details.
+      </p>
+    </footer>
   </body>
 </html>

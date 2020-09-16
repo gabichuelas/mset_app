@@ -12,6 +12,30 @@
  *
 
  */
+
+html, body {
+ height: 100%;
+}
+
+body {
+ display: flex;
+ flex-direction: column;
+}
+
+.container {
+  flex: 1 0 auto;
+}
+
+// .content {
+//   flex: 1 0 auto;
+// }
+
+footer,  {
+ flex-shrink: 0;
+ text-align: center;
+ margin-bottom: 40px;
+}
+
 @import "bootstrap";
 @import "welcome";
 @import "dashboard";
