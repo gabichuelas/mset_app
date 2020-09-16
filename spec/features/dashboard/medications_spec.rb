@@ -113,10 +113,17 @@ RSpec.describe 'User can add a medication by name', type: :feature do
   end
 
   it 'I can click a button to return to a new medication search page' do
-    expect(page).to have_button('New Search')
+    VCR.use_cassette('adderall_search') do
+      fill_in :brand_name, with: 'Adderall'
+      click_on 'Find Medication'
 
-    click_button 'New Search'
+      expect(current_path).to eq('/medications/search')
 
-    expect(current_path).to eq(medications_new_path)
+      expect(page).to have_button('New Search')
+
+      click_button 'New Search'
+
+      expect(current_path).to eq(medications_new_path)
+    end
   end
 end
