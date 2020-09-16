@@ -2,15 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
   before :each do
-    user = create(:user)
+    @user = create(:user)
     medication = create(:medication)
     symptom_1 = Symptom.create!(description: "Headache")
     symptom_2 = Symptom.create!(description: "Insomnia")
     MedicationSymptom.create!(medication: medication, symptom: symptom_1)
     MedicationSymptom.create!(medication: medication, symptom: symptom_2)
-    UserMedication.create!(user: user, medication: medication)
+    UserMedication.create!(user: @user, medication: medication)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit dashboard_path
   end
@@ -22,15 +22,17 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
       fill_in :note, with: "7/10 pain scale"
       click_button "Save"
     end
+    user = User.find(@user.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("New symptom logged!")
 
-    # within('.recent-logs') do
-    #   expect(page).to have_content("Headache")
-    #   expect(page).to have_content("2020-09-13T23:09")
-    #   expect(page).to have_content(7/10 pain scale")
-    # end
+    within('.recent-logs') do
+      expect(page).to have_content("Headache")
+      expect(page).to have_content("2020-09-13 23:09:00 UTC")
+      expect(page).to have_content("7/10 pain scale")
+    end
     # the spec seems to not register that current_user now has a new log relationship
     # works in server but not in the test
   end
