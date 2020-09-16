@@ -39,6 +39,7 @@
   <div class="main">
 
     <div class="log-form">
+
       <h4>Log a Symptom:</h4><br>
 
       <div class="form">
@@ -88,7 +89,7 @@
           </div>
           <% current_user.most_recent_logs.each do |log| %>
             <div class="row">
-              <p class="col"><%= log.symptom_description %></p>
+              <p class="col"><%= log.symptom.description %></p>
               <p class="col"><%= log.when %></p>
               <p class="col"><%= log.note %></p><br>
             </div>

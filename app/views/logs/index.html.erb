@@ -1,0 +1,13 @@
+<h3>All Symptom Logs</h3>
+<div class="row">
+  <p class="col"><strong>Symptom</strong></p>
+  <p class="col"><strong>When</strong></p>
+  <p class="col"><strong>Note</strong></p>
+</div>
+<% current_user.logs.order_by_when.each do |log| %>
+  <div class="row log">
+    <p class="col symptom"><%= log.symptom.description %></p>
+    <p class="col when"><%= log.when %></p>
+    <p class="col note"><%= log.note %></p><br>
+  </div>
+<% end %>
