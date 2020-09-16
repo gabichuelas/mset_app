@@ -1,7 +1,11 @@
-<div class="log-list">
   <% if current_user.logs.empty? %>
     <p>You have not yet recorded any symptoms.</p>
   <% else %>
+    <div class="row">
+      <p class="col"><strong>Symptom</strong></p>
+      <p class="col"><strong>When</strong></p>
+      <p class="col"><strong>Note</strong></p>
+    </div>
     <% logs.each do |log| %>
       <div class="row log">
         <p class="col symptom"><%= log.symptom.description %></p>
@@ -9,8 +13,4 @@
         <p class="col note"><%= log.note %></p><br>
       </div>
     <% end %>
-    <div class="row">
-      <a href="/logs" class="btn btn-link">See All Logs</a>
-    </div>
   <% end %>
-</div>
