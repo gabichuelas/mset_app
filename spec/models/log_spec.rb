@@ -58,5 +58,3 @@ RSpec.describe Log do
     end
   end
 end
-
-# end
