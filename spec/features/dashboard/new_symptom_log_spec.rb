@@ -111,8 +111,8 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("New symptom logged!")
 
-    # within('.recent-logs') do
-    expect(page).to have_content("Migraine")
-    # end
+    within('.recent-logs') do
+      expect(page).to have_content("Migraine")
+    end
   end
 end
