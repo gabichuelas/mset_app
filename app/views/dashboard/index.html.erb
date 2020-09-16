@@ -43,7 +43,7 @@
       <h4>Log a Symptom:</h4><br>
 
       <div class="form">
-        <%= form_tag log_path, method: "post" do %>
+        <%= form_tag logs_path, method: "post" do %>
         <div class="form-row">
           <div class="col-sm">
             <%= label_tag "What symptom did you experience?"%><br>
@@ -95,7 +95,7 @@
             </div>
           <% end %>
           <div class="row">
-            <a href="insert_path_here" class="btn btn-link">See All Logs</a>
+            <a href="/logs" class="btn btn-link">See All Logs</a>
           </div>
         <% end %>
       </div>
