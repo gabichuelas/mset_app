@@ -65,7 +65,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     # works in server but not in the test
   end
 
-  xit 'If I try to log a new symptom without selecting a symptom, I receive an error' do
+  it 'If I try to log a new symptom without selecting a symptom, I receive an error' do
     within('.log-form') do
       fill_in :when, with: "2020-09-13T23:09"
       fill_in :note, with: "7/10 pain scale"
@@ -76,7 +76,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
   end
 
-  xit 'If I try to log a new symptom without selecting a date/time, I receive an error' do
+  it 'If I try to log a new symptom without selecting a date/time, I receive an error' do
     within('.log-form') do
       fill_in :symptom, with: "Headache"
       fill_in :note, with: "7/10 pain scale"
@@ -87,7 +87,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
   end
 
-  xit 'If I try to log a new symptom without selecting a symptom and date/time, I receive an error' do
+  it 'If I try to log a new symptom without selecting a symptom and date/time, I receive an error' do
     within('.log-form') do
       fill_in :note, with: "7/10 pain scale"
       click_button "Save"
@@ -97,24 +97,24 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
   end
 
-  xit 'I can submit a log for an unlisted symptom' do
-    # this functionality has not yet been implemented - this test is just an outline
+  it 'I can submit a log for an unlisted symptom' do
     within('.log-form') do
-      fill_in :symptom, with: "Other"
-      # mvp UX: if user selects "other" they are required to include a note
-      # ideal UX: there's a new form field that appears if "other" is selected and then the user is required to specify what the symptom was
+      fill_in :symptom, with: "Migraine"
       fill_in :when, with: "2020-09-13T23:09"
       fill_in :note, with: "Migraine - pain scale"
       click_button "Save"
     end
 
+    expect(current_path).to eq('/symptoms/search')
+    expect(page).to have_content('Select the correct symptom')
+    expect(page).to have_button('Migraine')
+    click_on 'Migraine'
+
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("New symptom logged!")
 
     # within('.recent-logs') do
-    #   expect(page).to have_content("Other")
-    #   expect(page).to have_content("Migraine")
+    expect(page).to have_content("Migraine")
     # end
-    # same issue as above
   end
 end

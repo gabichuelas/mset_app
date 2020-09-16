@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
   def create
-    symptom = Symptom.find_by(description: log_params[:symptom])
+    symptom = Symptom.find_or_create_by(description: log_params[:symptom])
     log = Log.create(user: current_user, symptom: symptom, note: log_params[:note], when: log_params[:when])
     if log.save
       flash[:success] = 'New symptom logged!'
