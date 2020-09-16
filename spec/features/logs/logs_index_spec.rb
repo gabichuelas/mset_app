@@ -36,8 +36,7 @@ RSpec.describe 'As an authenticated user, I can view all my symptom logs on one 
 
       expect(page).to have_css('.when')
       when_experienced = find('.when').text
-      # expect(when_experienced).to eq(@log_3.when)
-      # idk how to test this datetime object uuuugh
+      expect(when_experienced).to eq("2005-02-02 22:05:00 UTC")
 
       expect(page).to have_css('.note')
       note = find('.note').text

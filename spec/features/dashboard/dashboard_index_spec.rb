@@ -78,4 +78,8 @@ RSpec.describe 'As an authenticated user' do
       expect(page).to have_content("Weight: not saved")
     end
   end
+
+  it 'In the recent-logs section, I see my recently logged symptoms' do
+    
+  end
 end
