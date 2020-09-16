@@ -10,7 +10,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     VCR.use_cassette('adderall_search') do
 
       expect(current_path).to eq('/medications/new')
-      expect(page).to have_content("Enter brand medication name")
+      expect(page).to have_content("Enter medication brand name")
 
       fill_in :brand_name, with: 'Adderall'
       click_on 'Find Medication'
@@ -104,7 +104,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     VCR.use_cassette('nonexistant_med_search') do
 
       expect(current_path).to eq('/medications/new')
-      expect(page).to have_content('Enter brand medication name')
+      expect(page).to have_content('Enter medication brand name')
 
       fill_in :brand_name, with: 'spiro'
       click_on 'Find Medication'
@@ -113,9 +113,9 @@ RSpec.describe 'User can add a medication by name', type: :feature do
   end
 
   it 'I can click a button to return to my dashboard' do
-    expect(page).to have_button('Back to Dashboard')
+    expect(page).to have_link('Back to Dashboard')
 
-    click_button 'Back to Dashboard'
+    click_on 'Back to Dashboard'
 
     expect(current_path).to eq('/dashboard')
   end
