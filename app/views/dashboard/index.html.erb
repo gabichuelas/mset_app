@@ -39,7 +39,7 @@
 
     <div class="log-form">
       <h3>Log a Symptom:</h3><br>
-      <%= form_tag log_path, method: "post" do %>
+      <%= form_tag logs_path, method: "post" do %>
         <%= label_tag "What symptom did you experience?"%><br>
         <%= select_tag :symptom, options_for_select(@potential_symptoms), :include_blank => true %><br>
 
@@ -71,7 +71,7 @@
               <p class="col"><%= log.note %></p><br>
             </div>
           <% end %>
-          <%= button_to 'See All Logs', 'insert_path_here' %>
+          <%= button_to 'See All Logs', '/logs' %>
         <% end %>
       </div>
     </div>
