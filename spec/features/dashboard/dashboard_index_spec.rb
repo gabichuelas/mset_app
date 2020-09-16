@@ -24,7 +24,7 @@ RSpec.describe 'As an authenticated user' do
     expect(page).to have_css('.profile')
     expect(page).to have_css('.med-list')
     expect(page).to have_css('.log-form')
-    expect(page).to have_css('.recent-logs')
+    # expect(page).to have_css('.recent-logs')
     expect(page).to have_content('Sign Out')
   end
 
