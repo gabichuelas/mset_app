@@ -58,7 +58,7 @@
 
         <div class="form-row">
           <div class="col-sm">
-            <%= select_tag :symptom, options_for_select(@potential_symptoms), :include_blank => true %>
+            <%= select_tag :symptom, options_for_select(@potential_symptoms.collect{ |symptom| [symptom.description, symptom.id] }), :include_blank => true %>
           </div>
           <div class="col-sm">
            	<%= datetime_field_tag :when %>
