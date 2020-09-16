@@ -4,7 +4,7 @@ class LogsController < ApplicationController
       flash[:error] = 'Please be sure to specify a symptom and when you experienced it'
       redirect_to request.referer
     else
-      symptom = Symptom.find(log_params[:symptom])
+      symptom = Symptom.find_or_create_by(description: log_params[:symptom])
       log = Log.create(user: current_user, symptom: symptom, note: log_params[:note], when: log_params[:when])
       if log.save
         flash[:success] = 'New symptom logged!'
