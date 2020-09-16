@@ -55,3 +55,31 @@
   margin: 20px 0 20px 0;
   text-align: left;
 }
+
+.input {
+  box-sizing: border-box;
+  font-size: 2rem;
+  padding: 1rem;
+  display: block;
+  margin: 2rem auto;
+}
+
+.ul {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.li {
+  color: #666;
+  strong { color: #000; }
+  + .label { margin-top: 1rem; }
+  &.label {
+    color: #CCC;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 0.0125em;
+    margin-bottom: 0.25rem;
+  }
+}
