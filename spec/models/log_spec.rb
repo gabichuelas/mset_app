@@ -4,11 +4,4 @@ RSpec.describe Log do
 
   it { should belong_to :user }
   it { should belong_to :symptom }
-
-  it "methods" do
-    user = create(:user)
-    symptom = Symptom.create!(description: "Headache")
-    log = Log.create!(user: user, symptom: symptom, when: DateTime.now)
-    expect(log.symptom_description).to eq("Headache")
-  end
 end

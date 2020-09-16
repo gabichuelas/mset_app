@@ -4,7 +4,7 @@ class Log < ApplicationRecord
   belongs_to :user
   belongs_to :symptom
 
-  def symptom_description
-    Symptom.find(symptom_id).description
+  def self.order_by_when
+    Log.order(when: :desc)
   end
 end
