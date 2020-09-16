@@ -11,7 +11,7 @@ RSpec.describe 'As a visitor' do
 
       visit '/'
 
-      click_button 'Get Started with Google Login'
+      click_link 'Get Started with Google Login'
 
       user = User.last
 
