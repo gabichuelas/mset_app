@@ -27,6 +27,8 @@ RSpec.describe Log do
       log_3 = Log.create(user: user, symptom: symptom_3, when: log_3_time)
 
       ordered_logs = [log_3, log_1, log_2]
+
+      expect(Log.order_by_when).to eq(ordered_logs)
     end
 
     it '::potential_symptoms' do
@@ -53,7 +55,8 @@ RSpec.describe Log do
       expect(Symptom.potential_symptoms(user_2)).to include(symptom_3)
       expect(Symptom.potential_symptoms(user_2)).to_not include(symptom_1)
       expect(Symptom.potential_symptoms(user_2)).to_not include(symptom_2)
-      expect(Log.order_by_when).to eq(ordered_logs)
     end
   end
 end
+
+# end
