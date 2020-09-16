@@ -26,7 +26,7 @@
       <% else %>
         <ul>
            <% current_user.medications.each do |medication| %>
-             <li><%= medication.brand_name %>
+             <li><%= medication.brand_name %></li>
            <% end %>
          </ul>
          <%= button_to "Edit Medication List", "/medications/edit", method: :get %>
