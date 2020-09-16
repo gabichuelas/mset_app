@@ -36,12 +36,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'turbolinks', '~> 5'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 gem 'nokogiri'
+gem 'fuzzy-string-match'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

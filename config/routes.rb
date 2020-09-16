@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   post '/logs', to: 'logs#create'
   get '/logs', to: 'logs#index'
+
+  get '/symptoms/search', to: 'symptoms#search'
 end
