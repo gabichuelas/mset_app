@@ -22,11 +22,6 @@ class User < ApplicationRecord
     first_name + " " + last_name
   end
 
-  def potential_symptoms
-    # this needs to be for a user specifically
-    Symptom.joins(:medications).pluck(:description).uniq
-  end
-
   def has_medication?(med_id)
     return true if self.user_medications.find_by(medication_id: med_id)
     false
