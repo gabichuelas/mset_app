@@ -24,7 +24,7 @@ RSpec.describe 'As an authenticated user, I can view all my symptom logs on one 
     visit dashboard_path
 
     within('.log-list') do
-      click_button 'See All Logs'
+      click_on 'See All Logs'
     end
 
     expect(current_path).to eq('/logs')

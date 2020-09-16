@@ -43,7 +43,7 @@ RSpec.describe 'As an authenticated user' do
       visit dashboard_path
       within('.med-list') do
         expect(page).to have_content("You don't have any saved medications.")
-        expect(page).to have_button("Add New Medication")
+        expect(page).to have_link("Add New Medication")
       end
     end
 
@@ -53,7 +53,7 @@ RSpec.describe 'As an authenticated user' do
       visit dashboard_path
       within('.med-list') do
         expect(page).to have_content("Adderall")
-        expect(page).to have_button("Edit Medication List")
+        expect(page).to have_link("Edit Medication List")
       end
     end
 

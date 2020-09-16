@@ -9,7 +9,7 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
 
   it 'I can click a link to edit my profile data and am redirected to a form where I can update my info' do
     within('.profile') do
-      click_button "Edit Profile"
+      click_link "Edit Profile"
     end
     expect(current_path).to eq(profile_edit_path)
     expect(page).to have_css('#first_name')
@@ -20,7 +20,7 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
 
   it 'I can successfully edit my profile' do
     within('.profile') do
-      click_button "Edit Profile"
+      click_link "Edit Profile"
     end
 
     expect(current_path).to eq(profile_edit_path)
@@ -38,7 +38,7 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
 
   it 'If I edit my profile and don\'t save a name, I receive an error message' do
     within('.profile') do
-      click_button "Edit Profile"
+      click_link "Edit Profile"
     end
 
     expect(current_path).to eq(profile_edit_path)

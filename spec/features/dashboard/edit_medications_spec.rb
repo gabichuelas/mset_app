@@ -8,7 +8,7 @@ RSpec.describe 'User can edit the medication list', type: :feature do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit '/dashboard'
 
-      expect(page).to have_button('Add New Medication')
+      expect(page).to have_link('Add New Medication')
       click_on('Add New Medication')
 
       expect(current_path).to eq('/medications/new')
@@ -29,7 +29,7 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content('Lexapro')
-      expect(page).to have_button('Edit Medication List')
+      expect(page).to have_link('Edit Medication List')
       click_on 'Edit Medication List'
 
       expect(current_path).to eq('/medications/edit')
@@ -53,7 +53,7 @@ RSpec.describe 'User can edit the medication list', type: :feature do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit '/dashboard'
 
-      expect(page).to have_button('Add New Medication')
+      expect(page).to have_link('Add New Medication')
       click_on('Add New Medication')
 
       expect(current_path).to eq('/medications/new')
@@ -74,12 +74,11 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
       expect(current_path).to eq('/dashboard')
 
-      expect(page).to have_button('Edit Medication List')
+      expect(page).to have_link('Edit Medication List')
       click_on 'Edit Medication List'
 
       expect(current_path).to eq('/medications/edit')
-
-      expect(page).to have_button('Add New Medication')
+      expect(page).to have_link('Add New Medication')
       click_on 'Add New Medication'
 
       expect(current_path).to eq('/medications/new')
