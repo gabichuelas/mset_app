@@ -39,7 +39,14 @@
   <div class="main">
 
     <div class="log-form">
+
       <h4>Log a Symptom:</h4><br>
+      <%= form_tag logs_path, method: "post" do %>
+        <%= label_tag "What symptom did you experience?"%><br>
+        <%= select_tag :symptom, options_for_select(@potential_symptoms), :include_blank => true %><br>
+
+        <%= label_tag "When?"%><br>
+        <%= datetime_field_tag :when %><br>
 
       <div class="form">
         <%= form_tag log_path, method: "post" do %>
@@ -88,7 +95,7 @@
           </div>
           <% current_user.most_recent_logs.each do |log| %>
             <div class="row">
-              <p class="col"><%= log.symptom_description %></p>
+              <p class="col"><%= log.symptom.description %></p>
               <p class="col"><%= log.when %></p>
               <p class="col"><%= log.note %></p><br>
             </div>
