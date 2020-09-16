@@ -112,11 +112,11 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     end
   end
 
-  it 'I can click a button to return to my dashboard' do
-    expect(page).to have_button('Back to Dashboard')
+  it 'I can click a button to return to a new medication search page' do
+    expect(page).to have_button('New Search')
 
-    click_button 'Back to Dashboard'
+    click_button 'New Search'
 
-    expect(current_path).to eq('/dashboard')
+    expect(current_path).to eq(medications_new_path)
   end
 end
