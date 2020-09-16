@@ -6,7 +6,7 @@
 <div class="grid-container">
   <div class="sidebar">
     <div class="profile">
-      <h5>Profile</h5>
+      <h4>Profile</h4>
       <% if current_user.birthdate.nil? || current_user.birthdate.empty? %>
         <p><strong>Date of birth:</strong> not saved</p>
       <% else %>
@@ -17,44 +17,67 @@
       <% else %>
         <p><strong>Weight:</strong> <%= current_user.weight %> lbs</p>
       <% end %>
-      <%= button_to 'Edit Profile', '/profile/edit', method: :get %>
+      <%= link_to "Edit Profile", "/profile/edit", method: :get %>
     </div>
+
     <div class="med-list">
-      <h5>Medication List</h5>
+      <h4>Medication List</h4>
       <% if current_user.medications.empty? %>
         <p>You don't have any saved medications.</p>
-        <%= button_to "Add New Medication", "/medications/new", method: :get %>
+        <a href="/medications/new" class="btn btn-primary">Add New Medication</a>
       <% else %>
         <ul>
            <% current_user.medications.each do |medication| %>
              <li><%= medication.brand_name %></li>
            <% end %>
          </ul>
-         <%= button_to "Edit Medication List", "/medications/edit", method: :get %>
-         <%= button_to "Add New Medication", "/medications/new", method: :get %>
+         <%= link_to "Edit Medication List", "/medications/edit", method: :get %>
+         <a href="/medications/new" class="btn btn-primary" >Add New Medication</a>
       <% end %>
     </div>
   </div>
   <div class="main">
 
     <div class="log-form">
-      <h3>Log a Symptom:</h3><br>
-      <%= form_tag logs_path, method: "post" do %>
-        <%= label_tag "What symptom did you experience?"%><br>
-        <%= select_tag :symptom, options_for_select(@potential_symptoms.collect{ |symptom| [symptom.description, symptom.id] }), :include_blank => true %><br>
 
-        <%= label_tag "When?"%><br>
-        <%= datetime_field_tag :when %><br>
+      <h4>Log a Symptom:</h4><br>
 
-        <%= label_tag "Any additional notes?"%><br>
-        <%= text_area_tag :note %><br>
+      <div class="form">
+        <%= form_tag logs_path, method: "post" do %>
+        <div class="form-row">
+          <div class="col-sm">
+            <%= label_tag "What symptom did you experience?"%><br>
+          </div>
+          <div class="col-sm">
+            <%= label_tag "When?"%><br>
+          </div>
+          <div class="col-sm">
+            <%= label_tag "Any additional notes?"%><br>
+          </div>
+        </div>
 
-        <%= submit_tag 'Save', class: "button" %>
-      <% end %>
+        <div class="form-row">
+          <div class="col-sm">
+            <%= select_tag :symptom, options_for_select(@potential_symptoms.collect{ |symptom| [symptom.description, symptom.id] }), :include_blank => true %>
+          </div>
+          <div class="col-sm">
+           	<%= datetime_field_tag :when %>
+          </div>
+          <div class="col-sm">
+            <%= text_area_tag :note %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <%= submit_tag 'Save', class: "btn btn-primary" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
 
     <div class="recent-logs">
-      <h3>Recent Symptom Logs</h3>
+      <h4>Recent Symptom Logs</h4>
       <div class="log-list">
         <% if current_user.logs.empty? %>
           <p>You have not yet recorded any symptoms.</p>
@@ -71,7 +94,9 @@
               <p class="col"><%= log.note %></p><br>
             </div>
           <% end %>
-          <%= button_to 'See All Logs', '/logs', method: 'get'%>
+          <div class="row">
+            <a href="/logs" class="btn btn-link">See All Logs</a>
+          </div>
         <% end %>
       </div>
     </div>

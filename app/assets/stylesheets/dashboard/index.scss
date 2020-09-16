@@ -21,6 +21,10 @@
   // background-color: red;
 }
 
+.sidebar h4 {
+  margin-bottom: 30px;
+}
+
 .profile {
   margin-bottom: 50px;
 }
@@ -34,8 +38,12 @@
 }
 
 .log-form {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   // background-color: blue;
+}
+
+.form select, input, textarea {
+  height: auto;
 }
 
 
