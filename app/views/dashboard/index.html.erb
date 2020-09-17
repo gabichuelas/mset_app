@@ -1,6 +1,6 @@
-<center class="page-header">
-  <h2>Welcome, <%= current_user.full_name %>! </h2>
-</center>
+<div class="dash-header">
+  <h3>Welcome, <%= current_user.full_name %>! </h3>
+</div>
 <%= render partial: '/partials/flash' %>
 
 <div class="grid-container">
@@ -44,8 +44,7 @@
 
     <div class="log-form">
 
-      <h4>Log a Symptom</h4><br>
-      <!-- there will be a search input field and search button here instead of the following form -->
+      <h4>Log a Symptom</h4>
       <div class="form">
         <%= form_tag symptoms_search_path, method: :get do %>
         <div class="form-row">

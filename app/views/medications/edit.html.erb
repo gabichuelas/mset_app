@@ -1,10 +1,24 @@
-<h1>All Medications</h1>
-<%= render partial: '/partials/flash' %>
-<p><a href="/medications/new" class="btn btn-primary">Add New Medication</a>
-<br>
-<% @medications.each do |medication| %>
-  <section class="medications">
-    <p><%= medication.brand_name %><p>
-    <p><%= button_to 'Delete', '/medications/delete', params: {id: medication.id, brand_name: medication.brand_name, product_ndc: medication.product_ndc}, method: :delete %>
-  </section>
-<% end %>
+<div class="container">
+
+  <div class="page-header">
+    <h3>All Medications</h3>
+  </div>
+  <%= render partial: '/partials/flash' %>
+
+  <div class="section">
+    <div class="page-options">
+      <a href="/dashboard" class="btn btn-outline-primary">Back to Dashboard</a>
+      <a href="/medications/new" class="btn btn-primary">Add New Medication</a>
+    </div>
+    <% @medications.each do |medication| %>
+      <div class="row">
+         <div class="col">
+           <p><%= medication.brand_name %></p>
+         </div>
+         <div class="col">
+           <%= link_to 'Delete', '/medications/delete', params: {id: medication.id, brand_name: medication.brand_name, product_ndc: medication.product_ndc}, method: :delete %>
+         </div>
+      </div>
+    <% end %>
+  </div>
+</div>

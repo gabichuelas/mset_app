@@ -6,9 +6,15 @@
   margin-top: 20px;
 }
 
+.dash-header {
+  margin: 10px 0 20px 0px;
+  text-align: center;
+  // background-color: green;
+}
+
 .page-header {
   margin: 10px 0 30px 0px;
-  // background-color: green;
+  text-align: left;
 }
 
 .grid-container {
@@ -16,18 +22,16 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-bottom: 30px;
+  // margin-bottom: 20px;
 }
 
 .sidebar {
   // height: 100%;
   // grid-area: sidebar;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-  // flex-basis: 343px;
-  margin-bottom: 20px;
   margin-right: 10px;
   flex-grow: 1;
 }
@@ -46,13 +50,16 @@
 }
 
 .main {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-  margin-bottom: 20px;
   margin-left: 10px;
   flex-grow: 3;
+}
+
+.main h4 {
+  margin-bottom: 25px;
 }
 
 .log-form {
@@ -65,10 +72,47 @@
 }
 
 .log-list {
-  margin: 25px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
   text-align: left;
 }
 
 .log-list p {
   margin-bottom: 10px;
+}
+
+.edit-form {
+  width: 50%;
+  background-color: white;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.section {
+  background-color: white;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.page-options a {
+  margin-right: 15px;
+}
+.page-options {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sym-results {
+  margin-bottom: 20px;
+}
+
+input[type="datetime-local" i] {
+  border: 1px solid #ccc;
+  height: 38px;
+  border-radius: .25rem;
+  padding-left: 8px;
+  padding-right: 8px;
 }

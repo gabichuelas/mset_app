@@ -1,4 +1,15 @@
-<h3>All Symptom Logs</h3>
-<div class="log-list">
-  <%= render partial: '/partials/logs_list', locals: {logs: current_user.logs.order_by_when } %>
+<div class="container">
+
+  <div class="page-header">
+    <h3>Symptom Logs</h3>
+  </div>
+  
+  <div class="section">
+    <div class="page-options">
+      <a href="/dashboard" class="btn btn-outline-primary">Back to Dashboard</a>
+    </div>
+    <div class="log-list">
+      <%= render partial: '/partials/logs_list', locals: {logs: current_user.logs.order_by_when } %>
+    </div>
+  </div>
 </div>
