@@ -4,8 +4,8 @@ class SymptomsController < ApplicationController
   before_action :require_user
 
   def search
-    if search_params[:symptom].empty? || search_params[:symptom] == ' ' || search_params[:when].empty?
-      flash[:error] = 'Please be sure to specify a symptom and when you experienced it'
+    if search_params[:symptom].empty? || search_params[:symptom] == ' '
+      flash[:error] = 'Please be sure to specify a symptom'
       redirect_to request.referer
     else
       jarow = FuzzyStringMatch::JaroWinkler.create(:native)
@@ -15,14 +15,12 @@ class SymptomsController < ApplicationController
       end
 
       @results << search_params[:symptom] if @results.empty?
-
-      @log_hash = {when: search_params[:when], note: search_params[:note]}
     end
   end
 
   private
 
   def search_params
-    params.permit(:symptom, :when, :note)
+    params.permit(:symptom)
   end
 end

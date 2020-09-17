@@ -28,6 +28,6 @@ class LogsController < ApplicationController
   end
 
   def no_when?
-    params[:when].nil? || params[:when].empty?
+    params[:when].nil? || params[:when] == "{:class=>\"form-control\"}"
   end
 end

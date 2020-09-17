@@ -1,4 +1,38 @@
-<h2>Select the correct symptom</h2>
-<% @results.each do |result| %>
-  <p><%= button_to "#{result}", '/logs', params: {symptom: result, when: @log_hash[:when], note: @log_hash[:note]}, method: :post %></p>
-<% end %>
+<div class="log-form">
+  <%= render partial: '/partials/flash' %>
+  <h4>Select the correct symptom and when you experienced it</h4><br>
+  <div class="form">
+    <%= form_tag logs_path, method: :post do %>
+    <div class="form-row">
+      <div class="col-sm">
+        <%= label_tag "Which symptom did you experience?"%><br>
+      </div>
+      <div class="col-sm">
+        <%= label_tag "When?"%><br>
+      </div>
+      <div class="col-sm">
+        <%= label_tag "Any additional notes?"%><br>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-sm">
+        <% @results.each do |result| %>
+          <%= radio_button_tag :symptom, "#{result}" %> <%= result %><br/>
+        <% end %>
+      </div>
+      <div class="col-sm">
+        <%= datetime_field_tag :when, class: "form-control" %>
+      </div>
+      <div class="col-sm">
+        <%= text_area_tag :note, nil, class: "form-control" %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm">
+        <%= submit_tag 'Save', class: "btn btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

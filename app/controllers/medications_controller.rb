@@ -23,6 +23,10 @@ class MedicationsController < ApplicationController
     end
   end
 
+  def show
+    @medication = Medication.find(med_params[:id])
+  end
+
   def edit
     @medications = current_user.medications.all
   end

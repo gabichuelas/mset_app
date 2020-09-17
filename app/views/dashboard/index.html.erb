@@ -31,10 +31,10 @@
         <% else %>
           <ul>
              <% current_user.medications.each do |medication| %>
-               <li><%= medication.brand_name %></li>
+               <li><%= link_to "#{medication.brand_name}", "/medications/#{medication.id}", method: :get %></li>
              <% end %>
            </ul>
-           <%= link_to "Edit Medication List", "/medications/edit", method: :get %>
+           <%= link_to "Edit Medication List", "/medications/edit", method: :get %><br>
            <a href="/medications/new" class="btn btn-primary">Add New Medication</a>
         <% end %>
       </div>
@@ -52,28 +52,16 @@
           <div class="col-sm">
             <%= label_tag "What symptom did you experience?"%><br>
           </div>
-          <div class="col-sm">
-            <%= label_tag "When?"%><br>
-          </div>
-          <div class="col-sm">
-            <%= label_tag "Any additional notes?"%><br>
-          </div>
         </div>
-
         <div class="form-row">
           <div class="col-sm">
             <%= text_field_tag :symptom, nil, placeholder: 'Search Symptoms', class: "form-control" %>
           </div>
-          <div class="col-sm">
-           	<%= datetime_field_tag :when, class: "form-control" %>
-          </div>
-          <div class="col-sm">
-            <%= text_area_tag :note, nil, class: "form-control" %>
-          </div>
         </div>
+        <br>
         <div class="row">
           <div class="col-sm">
-            <%= submit_tag 'Save', class: "btn btn-primary" %>
+            <%= submit_tag 'Search for Symptom', class: "btn btn-primary" %>
           </div>
         </div>
         <% end %>
@@ -84,10 +72,8 @@
       <h4>Recent Symptom Logs</h4>
       <div class="log-list">
         <%= render partial: '/partials/logs_list', locals: {logs: current_user.most_recent_logs} %>
-        <div class="row">
-          <a href="/logs" class="btn btn-primary">See All Logs</a>
-        </div>
       </div>
+      <a href="/logs" class="btn btn-primary">See All Logs</a>
     </div>
   </div>
 </div>
