@@ -77,54 +77,65 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
 
   it 'If I try to log a new symptom without selecting a symptom, I receive an error' do
     within('.log-form') do
-      fill_in :when, with: "2020-09-13T23:09"
-      fill_in :note, with: "7/10 pain scale"
       click_button "Search for Symptom"
     end
 
     expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
+    expect(page).to have_content('Please be sure to specify a symptom')
   end
 
   it 'If I try to log a new symptom without selecting a date/time, I receive an error' do
     within('.log-form') do
       fill_in :symptom, with: "Headache"
-      fill_in :note, with: "7/10 pain scale"
       click_button "Search for Symptom"
     end
+    user = User.find(@user.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    expect(current_path).to eq(dashboard_path)
+    expect(current_path).to eq('/symptoms/search')
+    expect(page).to have_content('Select the correct symptom and when you experienced it')
+    choose(option: 'Headache')
+    expect(page).to have_button('Save')
+    click_on 'Save'
+
+    expect(current_path).to eq(symptoms_search_path)
     expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
   end
 
   it 'If I try to log a new symptom without selecting a symptom and date/time, I receive an error' do
     within('.log-form') do
-      fill_in :note, with: "7/10 pain scale"
+      fill_in :symptom, with: "Headache"
       click_button "Search for Symptom"
     end
 
-    expect(current_path).to eq(dashboard_path)
+    expect(current_path).to eq('/symptoms/search')
+    expect(page).to have_content('Select the correct symptom and when you experienced it')
+    expect(page).to have_button('Save')
+    click_on 'Save'
+
+    expect(current_path).to eq(symptoms_search_path)
     expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
   end
 
   it 'I can submit a log for an unlisted symptom' do
     within('.log-form') do
       fill_in :symptom, with: "Migraine"
-      fill_in :when, with: "2020-09-13T23:09"
-      fill_in :note, with: "Migraine - pain scale"
       click_button "Search for Symptom"
     end
 
     expect(current_path).to eq('/symptoms/search')
-    expect(page).to have_content('Select the correct symptom')
-    expect(page).to have_button('Migraine')
-    click_on 'Migraine'
+    expect(page).to have_content('Select the correct symptom and when you experienced it')
+    choose(option: 'Migraine')
+    fill_in :when, with: "2020-09-13T23:09"
+    expect(page).to have_button('Save')
+    click_on 'Save'
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("New symptom logged!")
 
-    # within('.recent-logs') do
-    expect(page).to have_content("Migraine")
-    # end
+    within('.recent-logs') do
+      expect(page).to have_content("Migraine")
+      expect(page).to have_content("2020-09-13 23:09:00 UTC")
+    end
   end
 end
