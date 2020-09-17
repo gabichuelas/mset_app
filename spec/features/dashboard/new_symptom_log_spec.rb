@@ -38,8 +38,6 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
       expect(page).to have_content("2020-09-13 23:09:00 UTC")
       expect(page).to have_content("7/10 pain scale")
     end
-    # the spec seems to not register that current_user now has a new log relationship
-    # works in server but not in the test
   end
 
   it 'I can successfully log a new symptom without including a note' do
@@ -58,13 +56,11 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("New symptom logged!")
 
-    # within('.recent-logs') do
-    #   expect(page).to have_content("Headache")
-    #   expect(page).to have_content("2020-09-13T23:09")
-    #   expect(page).to have_content(7/10 pain scale")
-    # end
-    # the spec seems to not register that current_user now has a new log relationship
-    # works in server but not in the test
+    within('.recent-logs') do
+      expect(page).to have_content("Headache")
+      expect(page).to have_content("2020-09-13 23:09:00 UTC")
+      expect(page).to have_content("7/10 pain scale")
+    end
   end
 
   it 'If I try to log a new symptom without selecting a symptom, I receive an error' do
@@ -115,8 +111,8 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("New symptom logged!")
 
-    # within('.recent-logs') do
-    expect(page).to have_content("Migraine")
-    # end
+    within('.recent-logs') do
+      expect(page).to have_content("Migraine")
+    end
   end
 end

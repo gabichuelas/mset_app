@@ -66,7 +66,7 @@ RSpec.describe 'User can add a medication by name', type: :feature do
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content('HAND SANITIZER')
 
-      expect(@user.potential_symptoms).to be_empty
+      expect(Symptom.potential_symptoms(@user)).to be_empty
     end
   end
 
@@ -112,11 +112,18 @@ RSpec.describe 'User can add a medication by name', type: :feature do
     end
   end
 
-  it 'I can click a button to return to my dashboard' do
-    expect(page).to have_button('Back to Dashboard')
+  it 'I can click a button to return to a new medication search page' do
+    VCR.use_cassette('adderall_search') do
+      fill_in :brand_name, with: 'Adderall'
+      click_on 'Find Medication'
 
-    click_button 'Back to Dashboard'
+      expect(current_path).to eq('/medications/search')
 
-    expect(current_path).to eq('/dashboard')
+      expect(page).to have_button('New Search')
+
+      click_button 'New Search'
+
+      expect(current_path).to eq(medications_new_path)
+    end
   end
 end

@@ -4,3 +4,5 @@
     <p><%= button_to "#{med.brand_name}", '/medications/create', params: {brand_name: med.brand_name, product_ndc: med.product_ndc}, method: :post %>
   <% end %>
 </section>
+<br>
+<%= button_to 'New Search', medications_new_path, method: :get, class: "btn btn-primary" %>
