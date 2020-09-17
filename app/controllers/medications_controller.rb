@@ -30,6 +30,7 @@ class MedicationsController < ApplicationController
   end
 
   def destroy
+    # require "pry"; binding.pry
     current_user.medications.destroy(med_params[:id])
     redirect_to '/medications/edit'
     flash[:notice] = "#{med_params[:brand_name]} was deleted"

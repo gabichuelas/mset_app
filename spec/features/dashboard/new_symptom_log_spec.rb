@@ -24,7 +24,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     expect(current_path).to eq('/symptoms/search')
-    expect(page).to have_content('Select the correct symptom and when you experienced it')
+    expect(page).to have_content('Which symptom did you experience?')
     choose(option: 'Headache')
     fill_in :when, with: "2020-09-13T23:09"
     fill_in :note, with: "7/10 pain scale"
@@ -50,7 +50,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     expect(current_path).to eq('/symptoms/search')
-    expect(page).to have_content('Select the correct symptom and when you experienced it')
+    expect(page).to have_content('Which symptom did you experience?')
     choose(option: 'Headache')
     fill_in :when, with: "2020-09-13T23:09"
     expect(page).to have_button('Save')
@@ -83,7 +83,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     expect(current_path).to eq('/symptoms/search')
-    expect(page).to have_content('Select the correct symptom and when you experienced it')
+    expect(page).to have_content('Which symptom did you experience?')
     choose(option: 'Headache')
     expect(page).to have_button('Save')
     click_on 'Save'
@@ -101,7 +101,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     expect(current_path).to eq('/symptoms/search')
-    expect(page).to have_content('Select the correct symptom and when you experienced it')
+    expect(page).to have_content('Which symptom did you experience?')
     expect(page).to have_button('Save')
     click_on 'Save'
 
@@ -116,7 +116,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     end
 
     expect(current_path).to eq('/symptoms/search')
-    expect(page).to have_content('Select the correct symptom and when you experienced it')
+    expect(page).to have_content('Which symptom did you experience?')
     choose(option: 'Migraine')
     fill_in :when, with: "2020-09-13T23:09"
     expect(page).to have_button('Save')

@@ -36,8 +36,8 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
       expect(page).to have_content('Lexapro')
 
-      within('.medications', match: :first) do
-        expect(page).to have_button('Delete')
+      within('.section', match: :first) do
+        expect(page).to have_link('Delete')
         click_on 'Delete'
       end
 

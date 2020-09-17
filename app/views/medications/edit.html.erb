@@ -16,7 +16,7 @@
            <p><%= medication.brand_name %></p>
          </div>
          <div class="col">
-           <%= link_to 'Delete', '/medications/delete', params: {id: medication.id, brand_name: medication.brand_name, product_ndc: medication.product_ndc}, method: :delete %>
+           <%= link_to 'Delete', medications_delete_path({id: medication.id, brand_name: medication.brand_name, product_ndc: medication.product_ndc}), method: :delete %>
          </div>
       </div>
     <% end %>
