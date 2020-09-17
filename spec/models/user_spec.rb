@@ -42,7 +42,6 @@ RSpec.describe User do
 
       expect(@user.most_recent_logs.length).to eq(10)
       expect(@user.most_recent_logs[0].when > @user.most_recent_logs[1].when).to eq(true)
-      expect(@user.most_recent_logs[1].when > @user.most_recent_logs[2].when).to eq(true)
     end
   end
 end
