@@ -1,0 +1,13 @@
+<h3>Medication information</h3>
+<p>Brand Name: <%= @medication.brand_name %></p>
+<p>Product NDC: <%= @medication.product_ndc %></p>
+<% if @medication.symptoms.empty? == false %>
+  <div class="side-effects"</div>
+  <h4>Potential Side Effects:</h4>
+  <% @medication.symptoms.each do |symptom| %>
+    <ul>
+      <li><%= symptom.description %></li>
+    </ul>
+  <% end %>
+  </div>
+<% end %>

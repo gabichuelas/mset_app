@@ -38,7 +38,15 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
       expect(page).to have_content("Brand Name: Adderall XR")
       expect(page).to have_content('Potential Side Effects:')
       within('.side-effects') do
+        expect(page).to have_content('Weight Loss')
+        expect(page).to have_content('Abdominal Pain (stomachache)')
+        expect(page).to have_content('Loss of Appetite')
+        expect(page).to have_content('Insomnia')
+        expect(page).to have_content('Nervousness')
         expect(page).to have_content('Headache')
+        expect(page).to have_content('Asthenia')
+        expect(page).to have_content('Tachycardia')
+        expect(page).to have_content('Urinary Tract Infection')
       end
     end
   end
