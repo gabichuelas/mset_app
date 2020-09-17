@@ -1,10 +1,24 @@
-<%= render partial: '/partials/flash' %>
-<section class="med_search_form">
-  <%= form_tag "/medications/search", method: :get do %>
-    <%= label_tag :brand_name, "Enter medication brand name:" %><br>
-    <%= text_field_tag :brand_name %><br><br>
-    <%= submit_tag "Find Medication", class: "btn btn-primary" %>
-  <% end %>
-</section>
-<br>
-<%= link_to "Back to Dashboard", "/dashboard", method: :get %>
+<div class="container">
+
+  <div class="page-header">
+    <h3>Add New Medication</h3>
+  </div>
+  <%= render partial: '/partials/flash' %>
+  <div class="section">
+    <div class="page-options">
+      <a href="/dashboard" class="btn btn-outline-primary">Back to Dashboard</a>
+    </div>
+    <form class="med-form">
+      <%= form_tag "/medications/search", method: :get do %>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Search for medication.." name="brand_name" id="brand_name">
+          </div>
+          <div class="col">
+            <%= submit_tag "Find Medication", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </form>
+  </div>
+</div>

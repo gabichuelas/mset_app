@@ -2,6 +2,7 @@ class MedicationsController < ApplicationController
   def new; end
 
   def search
+    require "pry"; binding.pry
     results = SEARCH_RESULTS.med_search_results(med_params[:brand_name])
     return @med_results = results unless results.nil?
     flash[:warning] = "Sorry, your search did not return any results. Please try another search."
@@ -30,7 +31,6 @@ class MedicationsController < ApplicationController
   end
 
   def destroy
-    # require "pry"; binding.pry
     current_user.medications.destroy(med_params[:id])
     redirect_to '/medications/edit'
     flash[:notice] = "#{med_params[:brand_name]} was deleted"

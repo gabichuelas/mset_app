@@ -7,6 +7,10 @@
     <div class="alert alert-success" role="alert">
       <%= message %>
     </div>
+  <% elsif type == "notice" %>
+    <div class="alert alert-warning" role="alert">
+      <%= message %>
+    </div>
   <% else %>
     <%= message %>
   <% end %>
