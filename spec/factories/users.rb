@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    uid { '1111' }
+    uid { Faker::Number.number(digits: 5) }
     email { 'user@gmail.com' }
     access_token { '1234user' }
     first_name { Faker::Name.first_name }
