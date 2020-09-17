@@ -50,4 +50,39 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
       end
     end
   end
+  it "I can delete a medication from my list from the medication show page" do
+    VCR.use_cassette('adderall_search') do
+      click_on 'Add New Medication'
+
+      expect(current_path).to eq('/medications/new')
+      expect(page).to have_content("Enter medication brand name")
+
+      fill_in :brand_name, with: 'Adderall'
+      click_on 'Find Medication'
+
+      expect(current_path).to eq('/medications/search')
+
+      expect(page).to have_content('Please select the correct medication brand name')
+
+      within('.medications', match: :first) do
+        expect(page).to have_button('Adderall XR')
+        click_on 'Adderall XR'
+      end
+
+      expect(current_path).to eq('/dashboard')
+      expect(page).to have_link('Adderall XR')
+
+      adderall_xr = Medication.find_by(brand_name: 'Adderall XR')
+
+      click_on 'Adderall XR'
+
+      expect(current_path).to eq("/medications/#{adderall_xr.id}")
+
+      click_on 'Delete Medication from my List'
+
+      visit dashboard_path
+
+      expect(page).to_not have_content('Adderall XR')
+    end
+  end
 end
