@@ -12,17 +12,17 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
       click_on 'Add New Medication'
 
       expect(current_path).to eq('/medications/new')
-      expect(page).to have_content("Enter medication brand name")
+      expect(page).to have_content("Add New Medication")
 
       fill_in :brand_name, with: 'Adderall'
       click_on 'Find Medication'
 
       expect(current_path).to eq('/medications/search')
 
-      expect(page).to have_content('Please select the correct medication brand name')
+      expect(page).to have_content('Select Medication')
 
       within('.medications', match: :first) do
-        expect(page).to have_button('Adderall XR')
+        expect(page).to have_link('Adderall XR')
         click_on 'Adderall XR'
       end
 
@@ -35,7 +35,7 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
 
       expect(current_path).to eq("/medications/#{adderall_xr.id}")
 
-      expect(page).to have_content("Brand Name: Adderall XR")
+      expect(page).to have_content("Adderall XR")
       expect(page).to have_content('Potential Side Effects:')
       within('.side-effects') do
         expect(page).to have_content('Weight Loss')
@@ -55,17 +55,17 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
       click_on 'Add New Medication'
 
       expect(current_path).to eq('/medications/new')
-      expect(page).to have_content("Enter medication brand name")
+      expect(page).to have_content("Add New Medication")
 
       fill_in :brand_name, with: 'Adderall'
       click_on 'Find Medication'
 
       expect(current_path).to eq('/medications/search')
 
-      expect(page).to have_content('Please select the correct medication brand name')
+      expect(page).to have_content('Select Medication')
 
       within('.medications', match: :first) do
-        expect(page).to have_button('Adderall XR')
+        expect(page).to have_link('Adderall XR')
         click_on 'Adderall XR'
       end
 
@@ -78,7 +78,7 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
 
       expect(current_path).to eq("/medications/#{adderall_xr.id}")
 
-      click_on 'Delete Medication from my List'
+      click_on 'Delete from List'
 
       visit dashboard_path
 
