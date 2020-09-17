@@ -111,3 +111,17 @@ input[type="datetime-local" i] {
   padding-left: 8px;
   padding-right: 8px;
 }
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  // width: 90%;
+}
+.med-form input {
+  // margin-right: 10px;
+}
+
+.med-form {
+
+  width: 70%;
+}

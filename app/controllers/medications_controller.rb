@@ -2,7 +2,6 @@ class MedicationsController < ApplicationController
   def new; end
 
   def search
-    require "pry"; binding.pry
     results = SEARCH_RESULTS.med_search_results(med_params[:brand_name])
     return @med_results = results unless results.nil?
     flash[:warning] = "Sorry, your search did not return any results. Please try another search."

@@ -8,17 +8,18 @@
     <div class="page-options">
       <a href="/dashboard" class="btn btn-outline-primary">Back to Dashboard</a>
     </div>
-    <form class="med-form">
+
+    <div class="form-group">
       <%= form_tag "/medications/search", method: :get do %>
-        <div class="form-row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Search for medication.." name="brand_name" id="brand_name">
-          </div>
-          <div class="col">
-            <%= submit_tag "Find Medication", class: "btn btn-primary" %>
-          </div>
+      <div class="form-row">
+        <div class="col-md-10">
+          <%= text_field_tag :brand_name, nil, placeholder: "Enter medication brand name...", class: "form-control" %>
         </div>
+        <div class="col-md-1">
+          <%= submit_tag "Find Medication", class: "btn btn-primary" %>
+        </div>
+      </div>
       <% end %>
-    </form>
+    </div>
   </div>
 </div>
