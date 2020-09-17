@@ -1,6 +1,8 @@
 require 'fuzzystringmatch'
 
 class SymptomsController < ApplicationController
+  before_action :require_user
+
   def search
     if search_params[:symptom].empty? || search_params[:symptom] == ' '
       flash[:error] = 'Please be sure to specify a symptom'
