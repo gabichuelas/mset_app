@@ -83,20 +83,10 @@
     <div class="recent-logs">
       <h4>Recent Symptom Logs</h4>
       <div class="log-list">
-        <% if current_user.logs.empty? %>
-          <p>You have not yet recorded any symptoms.</p>
-        <% else %>
-          <% current_user.most_recent_logs.each do |log| %>
-            <div class="row">
-              <p class="col"><%= log.symptom.description %></p>
-              <p class="col"><%= log.when %></p>
-              <p class="col"><%= log.note %></p><br>
-            </div>
-          <% end %>
-          <div class="row">
-            <a href="/logs" class="btn btn-link">See All Logs</a>
-          </div>
-        <% end %>
+        <%= render partial: '/partials/logs_list', locals: {logs: current_user.most_recent_logs} %>
+        <div class="row">
+          <a href="/logs" class="btn btn-primary">See All Logs</a>
+        </div>
       </div>
     </div>
   </div>
