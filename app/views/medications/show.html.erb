@@ -2,7 +2,7 @@
 <%= button_to 'Delete Medication from my List', '/medications/delete', params: {id: @medication.id, brand_name: @medication.brand_name, product_ndc: @medication.product_ndc}, method: :delete %>
 <p>Brand Name: <%= @medication.brand_name %></p>
 <p>Product NDC: <%= @medication.product_ndc %></p>
-<% if @medication.symptoms.empty? == false %>
+<% unless @medication.symptoms.empty? %>
   <div class="side-effects"</div>
   <h4>Potential Side Effects:</h4>
   <% @medication.symptoms.each do |symptom| %>
