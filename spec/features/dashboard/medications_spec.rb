@@ -60,11 +60,11 @@ RSpec.describe 'User can add a medication by name', type: :feature do
       click_on 'Find Medication'
 
       within('.medications', match: :first) do
-        click_on 'HAND SANITIZER'
+        click_on 'Hand Sanitizer'
       end
 
       expect(current_path).to eq('/dashboard')
-      expect(page).to have_content('HAND SANITIZER')
+      expect(page).to have_content('Hand Sanitizer')
 
       expect(Symptom.potential_symptoms(@user)).to be_empty
     end
