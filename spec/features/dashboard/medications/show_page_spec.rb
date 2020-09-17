@@ -9,6 +9,7 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
 
   it 'I can click on the name of a medication and see that medication\'s show page' do
     VCR.use_cassette('adderall_search') do
+      click_on 'Add New Medication'
 
       expect(current_path).to eq('/medications/new')
       expect(page).to have_content("Enter medication brand name")

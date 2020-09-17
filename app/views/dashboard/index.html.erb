@@ -31,7 +31,7 @@
         <% else %>
           <ul>
              <% current_user.medications.each do |medication| %>
-               <li><%= medication.brand_name %></li>
+               <li><%= link_to "#{medication.brand_name}", "/medications/#{medication.id}", method: :get %></li>
              <% end %>
            </ul>
            <%= link_to "Edit Medication List", "/medications/edit", method: :get %><br>
