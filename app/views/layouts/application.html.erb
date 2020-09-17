@@ -36,12 +36,14 @@
     <div class="container">
       <%= yield %>
     </div>
-    <footer class="footer">
-      <%= image_tag 'open_fda_logo', alt: 'openFDA Logo', width: "150px" %>
-      <p>
-        Thanks and credit for the drug information present in this application belong to <a href="https://open.fda.gov/">openFDA</a>.<br>
-        See <a href="https://open.fda.gov/apis/">API documentation</a> for more details.
-      </p>
-    </footer>
+    <% cache do %>
+      <footer class="footer">
+        <%= image_tag 'open_fda_logo', alt: 'openFDA Logo', width: "150px" %>
+        <p>
+          Thanks and credit for the drug information present in this application belong to <a href="https://open.fda.gov/">openFDA</a>.<br>
+          See <a href="https://open.fda.gov/apis/">API documentation</a> for more details.
+        </p>
+      </footer>
+    <% end %>
   </body>
 </html>

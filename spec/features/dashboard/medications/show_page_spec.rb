@@ -78,7 +78,7 @@ RSpec.describe 'When I visit the dashboard as an authenticated user' do
 
       expect(current_path).to eq("/medications/#{adderall_xr.id}")
 
-      click_on 'Delete Medication from my List'
+      click_on 'Delete Medication from My List'
 
       visit dashboard_path
 
