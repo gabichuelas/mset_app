@@ -1,4 +1,8 @@
 class MedicationsController < ApplicationController
+  before_action :require_user
+
+  caches_action :show
+
   def new; end
 
   def search
