@@ -13,7 +13,7 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
       expect(current_path).to eq('/medications/new')
 
-      expect(page).to have_content("Enter brand medication name")
+      expect(page).to have_content("Enter medication brand name")
 
       fill_in :brand_name, with: 'Lexapro'
       click_on 'Find Medication'
@@ -58,7 +58,7 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
       expect(current_path).to eq('/medications/new')
 
-      expect(page).to have_content("Enter brand medication name")
+      expect(page).to have_content("Enter medication brand name")
 
       fill_in :brand_name, with: 'Lexapro'
       click_on 'Find Medication'

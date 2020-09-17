@@ -74,7 +74,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     expect(page).to have_content('Please be sure to specify a symptom and when you experienced it')
   end
 
-  it 'If I try to log a new symptom without selecting a date/time, I receive an error' do
+  xit 'If I try to log a new symptom without selecting a date/time, I receive an error' do
     within('.log-form') do
       fill_in :symptom, with: "Headache"
       fill_in :note, with: "7/10 pain scale"
