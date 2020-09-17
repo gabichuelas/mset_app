@@ -47,28 +47,16 @@
           <div class="col-sm">
             <%= label_tag "What symptom did you experience?"%><br>
           </div>
-          <div class="col-sm">
-            <%= label_tag "When?"%><br>
-          </div>
-          <div class="col-sm">
-            <%= label_tag "Any additional notes?"%><br>
-          </div>
         </div>
-
         <div class="form-row">
           <div class="col-sm">
             <%= text_field_tag :symptom, nil, placeholder: 'Search Symptoms' %>
           </div>
-          <div class="col-sm">
-           	<%= datetime_field_tag :when %>
-          </div>
-          <div class="col-sm">
-            <%= text_area_tag :note %>
-          </div>
         </div>
+        <br>
         <div class="row">
           <div class="col-sm">
-            <%= submit_tag 'Save', class: "btn btn-primary" %>
+            <%= submit_tag 'Search for Symptom', class: "btn btn-primary" %>
           </div>
         </div>
         <% end %>
