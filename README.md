@@ -18,7 +18,16 @@ Deployed application: https://mset-app.herokuapp.com
 - `cd` into `mset-app`
 - Run `bundle install`
 - Run `rails db:{drop,create,migrate}`
+- Run `figaro install`, which will create a gitignored `config/application.yml` file. Within this file, add the following key-value pairs:
+```
+GOOGLE_CLIENT_ID: <fill in with your Google client ID>
+GOOGLE_CLIENT_SECRET: <fill in with your Google client secret>
+MSET_API_SERVICE_DOMAIN: https://mset-api-service.herokuapp.com/
+```
 - Check the Faraday connection under `services/mset_service.rb` `#conn` ; you can either connect to the `mset_api_service` [Sinatra microservice](https://github.com/gabichuelas/mset_api_service) locally (by running `rackup` from the `mset_api_service` directory on your machine), or the live version hosted on Heroku.
+
+_*instructions for obtaining your own Google client authentication details can be found [here](https://www.balbooa.com/gridbox-documentation/how-to-get-google-client-id-and-client-secret) and Google OAuth documentation can be found [here](https://developers.google.com/adwords/api/docs/guides/authentication)_
+
 
 To check out our in-depth test suite, run:
 
