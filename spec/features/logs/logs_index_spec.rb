@@ -23,7 +23,7 @@ RSpec.describe 'As an authenticated user, I can view all my symptom logs on one 
   it 'I can visit the logs index page via a button in the logs section on the dashboard' do
     visit dashboard_path
 
-    within('.log-list') do
+    within('.recent-logs') do
       click_on 'See All Logs'
     end
 

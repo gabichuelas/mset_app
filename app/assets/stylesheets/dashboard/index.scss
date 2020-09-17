@@ -26,8 +26,10 @@
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-  flex-basis: 343px;
+  // flex-basis: 343px;
   margin-bottom: 20px;
+  margin-right: 10px;
+  flex-grow: 1;
 }
 
 .med-list a {
@@ -36,7 +38,7 @@
 }
 
 .profile {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .details {
@@ -49,6 +51,8 @@
   background-color: white;
   padding: 30px;
   margin-bottom: 20px;
+  margin-left: 10px;
+  flex-grow: 3;
 }
 
 .log-form {
@@ -61,38 +65,10 @@
 }
 
 .log-list {
-  margin: 25px 0px 15px 0px;
+  margin: 25px 0px 10px 0px;
   text-align: left;
 }
 
 .log-list p {
   margin-bottom: 10px;
-}
-
-.input {
-  box-sizing: border-box;
-  font-size: 2rem;
-  padding: 1rem;
-  display: block;
-  margin: 2rem auto;
-}
-
-.ul {
-  list-style: none;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.li {
-  color: #666;
-  strong { color: #000; }
-  + .label { margin-top: 1rem; }
-  &.label {
-    color: #CCC;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    letter-spacing: 0.0125em;
-    margin-bottom: 0.25rem;
-  }
 }
