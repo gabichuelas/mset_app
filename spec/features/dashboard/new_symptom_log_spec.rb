@@ -62,7 +62,6 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     within('.recent-logs') do
       expect(page).to have_content("Headache")
       expect(page).to have_content("2020-09-13 23:09:00 UTC")
-      expect(page).to have_content("7/10 pain scale")
     end
   end
 
@@ -75,7 +74,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     expect(page).to have_content('Please be sure to specify a symptom')
   end
 
-  xit 'If I try to log a new symptom without selecting a date/time, I receive an error' do
+  it 'If I try to log a new symptom without selecting a date/time, I receive an error' do
     within('.log-form') do
       fill_in :symptom, with: "Headache"
       click_button "Search for Symptom"
@@ -98,6 +97,8 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
       fill_in :symptom, with: "Headache"
       click_button "Search for Symptom"
     end
+    user = User.find(@user.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     expect(current_path).to eq('/symptoms/search')
     expect(page).to have_content('Select the correct symptom and when you experienced it')

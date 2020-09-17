@@ -62,8 +62,6 @@ RSpec.describe 'As an authenticated user' do
       visit dashboard_path
       within('.log-form') do
         expect(page).to have_css('#symptom')
-        # expect(page).to have_css('#when')
-        # expect(page).to have_css('#note')
         expect(page).to have_button('Search for Symptom')
       end
     end
