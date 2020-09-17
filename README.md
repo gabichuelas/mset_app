@@ -8,6 +8,7 @@ The current iteration of MSET supplies the user with an interface to track sympt
 
 Deployed application: https://mset-app.herokuapp.com
 
+
 ### Implementation
 
 [![Build Status](https://travis-ci.org/{ORG-or-USERNAME}/{REPO-NAME}.png?branch=master)](https://travis-ci.org/{ORG-or-USERNAME}/{REPO-NAME})
@@ -17,7 +18,7 @@ Deployed application: https://mset-app.herokuapp.com
 - `cd` into `mset-app`
 - Run `bundle install`
 - Run `rails db:{drop,create,migrate}`
-- Check the Faraday connection under `services/mset_service.rb` `#conn` ; you can either connect to the `mset_api_service` Sinatra [microservice](https://github.com/gabichuelas/mset_api_service) locally (by running `rackup` from the `mset_api_service` directory on your machine), or the live version hosted on Heroku.
+- Check the Faraday connection under `services/mset_service.rb` `#conn` ; you can either connect to the `mset_api_service` [Sinatra microservice](https://github.com/gabichuelas/mset_api_service) locally (by running `rackup` from the `mset_api_service` directory on your machine), or the live version hosted on Heroku.
 
 To check out our in-depth test suite, run:
 
@@ -26,12 +27,17 @@ To check out our in-depth test suite, run:
 **Version Requirements**
 
 - Ruby version - 2.5.3
-- Rails version - 5.1.7
+- Rails version - 5.2.4
 
+
+### Application Architecture
+<img width="958" alt="App architecture" src="https://user-images.githubusercontent.com/62635544/93505433-178d9300-f8d8-11ea-8b65-afb599e98ec3.png">
+
+Built with a service oriented architecture, MSET is comprised of two applications: a backend sinatra app and a user facing rails app. The sinatra application, [MSET API Service](https://github.com/gabichuelas/mset_api_service/), serves as a microservice that is responsible for making API calls to an [OpenFDA API](https://open.fda.gov/apis/) via `GET` requests that return information about various medications and their side effects. This Rails app consumes those endpoints via the Sinatra microservice, parses through the responses and formats the data for display on the front-end and to be saved as needed in the database.
 
 
 ### Schema Design
-<img width="928" alt="Screen Shot 2020-09-17 at 12 23 49 PM" src="https://user-images.githubusercontent.com/43380627/93499143-a4d4e580-f8e0-11ea-943d-680a95ff4322.png">
+<img width="928" alt="Schema Diagram" src="https://user-images.githubusercontent.com/43380627/93499143-a4d4e580-f8e0-11ea-943d-680a95ff4322.png">
 
 
 ### Contributors
