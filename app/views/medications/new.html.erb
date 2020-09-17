@@ -1,11 +1,10 @@
-<p>Enter brand medication name</p>
-<p style="color:red"><%= render partial: '/partials/flash' %></p>
+<%= render partial: '/partials/flash' %>
 <section class="med_search_form">
   <%= form_tag "/medications/search", method: :get do %>
-    <%= label_tag :brand_name %><br>
+    <%= label_tag :brand_name, "Enter medication brand name:" %><br>
     <%= text_field_tag :brand_name %><br><br>
     <%= submit_tag "Find Medication", class: "btn btn-primary" %>
   <% end %>
 </section>
 <br>
-<%= button_to 'Back to Dashboard', '/dashboard', method: :get %>
+<%= link_to "Back to Dashboard", "/dashboard", method: :get %>

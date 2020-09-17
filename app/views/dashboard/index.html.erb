@@ -1,46 +1,51 @@
 <center class="page-header">
   <h2>Welcome, <%= current_user.full_name %>! </h2>
-  <%= render partial: '/partials/flash' %>
 </center>
+<%= render partial: '/partials/flash' %>
+
 <div class="grid-container">
   <div class="sidebar">
     <div class="profile">
       <h4>Profile</h4>
-      <% if current_user.birthdate.nil? || current_user.birthdate.empty? %>
-        <p><strong>Date of birth:</strong> not saved</p>
-      <% else %>
-        <p><strong>Date of birth:</strong> <%= current_user.birthdate %></p>
-      <% end %>
-      <% if current_user.weight.nil? %>
-        <p><strong>Weight:</strong> not saved</p>
-      <% else %>
-        <p><strong>Weight:</strong> <%= current_user.weight %> lbs</p>
-      <% end %>
+      <div class="details"
+        <% if current_user.birthdate.nil? || current_user.birthdate.empty? %>
+          <p><strong>Date of birth:</strong> not saved</p>
+        <% else %>
+          <p><strong>Date of birth:</strong> <%= current_user.birthdate %></p>
+        <% end %>
+        <% if current_user.weight.nil? %>
+          <p><strong>Weight:</strong> not saved</p>
+        <% else %>
+          <p><strong>Weight:</strong> <%= current_user.weight %> lbs</p>
+        <% end %>
+      </div>
       <%= link_to "Edit Profile", "/profile/edit", method: :get %>
     </div>
 
     <div class="med-list">
       <h4>Medication List</h4>
-      <% if current_user.medications.empty? %>
-        <p>You don't have any saved medications.</p>
-        <a href="/medications/new" class="btn btn-primary">Add New Medication</a>
-      <% else %>
-        <ul>
-           <% current_user.medications.each do |medication| %>
-             <li><%= medication.brand_name %></li>
-           <% end %>
-         </ul>
-         <%= link_to "Edit Medication List", "/medications/edit", method: :get %>
-         <a href="/medications/new" class="btn btn-primary" >Add New Medication</a>
-      <% end %>
+      <div class="details">
+        <% if current_user.medications.empty? %>
+          <p>You don't have any saved medications.</p>
+          <a href="/medications/new" class="btn btn-primary">Add New Medication</a>
+        <% else %>
+          <ul>
+             <% current_user.medications.each do |medication| %>
+               <li><%= medication.brand_name %></li>
+             <% end %>
+           </ul>
+           <%= link_to "Edit Medication List", "/medications/edit", method: :get %>
+           <a href="/medications/new" class="btn btn-primary">Add New Medication</a>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="main">
 
     <div class="log-form">
 
-      <h4>Log a Symptom:</h4><br>
-
+      <h4>Log a Symptom</h4><br>
+      <!-- there will be a search input field and search button here instead of the following form -->
       <div class="form">
         <%= form_tag symptoms_search_path, method: :get do %>
         <div class="form-row">
@@ -50,7 +55,7 @@
         </div>
         <div class="form-row">
           <div class="col-sm">
-            <%= text_field_tag :symptom, nil, placeholder: 'Search Symptoms' %>
+            <%= text_field_tag :symptom, nil, placeholder: 'Search Symptoms', class: "form-control" %>
           </div>
         </div>
         <br>
@@ -66,19 +71,11 @@
     <div class="recent-logs">
       <h4>Recent Symptom Logs</h4>
       <div class="log-list">
-        <% if current_user.logs.empty? %>
-          <p>You have not yet recorded any symptoms.</p>
-        <% else %>
-          <% current_user.most_recent_logs.each do |log| %>
-            <div class="row">
-              <p class="col"><%= log.symptom.description %></p>
-              <p class="col"><%= log.when %></p>
-              <p class="col"><%= log.note %></p><br>
-            </div>
-          <% end %>
-          <div class="row">
-            <a href="/logs" class="btn btn-link">See All Logs</a>
-          </div>
-        <% end %>
+        <%= render partial: '/partials/logs_list', locals: {logs: current_user.most_recent_logs} %>
+        <div class="row">
+          <a href="/logs" class="btn btn-primary">See All Logs</a>
+        </div>
       </div>
     </div>
+  </div>
+</div>

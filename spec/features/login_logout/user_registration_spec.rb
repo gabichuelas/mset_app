@@ -11,7 +11,7 @@ RSpec.describe 'As a visitor' do
 
       visit '/'
 
-      click_button 'Get Started with Google Login'
+      click_link 'Get Started with Google Login'
 
       user = User.last
 
@@ -44,6 +44,15 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content('Welcome, Joseph Dough!')
       expect(page).to have_content('Account details updated!')
       expect(page).to have_content('Sign Out')
+    end
+  end
+
+  describe 'As a logged in user' do
+    scenario 'I am redirected to the dashboard when I route to the welcome/login page' do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit root_path
+      expect(current_path).to eq(dashboard_path)
     end
   end
 end

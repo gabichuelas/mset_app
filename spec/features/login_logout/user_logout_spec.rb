@@ -12,7 +12,7 @@ RSpec.describe 'User can logout' do
 
     visit '/'
 
-    click_button 'Get Started with Google Login'
+    click_on 'Get Started with Google Login'
 
     expect(current_path).to eq('/dashboard')
 
@@ -22,7 +22,7 @@ RSpec.describe 'User can logout' do
     end
 
     expect(current_path).to eq('/')
-    expect(page).to have_button('Get Started with Google Login')
+    expect(page).to have_link('Get Started with Google Login')
 
     visit '/dashboard'
     expect(page.status_code).to eq(404)

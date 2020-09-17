@@ -13,25 +13,49 @@
 
  */
 
+@import "bootstrap";
+
 html, body {
  height: 100%;
+}
+
+p {
+  // reset existing style
+  margin: 0;
+}
+
+p {
+  margin-bottom: 5px;
 }
 
 body {
  display: flex;
  flex-direction: column;
+ background-color: #eee;
+ color: #444;
+}
+
+.navbar {
+  margin-bottom: 30px;
+  // background-color: #444;
+  // color: white;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   flex: 1 0 auto;
 }
 
-footer,  {
- flex-shrink: 0;
- text-align: center;
- margin-bottom: 20px;
+.footer {
+  text-align: center;
+  margin-bottom: 20px;
+  // background-color: blue;
 }
 
-@import "bootstrap";
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+}
+
 @import "welcome";
 @import "dashboard";

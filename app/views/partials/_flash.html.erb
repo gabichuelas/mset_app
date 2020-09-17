@@ -1,3 +1,13 @@
-<% flash.each do |_, message| %>
-  <%= message %>
+<% flash.each do |type, message| %>
+  <% if type == "warning" || type == "error" %>
+    <div class="alert alert-danger" role="alert">
+      <%= message %>
+    </div>
+  <% elsif type == "success" %>
+    <div class="alert alert-success" role="alert">
+      <%= message %>
+    </div>
+  <% else %>
+    <%= message %>
+  <% end %>
 <% end %>
