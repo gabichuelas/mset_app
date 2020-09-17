@@ -20,8 +20,10 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   // margin-bottom: 20px;
+  // width: 90%;
+  // padding: 0 5px 0 5px;
 }
 
 .sidebar {
@@ -31,8 +33,10 @@
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-  margin-right: 10px;
+  // margin-right: 10px;
+  // width: 20%;
   flex-grow: 1;
+  margin: 0 10px 10px 10px;
 }
 
 .med-list a {
@@ -53,8 +57,10 @@
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-  margin-left: 10px;
+  // margin-left: 10px;
+  // width: 70%;
   flex-grow: 3;
+  margin: 0 10px 10px 10px;
 }
 
 .main h4 {
@@ -62,7 +68,7 @@
 }
 
 .log-form {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   // background-color: blue;
 }
 
