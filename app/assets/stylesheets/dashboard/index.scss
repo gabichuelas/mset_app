@@ -8,64 +8,57 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-
-  // display: grid;
-  // grid-template-columns: 1fr 3fr;
-  // grid-template-rows: 1fr;
-  //
-  // grid-column-gap: 10px;
-  // grid-template-areas:
-  //   "sidebar main";
   margin-bottom: 30px;
 }
 
 .sidebar {
-  height: 100%;
+  // height: 100%;
   // grid-area: sidebar;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-}
-
-.sidebar h4 {
+  flex-basis: 343px;
   margin-bottom: 20px;
 }
 
-.profile {
-  margin-bottom: 40px;
+.med-list a {
+  // display: block;
+  margin-top: 10px;
 }
 
-.med-list {
+.profile {
+  margin-bottom: 50px;
+}
+
+.details {
+  margin: 20px 0px 15px 0px;
 }
 
 .main {
-  height: 100%;
-  // grid-area: main;
-  // margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: white;
   padding: 30px;
+  margin-bottom: 20px;
 }
 
 .log-form {
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   // background-color: blue;
 }
-
-.form select, input, textarea {
-  height: auto;
-}
-
 
 .recent-logs {
   // background-color: blue;
 }
 
 .log-list {
-  margin: 20px 0 20px 0;
+  margin: 25px 0px 15px 0px;
   text-align: left;
+}
+
+.log-list p {
+  margin-bottom: 10px;
 }
 
 .input {

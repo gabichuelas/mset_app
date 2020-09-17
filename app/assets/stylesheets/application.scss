@@ -19,6 +19,15 @@ html, body {
  height: 100%;
 }
 
+p {
+  // reset existing style
+  margin: 0;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
 body {
  display: flex;
  flex-direction: column;
