@@ -22,7 +22,7 @@ RSpec.describe 'As an authenticated user, when I visit my dashboard,' do
     end
     user = User.find(@user.id)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
+    
     expect(current_path).to eq('/symptoms/search')
     expect(page).to have_content('Which symptom did you experience?')
     choose(option: 'Headache')
