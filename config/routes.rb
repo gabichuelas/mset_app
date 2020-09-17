@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post '/medications/create', to: 'medications#create'
   get '/medications/edit', to: 'medications#edit'
   delete '/medications/delete', to: 'medications#destroy'
+  get '/medications/:medication_id', to: 'medications#show'
 
   post '/logs', to: 'logs#create'
   get '/logs', to: 'logs#index'
