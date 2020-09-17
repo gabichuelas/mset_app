@@ -1,4 +1,6 @@
 class LogsController < ApplicationController
+  before_action :require_user
+
   def create
     if no_symptom? || no_when?
       flash[:error] = 'Please be sure to specify a symptom and when you experienced it'
