@@ -1,8 +1,14 @@
-<h4>Please select the correct medication brand name</h4>
-<section class='medications'>
-  <% @med_results.each do |med| %>
-    <p><%= button_to "#{med.brand_name}", '/medications/create', params: {brand_name: med.brand_name, product_ndc: med.product_ndc}, method: :post %>
-  <% end %>
-</section>
-<br>
-<%= button_to 'New Search', medications_new_path, method: :get, class: "btn btn-primary" %>
+<div class="container">
+  <div class="page-header">
+    <h3>Select Medication</h3>
+  </div>
+
+  <div class="section">
+    <%= button_to 'New Search', medications_new_path, method: :get, class: "btn btn-outline-primary" %><br>
+    <div class='medications'>
+      <% @med_results.each do |med| %>
+        <p><%= link_to "#{med.brand_name}", medications_create_path({brand_name: med.brand_name, product_ndc: med.product_ndc}), method: :post %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

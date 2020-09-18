@@ -1,14 +1,25 @@
-<h3>Medication Information</h3>
-<%= button_to 'Delete Medication from My List', '/medications/delete', params: {id: @medication.id, brand_name: @medication.brand_name, product_ndc: @medication.product_ndc}, class: "btn btn-primary", method: :delete %><br>
-<p>Brand Name: <%= @medication.brand_name %></p>
-<p>Product NDC: <%= @medication.product_ndc %></p>
-<% unless @medication.symptoms.empty? %>
-  <div class="side-effects">
-  <h4>Potential Side Effects:</h4>
-  <% @medication.symptoms.each do |symptom| %>
-    <ul>
-      <li><%= symptom.description %></li>
-    </ul>
-  <% end %>
+<div class="container">
+  <div class="page-header">
+    <h3>Medication Information</h3>
   </div>
-<% end %>
+
+  <div class="section">
+    <h3><%= @medication.brand_name %></h3>
+    <p><strong>Product NDC: </strong><%= @medication.product_ndc %></p><br>
+    <%= button_to 'Delete from List', '/medications/delete', params: {id: @medication.id, brand_name: @medication.brand_name, product_ndc: @medication.product_ndc}, class: "btn btn-primary", method: :delete %>
+
+    <% unless @medication.symptoms.empty? %>
+
+      <div class="side-effects"</div>
+        <h4>Potential Side Effects:</h4>
+        <% @medication.symptoms.each do |symptom| %>
+          <% if symptom == @medication.symptoms.last %>
+            <span><%= symptom.description %>. </span>
+          <% else %>
+            <span><%= symptom.description %>, </span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

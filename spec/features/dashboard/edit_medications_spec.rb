@@ -13,17 +13,17 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
       expect(current_path).to eq('/medications/new')
 
-      expect(page).to have_content("Enter medication brand name")
+      expect(page).to have_content("Add New Medication")
 
       fill_in :brand_name, with: 'Lexapro'
       click_on 'Find Medication'
 
       expect(current_path).to eq('/medications/search')
 
-      expect(page).to have_content('Please select the correct medication brand name')
+      expect(page).to have_content('Select Medication')
 
       within('.medications', match: :first) do
-        expect(page).to have_button('Lexapro')
+        expect(page).to have_link('Lexapro')
         click_on 'Lexapro'
       end
 
@@ -36,8 +36,8 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
       expect(page).to have_content('Lexapro')
 
-      within('.medications', match: :first) do
-        expect(page).to have_button('Delete')
+      within('.section', match: :first) do
+        expect(page).to have_link('Delete')
         click_on 'Delete'
       end
 
@@ -58,17 +58,17 @@ RSpec.describe 'User can edit the medication list', type: :feature do
 
       expect(current_path).to eq('/medications/new')
 
-      expect(page).to have_content("Enter medication brand name")
+      expect(page).to have_content("Add New Medication")
 
       fill_in :brand_name, with: 'Lexapro'
       click_on 'Find Medication'
 
       expect(current_path).to eq('/medications/search')
 
-      expect(page).to have_content('Please select the correct medication brand name')
+      expect(page).to have_content('Select Medication')
 
       within('.medications', match: :first) do
-        expect(page).to have_button('Lexapro')
+        expect(page).to have_link('Lexapro')
         click_on 'Lexapro'
       end
 

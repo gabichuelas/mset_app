@@ -6,30 +6,37 @@
   margin-top: 20px;
 }
 
+.dash-header {
+  margin: 10px 0 20px 0px;
+  text-align: center;
+}
+
 .page-header {
   margin: 10px 0 30px 0px;
-  // background-color: green;
+  text-align: left;
 }
 
 .grid-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 30px;
+  justify-content: space-between;
+  // margin-bottom: 20px;
+  // width: 90%;
+  // padding: 0 5px 0 5px;
 }
 
 .sidebar {
   // height: 100%;
   // grid-area: sidebar;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-  // flex-basis: 343px;
-  margin-bottom: 20px;
-  margin-right: 10px;
+  // margin-right: 10px;
+  // width: 20%;
   flex-grow: 1;
+  margin: 0 10px 10px 10px;
 }
 
 .med-list a {
@@ -46,29 +53,85 @@
 }
 
 .main {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-  margin-bottom: 20px;
-  margin-left: 10px;
+  // margin-left: 10px;
+  // width: 70%;
   flex-grow: 3;
+  margin: 0 10px 10px 10px;
+}
+
+.main h4 {
+  margin-bottom: 25px;
 }
 
 .log-form {
-  margin-bottom: 50px;
-  // background-color: blue;
-}
-
-.recent-logs {
+  margin-bottom: 40px;
   // background-color: blue;
 }
 
 .log-list {
-  margin: 25px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
   text-align: left;
 }
 
 .log-list p {
   margin-bottom: 10px;
+}
+
+.edit-form {
+  width: 80%;
+  background-color: white;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.section {
+  background-color: white;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.page-options a {
+  margin-right: 15px;
+}
+.page-options {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sym-results {
+  margin-bottom: 20px;
+}
+
+input[type="datetime-local" i] {
+  border: 1px solid #ccc;
+  height: 38px;
+  border-radius: .25rem;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  // width: 90%;
+}
+
+.med-form {
+  width: 70%;
+}
+
+.side-effects {
+  margin-top: 30px;
+}
+
+.side-effects h4 {
+  margin-bottom: 20px;
 }

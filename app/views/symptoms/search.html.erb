@@ -1,38 +1,32 @@
-<div class="log-form">
+<div class="container">
+  <div class="page-header">
+    <h3>Log a Symptom</h3>
+  </div>
   <%= render partial: '/partials/flash' %>
-  <h4>Select the correct symptom and when you experienced it</h4><br>
-  <div class="form">
-    <%= form_tag logs_path, method: :post do %>
-    <div class="form-row">
-      <div class="col-sm">
-        <%= label_tag "Which symptom did you experience?"%><br>
-      </div>
-      <div class="col-sm">
-        <%= label_tag "When?"%><br>
-      </div>
-      <div class="col-sm">
-        <%= label_tag "Any additional notes?"%><br>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-sm">
-        <% @results.each do |result| %>
-          <%= radio_button_tag :symptom, "#{result}" %> <%= result %><br/>
-        <% end %>
-      </div>
-      <div class="col-sm">
-        <%= datetime_field_tag :when, class: "form-control" %>
-      </div>
-      <div class="col-sm">
-        <%= text_area_tag :note, nil, class: "form-control" %>
-      </div>
-    </div>
-    <br>
+
+  <div class="section">
     <div class="row">
-      <div class="col-sm">
-        <%= submit_tag 'Save', class: "btn btn-primary" %>
-      </div>
+      <%= form_tag logs_path, method: :post do %>
+        <div class="col-md-12">
+          <strong><%= label_tag "Which symptom did you experience?"%></strong><br>
+          <div class="sym-results">
+            <% @results.each do |result| %>
+              <div class="radio">
+                <%= radio_button_tag :symptom, "#{result}" %> <%= result %>
+              </div>
+            <% end %>
+          </div>
+
+          <strong><%= label_tag "When?"%></strong><br>
+          <%= datetime_field_tag :when, class: "form-control" %><br><br>
+          <strong><%= label_tag "Any additional notes?"%></strong><br>
+          <%= text_area_tag :note, nil, class: "form-control" %><br>
+          <div class="page-options">
+            <a href="/dashboard" class="btn btn-outline-primary">Cancel</a>
+            <%= submit_tag 'Save', class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
