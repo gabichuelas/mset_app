@@ -1,5 +1,5 @@
 .root-header {
-  margin: 50px 0px 0px 0px;
+  // margin: 50px 0px 0px 0px;
 }
 
 .subheader {
@@ -11,12 +11,12 @@
 }
 
 .dash-header {
-  margin: 10px 0 20px 0px;
+  margin: 0px 0 30px 0px;
   text-align: center;
 }
 
 .page-header {
-  margin: 10px 0 30px 0px;
+  margin: 0px 0 30px 0px;
   text-align: left;
 }
 
@@ -25,26 +25,18 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  // margin-bottom: 20px;
-  // width: 90%;
-  // padding: 0 5px 0 5px;
 }
 
 .sidebar {
-  // height: 100%;
-  // grid-area: sidebar;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-  // margin-right: 10px;
-  // width: 20%;
   flex-grow: 1;
   margin: 0 10px 10px 10px;
 }
 
 .med-list a {
-  // display: block;
   margin-top: 10px;
 }
 
@@ -61,8 +53,6 @@
   border-radius: 8px;
   background-color: white;
   padding: 30px;
-  // margin-left: 10px;
-  // width: 70%;
   flex-grow: 3;
   margin: 0 10px 10px 10px;
 }
@@ -73,7 +63,6 @@
 
 .log-form {
   margin-bottom: 40px;
-  // background-color: blue;
 }
 
 .log-list {
@@ -121,12 +110,6 @@ input[type="datetime-local" i] {
   padding-left: 8px;
   padding-right: 8px;
 }
-
-// .form-group {
-//   display: flex;
-//   flex-direction: row;
-//   // width: 90%;
-// }
 
 .med-form {
   width: 70%;

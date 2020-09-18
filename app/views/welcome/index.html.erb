@@ -1,9 +1,13 @@
-<% cache do %>
-  <div class="root-header">
-    <h1>Welcome to MSET</h1>
+<div class="welcome-container">
+  <div class="welcome-content">
+    <% cache do %>
+      <div class="root-header">
+        <h1>Welcome to MSET</h1>
+      </div>
+      <div class="subheader">
+        <p>Take control of your medical treatment by tracking various medications and supplements with their associated side effects and get a holistic view of your overall wellbeing.</p>
+        <a href="/auth/google_oauth2" class="btn btn-outline-light">Get Started with Google Login</a>
+      </div>
+    <% end %>
   </div>
-  <div class="subheader">
-    <p>Take control of your medical treatment by tracking various medications and supplements with their associated side effects and get a holistic view of your overall wellbeing.</p>
-    <a href="/auth/google_oauth2" class="btn btn-primary">Get Started with Google Login</a>
-  </div>
-<% end %>
+</div>
