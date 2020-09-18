@@ -5,9 +5,9 @@
 
   <div class="section">
     <%= button_to 'New Search', medications_new_path, method: :get, class: "btn btn-outline-primary" %><br>
-    <div class='medications'>
+    <div class="medications">
       <% @med_results.each do |med| %>
-        <p><%= link_to "#{med.brand_name}", medications_create_path({brand_name: med.brand_name, product_ndc: med.product_ndc}), method: :post %></p>
+        <p><%= link_to med.brand_name, medications_create_path({brand_name: med.brand_name, product_ndc: med.product_ndc}), method: :post %></p>
       <% end %>
     </div>
   </div>

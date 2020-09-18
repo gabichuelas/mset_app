@@ -12,21 +12,21 @@
 #
 #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 #
-#     visit dashboard_path
 #   end
 #
 #   it 'I can log a new symptom, and see a flash message confirming the new log as well as the log displayed in the recent logs section' do
-#     within('.log-form') do
-#       fill_in :symptom, with: "Headache"
-#       save_and_open_page
-#       click_button "Search for Symptom"
-#     end
-#     user = User.find(@user.id)
-#     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 #
-#     # expect(current_path).to eq('/symptoms/search')
+#     visit dashboard_path
+#
+#     within('.log-form') do
+#       fill_in "symptom", with: "Headache"
+#       click_on "Search for Symptom"
+#     end
+#     # user = User.find(@user.id)
+#     # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+#
+#     expect(current_path).to eq('/symptoms/search')
 #     expect(page).to have_content('What symptom did you experience?')
-#     save_and_open_page
 #     choose(option: 'Headache')
 #     fill_in :when, with: "2020-09-13T23:09"
 #     fill_in :note, with: "7/10 pain scale"

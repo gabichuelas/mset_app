@@ -1,5 +1,7 @@
 # MSET
 
+![Welcome page](https://user-images.githubusercontent.com/62635544/93638232-2c3f5900-f9b4-11ea-9310-d42b9d4eb1e8.png)
+
 Medical treatments intended to address any variety of conditions out there all have something in common - there are always side effects to consider. And as a patient taking medication or exploring treatment options, it’s important to monitor the way a treatment is impacting you. But with so many other things on our mind on a day to day basis, it can be challenging to keep track of this in a holistic way in order to notice patterns that are important to note for yourself and your medical provider.
 
 **MSET (Medication Side Effect Tracker) allows you, as a medication user, to track side effects for a variety of medications and supplements in order to cultivate a mindful practice of tracking how a medical treatment is impacting you, in turn allowing you to provide your doctor with holistic feedback to guide your treatment plan.**
@@ -48,6 +50,9 @@ Built with a service oriented architecture, MSET is comprised of two application
 ### Schema Design
 <img width="928" alt="Schema Diagram" src="https://user-images.githubusercontent.com/43380627/93499143-a4d4e580-f8e0-11ea-943d-680a95ff4322.png">
 
+
+### Ideation and MVP Planning
+Check out our [Miro board](https://miro.com/app/board/o9J_klmzIYA=/), which includes our ideation notes, wireframes, and user flow diagrams.
 
 ### Contributors
 
