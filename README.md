@@ -13,7 +13,7 @@ Deployed application: https://mset-app.herokuapp.com
 
 ### Implementation
 
-[![Build Status](https://travis-ci.org/{ORG-or-USERNAME}/{REPO-NAME}.png?branch=master)](https://travis-ci.org/{ORG-or-USERNAME}/{REPO-NAME})
+[![Build Status](https://travis-ci.org/gabichuelas/mset_app.svg?branch=master)](https://travis-ci.org/gabichuelas/mset_app)
 
 - Fork this repository
 - Clone down your repo
