@@ -23,7 +23,7 @@ RSpec.describe 'As a visitor' do
 
       expect(current_path).to eq('/onboarding')
 
-      expect(page).to have_content('Please enter some information to get started!')
+      expect(page).to have_content('Enter your information to get started:')
 
       fill_in :first_name, with: 'Joseph'
       fill_in :last_name, with: 'Dough'
