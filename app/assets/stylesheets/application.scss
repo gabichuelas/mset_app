@@ -45,7 +45,9 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  align-self: center;
   margin: 60px;
+  justify-content: flex-start;
 }
 
 .welcome-container {
@@ -58,11 +60,7 @@ body {
 
 .welcome-content {
   height: 100%;
-  // min-width: 343px;
-  // max-width: 800px;
   width: 85%;
-  // align-self: left;
-  // background-color: white;
   margin-top: 100px;
 }
 

@@ -83,12 +83,18 @@
 }
 
 .section {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   padding: 30px;
   border: 1px solid #ddd;
   border-radius: 8px;
+  width: 80%;
 }
 
+.form-group {
+  width: 80%;
+}
 .page-options a {
   margin-right: 15px;
 }
