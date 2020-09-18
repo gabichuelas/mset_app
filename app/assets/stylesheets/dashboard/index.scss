@@ -82,7 +82,7 @@
 }
 
 .edit-form {
-  width: 80%;
+  width: 60%;
   background-color: white;
   padding: 30px;
   border: 1px solid #ddd;
@@ -118,11 +118,11 @@ input[type="datetime-local" i] {
   padding-right: 8px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: row;
-  // width: 90%;
-}
+// .form-group {
+//   display: flex;
+//   flex-direction: row;
+//   // width: 90%;
+// }
 
 .med-form {
   width: 70%;
