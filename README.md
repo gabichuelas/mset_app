@@ -15,7 +15,7 @@ Deployed application: https://mset-app.herokuapp.com
 
 [![Build Status](https://travis-ci.org/gabichuelas/mset_app.svg?branch=master)](https://travis-ci.org/gabichuelas/mset_app)
 
-- Fork this repository
+- Fork this repository 
 - Clone down your repo
 - `cd` into `mset-app`
 - Run `bundle install`
