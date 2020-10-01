@@ -2,19 +2,32 @@
 
 ![Welcome page](https://user-images.githubusercontent.com/62635544/93638232-2c3f5900-f9b4-11ea-9310-d42b9d4eb1e8.png)
 
-Medical treatments intended to address any variety of conditions out there all have something in common - there are always side effects to consider. And as a patient taking medication or exploring treatment options, it’s important to monitor the way a treatment is impacting you. But with so many other things on our mind on a day to day basis, it can be challenging to keep track of this in a holistic way in order to notice patterns that are important to note for yourself and your medical provider.
+Medical treatments intended to address any variety of conditions all have something in common: there are always side effects to consider.
 
-**MSET (Medication Side Effect Tracker) allows you, as a medication user, to track side effects for a variety of medications and supplements in order to cultivate a mindful practice of tracking how a medical treatment is impacting you, in turn allowing you to provide your doctor with holistic feedback to guide your treatment plan.**
+As a patient taking medication or exploring treatment options, it’s important to monitor the way a treatment is impacting you. However, with so many other things on our minds on a day to day basis, it can be challenging to be mindful of how medication is _actually_ impacting you, resulting in missed patterns that are important for you and your medical provider to be aware of.
 
-The current iteration of MSET supplies the user with an interface to track symptoms and side effects over time and to ***take control of your medical treatment***.
+**MSET (Medication Side Effects Tracker) allows you, as a medication user, to track side effects for a variety of medications and supplements in order to cultivate a mindful practice of tracking how a medical treatment is impacting you, in turn allowing you to provide your doctor with holistic feedback to guide your treatment plan.**
+
+The current iteration of MSET supplies an interface to track symptoms and side effects over time and allows you to ***take control of your medical treatment***.
 
 Deployed application: https://mset-app.herokuapp.com
 
+### Contributors
+
+- Gaby Mendez
+  - [Github](https://github.com/gabichuelas)
+  - [LinkedIn](https://www.linkedin.com/in/gabymendez/)
+- Ruthie Rabinovitch
+  - [Github](https://github.com/rrabinovitch)
+  - [LinkedIn](https://www.linkedin.com/in/ruthie-r/)
+- Jessye Ejdelman
+  - [Github](https://github.com/ejdelsztejn)
+  - [LinkedIn](https://www.linkedin.com/in/jessye-ejdelman/)
+- Michael Evans
+  - [Github](https://github.com/michaeljevans)
+  - [LinkedIn](https://www.linkedin.com/in/michaeljamesevans/)
 
 ### Implementation
-
-[![Build Status](https://travis-ci.org/gabichuelas/mset_app.svg?branch=master)](https://travis-ci.org/gabichuelas/mset_app)
-
 - Fork this repository 
 - Clone down your repo
 - `cd` into `mset-app`
@@ -54,20 +67,12 @@ Built with a service oriented architecture, MSET is comprised of two application
 ### Ideation and MVP Planning
 Check out our [Miro board](https://miro.com/app/board/o9J_klmzIYA=/), which includes our ideation notes, wireframes, and user flow diagrams.
 
-### Contributors
-
-- Gaby Mendez
-  - [Github](https://github.com/gabichuelas)
-  - [LinkedIn](https://www.linkedin.com/in/gabymendez/)
-- Ruthie Rabinovitch
-  - [Github](https://github.com/rrabinovitch)
-  - [LinkedIn](https://www.linkedin.com/in/ruthie-r/)
-- Jessye Ejdelman
-  - [Github](https://github.com/ejdelsztejn)
-  - [LinkedIn](https://www.linkedin.com/in/jessye-ejdelman/)
-- Michael Evans
-  - [Github](https://github.com/michaeljevans)
-  - [LinkedIn](https://www.linkedin.com/in/michaeljamesevans/)
+### Future iterations
+For future iterations of MSET, we'd like to implement the following features with the intention of making it easier for a user to holistically track the impact of their medication treatment and identify any significant patterns:
+- Bulk symptom logging - ability for user to log mulitple symptoms at one time
+- Symptom log history filtering - ability to view symptoms logged over a specified period of time, logs that recorded specific symptoms, etc. so that a user can more intiuitively identify side effect patterns over time
+- Reminder notifications - pings user with reminders to take medications at user-specified times via calendar or SMS notifications
+- Medication logging - allowing user to record when a medication was taken
 
 **Acknowledgments**
 
